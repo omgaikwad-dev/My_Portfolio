@@ -1,0 +1,2885 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Om Samadhan Gaikwad — Full Stack &amp; AI Developer</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#9a9088",
+            "tertiary-container": "#d47070",
+            "surface": "#faf5ee",
+            "on-background": "#3a302a",
+            "on-primary-fixed-variant": "#8a4518",
+            "surface-bright": "#faf5ee",
+            "error-container": "#fce4e0",
+            "tertiary-fixed": "#fce0e0",
+            "inverse-on-surface": "#faf5ee",
+            "inverse-surface": "#3a302a",
+            "tertiary": "#8c3c3c",
+            "error": "#c0392b",
+            "inverse-primary": "#f0a878",
+            "surface-tint": "#c2652a",
+            "on-secondary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-surface": "#3a302a",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dcd6cc",
+            "primary-container": "#e08850",
+            "on-secondary-fixed": "#2a2420",
+            "on-surface-variant": "#605850",
+            "secondary": "#78706a",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#fbe8d8",
+            "on-primary-fixed": "#401a08",
+            "on-tertiary-fixed-variant": "#6e3030",
+            "secondary-container": "#eae2da",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#ece6dc",
+            "surface-container-high": "#ece6dc",
+            "outline-variant": "#d8d0c8",
+            "surface-container-low": "#f6f0e8",
+            "primary": "#c2652a",
+            "on-secondary-container": "#605850",
+            "primary-fixed": "#fbe8d8",
+            "on-error-container": "#7a1a10",
+            "surface-container-highest": "#e6e0d6",
+            "on-tertiary-fixed": "#2e1515",
+            "on-tertiary-container": "#3a2020",
+            "secondary-fixed-dim": "#cec6be",
+            "background": "#faf5ee",
+            "primary-fixed-dim": "#f0a878",
+            "on-secondary-fixed-variant": "#504840",
+            "secondary-fixed": "#eae2da",
+            "surface-container": "#f2ece4",
+            "tertiary-fixed-dim": "#e8a0a0"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "container-max": "1280px",
+            "space-4xl": "6rem",
+            "space-2xl": "3rem",
+            "space-2xs": "0.25rem",
+            "space-3xl": "4rem",
+            "space-5xl": "8rem",
+            "space-md": "1rem",
+            "gutter-desktop": "2rem",
+            "space-sm": "0.75rem",
+            "space-xs": "0.5rem",
+            "gutter-mobile": "1.25rem"
+          },
+          "fontFamily": {
+            "display": ["EB Garamond", "serif"],
+            "headline": ["EB Garamond", "serif"],
+            "display-hero": ["EB Garamond", "serif"],
+            "headline-lg": ["EB Garamond", "serif"],
+            "headline-md": ["EB Garamond", "serif"],
+            "headline-sm": ["EB Garamond", "serif"],
+            "body": ["Manrope", "sans-serif"],
+            "body-lg": ["Manrope", "sans-serif"],
+            "body-md": ["Manrope", "sans-serif"],
+            "body-sm": ["Manrope", "sans-serif"],
+            "code": ["JetBrains Mono", "monospace"],
+            "code-lg": ["JetBrains Mono", "monospace"],
+            "code-md": ["JetBrains Mono", "monospace"],
+            "code-label": ["JetBrains Mono", "monospace"]
+          },
+          "fontSize": {
+            "display-hero": ["60px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "code-lg": ["15px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "code-md": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "display-hero-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-md": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "code-label": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Prevent horizontal overflow while ensuring position: sticky works 100% reliably */
+    html, body {
+      overflow-x: clip !important;
+    }
+
+    /* Sticky Stacking Projects Animation */
+    .projects-stack {
+      perspective: 1200px;
+    }
+    .project-card-wrapper {
+      transform-origin: top center;
+      will-change: transform;
+      transform: translateZ(0);
+      /* No conflicting transition on transform here so scroll updates are 120fps butter-smooth */
+    }
+    .project-card-wrapper .project-card {
+      background-color: #faf5ee !important;
+      box-shadow: 0 -6px 36px rgba(58, 48, 42, 0.08), 0 24px 48px -12px rgba(58, 48, 42, 0.18);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+    .project-card-bg-img {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+      will-change: transform;
+    }
+    .project-card:hover .project-card-bg-img {
+      transform: scale(1.07);
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      display: inline-block;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #c2652a, #e08850, #8c3c3c, #c2652a);
+      background-size: 300% 100%;
+      animation: gradientFlow 6s ease infinite;
+      z-index: 100;
+      width: 0%;
+      transition: width 0.08s cubic-bezier(0.1, 0.9, 0.2, 1);
+      box-shadow: 0 0 12px rgba(194, 101, 42, 0.65);
+    }
+
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Grain Overlay for Editorial Texture */
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 90;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Custom Designer Cursor (Desktop Only) */
+    @media (pointer: fine) {
+      body {
+        cursor: none;
+      }
+
+      a,
+      button,
+      select,
+      [role="button"],
+      .interactive-element,
+      label {
+        cursor: none !important;
+      }
+
+      input,
+      textarea {
+        cursor: text !important;
+      }
+
+      .cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #c2652a;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+        box-shadow: 0 0 10px rgba(194, 101, 42, 0.5);
+      }
+
+      .cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid rgba(194, 101, 42, 0.45);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+          height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 0.25s ease,
+          background-color 0.25s ease,
+          transform 0.1s ease-out;
+      }
+
+      .cursor-ring.cursor-hover {
+        width: 54px;
+        height: 54px;
+        border-color: rgba(194, 101, 42, 0.85);
+        background-color: rgba(194, 101, 42, 0.08);
+      }
+
+      .cursor-ring.cursor-view {
+        width: 72px;
+        height: 72px;
+        border-color: #c2652a;
+        background-color: rgba(194, 101, 42, 0.12);
+      }
+
+      .cursor-dot.cursor-active {
+        transform: translate(-50%, -50%) scale(0.6);
+      }
+
+      .cursor-ring.cursor-active {
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+    }
+
+    @media (pointer: coarse) {
+
+      .cursor-dot,
+      .cursor-ring {
+        display: none !important;
+      }
+    }
+
+    /* Glass Panel & Dynamic Mouse Spotlight */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(216, 208, 200, 0.8);
+      box-shadow: 0 4px 20px -2px rgba(60, 48, 42, 0.04);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(194, 101, 42, 0.22), rgba(224, 136, 80, 0.08) 45%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 25;
+      border-radius: inherit;
+    }
+
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+
+    .spotlight-card:hover {
+      border-color: rgba(194, 101, 42, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px -8px rgba(60, 48, 42, 0.08), 0 0 24px -4px rgba(194, 101, 42, 0.09);
+    }
+
+    .glow-cyan {
+      box-shadow: 0 0 35px -8px rgba(194, 101, 42, 0.15);
+    }
+
+    .glow-violet {
+      box-shadow: 0 0 35px -8px rgba(120, 112, 106, 0.15);
+    }
+
+    /* Keyframes */
+    @keyframes pulse-slow {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.92);
+      }
+    }
+
+    .pulse-dot {
+      animation: pulse-slow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes float-slow {
+
+      0%,
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+
+      50% {
+        transform: translateY(-15px) translateX(10px);
+      }
+    }
+
+    @keyframes float-reverse {
+
+      0%,
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+
+      50% {
+        transform: translateY(15px) translateX(-10px);
+      }
+    }
+
+    .animate-float {
+      animation: float-slow 8s ease-in-out infinite;
+    }
+
+    .animate-float-reverse {
+      animation: float-reverse 10s ease-in-out infinite;
+    }
+
+    /* Shimmer Text Effect - Bright golden luxury sweep */
+    .shimmer-text {
+      background: linear-gradient(110deg, #c2652a 0%, #e08850 30%, #ffffff 50%, #e08850 70%, #c2652a 100%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShine 4.5s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes textShine {
+      0% {
+        background-position: 150% center;
+      }
+      100% {
+        background-position: -150% center;
+      }
+    }
+
+    /* Scroll Reveal System */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.94) translateY(20px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .is-revealed,
+    .reveal-on-scroll.is-revealed,
+    .reveal-scale.is-revealed,
+    .reveal-left.is-revealed,
+    .reveal-right.is-revealed {
+      opacity: 1 !important;
+      transform: translate(0, 0) scale(1) !important;
+      filter: blur(0px) !important;
+    }
+
+    /* Stagger Delays */
+    .delay-75 {
+      transition-delay: 75ms !important;
+    }
+
+    .delay-150 {
+      transition-delay: 150ms !important;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms !important;
+    }
+
+    .delay-250 {
+      transition-delay: 250ms !important;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms !important;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms !important;
+    }
+
+    .delay-500 {
+      transition-delay: 500ms !important;
+    }
+
+    /* Magnetic Button */
+    .magnetic-btn {
+      transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.25s ease;
+      will-change: transform;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Skill Badge Micro-Interactions */
+    .skill-badge {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-2.5px) scale(1.05);
+      border-color: rgba(194, 101, 42, 0.45) !important;
+      background: rgba(251, 232, 216, 0.6) !important;
+      color: #c2652a !important;
+      box-shadow: 0 4px 12px rgba(194, 101, 42, 0.12);
+    }
+
+    /* Radar Scanner Sweep */
+    @keyframes radar-sweep {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .radar-scanner {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg at 50% 50%, rgba(194, 101, 42, 0.4) 0deg, rgba(194, 101, 42, 0.08) 60deg, transparent 75deg);
+      animation: radar-sweep 4s linear infinite;
+      pointer-events: none;
+      border: 1px dashed rgba(194, 101, 42, 0.35);
+      box-shadow: inset 0 0 40px rgba(194, 101, 42, 0.08);
+    }
+
+    /* Floating Back To Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(250, 245, 238, 0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(216, 208, 200, 0.85);
+      box-shadow: 0 8px 24px -4px rgba(60, 48, 42, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px);
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, color 0.25s;
+      z-index: 60;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    #back-to-top:hover {
+      transform: translateY(-3px);
+      border-color: #c2652a;
+      color: #c2652a;
+      box-shadow: 0 12px 28px -4px rgba(194, 101, 42, 0.22);
+    }
+
+    #back-to-top svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    #back-to-top circle.progress-ring {
+      stroke-dasharray: 138;
+      stroke-dashoffset: 138;
+      transition: stroke-dashoffset 0.1s linear;
+    }
+
+    /* Toast Notification */
+    #toast-notification {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      opacity: 0;
+      background: #3a302a;
+      color: #faf5ee;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      box-shadow: 0 16px 36px rgba(58, 48, 42, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      border: 1px solid rgba(216, 208, 200, 0.2);
+    }
+
+    #toast-notification.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Modal Animation */
+    #project-modal {
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #project-modal.modal-active {
+      opacity: 1;
+    }
+
+    #project-modal>div {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.94) translateY(20px);
+      opacity: 0;
+    }
+
+    #project-modal.modal-active>div {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Gentle Motion Tuning (respects accessibility while keeping visuals intact) */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-float,
+      .animate-float-reverse {
+        animation-duration: 20s !important;
+      }
+      .reveal-on-scroll,
+      .reveal-scale,
+      .reveal-left,
+      .reveal-right {
+        transition-duration: 0.3s !important;
+      }
+    }
+
+    /* Print styles for Resume */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #1a1a1a !important;
+      }
+      header, footer, #ambient-canvas, .grain-overlay, .cursor-dot, .cursor-ring, #back-to-top, #scroll-progress, .no-print, #project-modal {
+        display: none !important;
+      }
+      #resume-modal {
+        position: static !important;
+        display: block !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+      #resume-modal > div {
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+
+    /* Resume Modal Animation */
+    #resume-modal {
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #resume-modal.modal-active {
+      opacity: 1;
+    }
+    #resume-modal > div {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.95) translateY(18px);
+      opacity: 0;
+    }
+    #resume-modal.modal-active > div {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container font-body relative overflow-x-hidden">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Subtle Editorial Paper Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Custom Designer Cursor Elements -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Interactive Ambient Background Canvas (High-visibility particle network) -->
+  <canvas id="ambient-canvas" class="fixed inset-0 pointer-events-none z-[1] w-full h-full"></canvas>
+
+  <!-- Background Animated Floating Elements -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-[8%] left-[4%] w-96 h-96 rounded-full bg-primary/15 blur-3xl animate-float"></div>
+    <div class="absolute top-[38%] right-[6%] w-[30rem] h-[30rem] rounded-full bg-secondary/15 blur-3xl animate-float-reverse">
+    </div>
+    <div class="absolute top-[72%] left-[10%] w-[26rem] h-[26rem] rounded-full bg-primary-container/20 blur-3xl animate-float">
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification -->
+  <div id="toast-notification">
+    <span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+    <span id="toast-text">Copied to clipboard</span>
+  </div>
+
+  <!-- Floating Back to Top Button with SVG Circular Progress -->
+  <button id="back-to-top" aria-label="Back to top" onclick="scrollToTop()">
+    <svg viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="22" fill="none" stroke="rgba(216, 208, 200, 0.4)" stroke-width="2.5"></circle>
+      <circle class="progress-ring" cx="24" cy="24" r="22" fill="none" stroke="#c2652a" stroke-width="2.5"
+        stroke-linecap="round"></circle>
+    </svg>
+    <span class="material-symbols-outlined text-[20px] text-on-surface z-10"
+      data-icon="arrow_upward">arrow_upward</span>
+  </button>
+
+  <!-- TopNavBar -->
+  <header
+    class="bg-surface/90 backdrop-blur-md text-primary border-b border-outline-variant/40 shadow-xs sticky top-0 z-50 transition-all duration-300"
+    id="main-header">
+    <div class="max-w-container-max mx-auto px-gutter-desktop flex items-center justify-between h-16 w-full">
+      <a class="flex items-center gap-space-xs font-code text-code-md font-semibold text-primary tracking-tight group"
+        href="#home">
+        <span class="material-symbols-outlined text-primary group-hover:rotate-12 transition-transform duration-300"
+          data-icon="terminal">terminal</span>
+        <span class="font-display text-lg tracking-normal text-on-surface">Om Gaikwad</span>
+        <span
+          class="hidden sm:inline-flex items-center gap-1.5 ml-2 px-2.5 py-0.5 rounded-full bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-[11px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary pulse-dot"></span>
+          Available for Opportunities
+        </span>
+      </a>
+      <nav class="hidden md:flex items-center gap-space-lg" id="desktop-nav">
+        <a class="nav-link text-primary font-medium border-b-2 border-primary pb-0.5 font-body-sm transition-all duration-200"
+          href="#home">Home</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body-sm pb-0.5 border-b-2 border-transparent"
+          href="#about">About</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body-sm pb-0.5 border-b-2 border-transparent"
+          href="#skills">Skills</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body-sm pb-0.5 border-b-2 border-transparent"
+          href="#projects">Projects</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body-sm pb-0.5 border-b-2 border-transparent"
+          href="#experience">Experience</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body-sm pb-0.5 border-b-2 border-transparent"
+          href="#contact">Contact</a>
+      </nav>
+      <div class="flex items-center gap-space-sm">
+        <button
+          class="hidden sm:inline-flex items-center gap-1 font-code text-code-md text-on-surface-variant hover:text-primary px-space-xs py-1 rounded transition-colors cursor-pointer"
+          onclick="openResumeModal()" title="View and download full CV">
+          <span>Resume</span>
+          <span class="material-symbols-outlined text-[14px]" data-icon="arrow_outward">arrow_outward</span>
+        </button>
+        <a class="magnetic-btn px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 transition-all duration-200 shadow-sm active:scale-95"
+          href="#contact">
+          Let's Connect
+        </a>
+        <!-- Mobile Hamburger Menu Button -->
+        <button id="mobile-menu-btn" aria-label="Toggle navigation menu"
+          class="md:hidden p-2 rounded-lg text-on-surface hover:text-primary hover:bg-surface-container transition-colors cursor-pointer flex items-center justify-center"
+          onclick="toggleMobileMenu()">
+          <span class="material-symbols-outlined text-2xl" id="mobile-menu-icon">menu</span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav" class="hidden md:hidden border-t border-outline-variant/40 bg-surface/98 backdrop-blur-lg px-gutter-desktop py-4 space-y-2 shadow-lg transition-all duration-300">
+      <a class="block py-2 text-on-surface hover:text-primary font-medium border-b border-outline-variant/20 transition-colors" href="#home" onclick="closeMobileMenu()">Home</a>
+      <a class="block py-2 text-on-surface hover:text-primary font-medium border-b border-outline-variant/20 transition-colors" href="#about" onclick="closeMobileMenu()">About</a>
+      <a class="block py-2 text-on-surface hover:text-primary font-medium border-b border-outline-variant/20 transition-colors" href="#skills" onclick="closeMobileMenu()">Skills</a>
+      <a class="block py-2 text-on-surface hover:text-primary font-medium border-b border-outline-variant/20 transition-colors" href="#projects" onclick="closeMobileMenu()">Projects</a>
+      <a class="block py-2 text-on-surface hover:text-primary font-medium border-b border-outline-variant/20 transition-colors" href="#experience" onclick="closeMobileMenu()">Experience</a>
+      <a class="block py-2 text-on-surface hover:text-primary font-medium border-b border-outline-variant/20 transition-colors" href="#resume" onclick="closeMobileMenu(); openResumeModal();">Resume (View &amp; Print)</a>
+      <a class="block py-2 text-primary font-semibold transition-colors" href="#contact" onclick="closeMobileMenu()">Contact</a>
+    </div>
+  </header>
+  <main class="relative z-10">
+    <!-- HERO SECTION -->
+    <section
+      class="relative pt-space-3xl pb-space-4xl overflow-hidden border-b border-outline-variant/30 bg-gradient-to-b from-surface via-surface-container-low/50 to-surface"
+      id="home">
+      <div
+        class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-container/10 blur-[120px] rounded-full pointer-events-none">
+      </div>
+      <div
+        class="absolute top-1/3 right-1/4 translate-x-1/3 -translate-y-1/3 w-96 h-96 bg-secondary/10 blur-[130px] rounded-full pointer-events-none">
+      </div>
+      <div
+        class="max-w-container-max mx-auto px-gutter-desktop grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center relative z-10">
+        <div class="lg:col-span-7 flex flex-col items-start gap-space-md">
+          <div
+            class="reveal-on-scroll delay-75 inline-flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-surface-container-lowest border border-primary/20 text-primary font-code text-[12px] shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-primary pulse-dot"></span>
+            Computer Engineering Student • Full Stack &amp; AI Developer
+          </div>
+          <h1 class="reveal-on-scroll delay-150 font-display text-display-hero text-on-surface tracking-tight">
+            Building intelligent digital experiences with <span class="shimmer-text italic font-normal">code &amp;
+              AI.</span>
+          </h1>
+          <p
+            class="reveal-on-scroll delay-200 font-body-lg text-on-surface-variant max-w-xl font-normal leading-relaxed">
+            Computer Engineering undergraduate with hands-on experience building full-stack web, mobile and AI-powered
+            applications. Focused on engineering resilient architectures and human-centric software.
+          </p>
+          <div class="reveal-on-scroll delay-250 flex flex-wrap items-center gap-space-sm pt-space-xs">
+            <a class="magnetic-btn px-space-lg py-3 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 glow-cyan transition-all duration-200 shadow-sm"
+              href="#projects">
+              View My Projects
+            </a>
+            <a class="magnetic-btn px-space-lg py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm font-medium hover:border-primary hover:bg-surface-container transition-all duration-200"
+              href="#contact">
+              Let's Connect
+            </a>
+            <button class="inline-flex items-center gap-1.5 px-space-md py-3 font-code text-code-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+              onclick="openResumeModal()" title="View & download CV">
+              <span>Download Resume</span>
+              <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
+            </button>
+          </div>
+          <div
+            class="reveal-on-scroll delay-300 flex items-center gap-space-md pt-space-md border-t border-outline-variant/40 w-full mt-space-xs">
+            <span class="font-code text-[11px] text-outline uppercase tracking-wider">Social Links</span>
+            <div class="flex items-center gap-space-xs">
+              <a class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:border-primary transition-colors shadow-xs"
+                href="https://github.com" rel="noreferrer" target="_blank" title="GitHub">
+                <span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+              </a>
+              <a class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:border-primary transition-colors shadow-xs"
+                href="https://linkedin.com" rel="noreferrer" target="_blank" title="LinkedIn">
+                <span class="material-symbols-outlined" data-icon="link">link</span>
+              </a>
+              <button
+                class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:border-primary transition-colors shadow-xs cursor-pointer"
+                onclick="copyToClipboard('contact@omgaikwad.dev', 'Email copied to clipboard!')" title="Copy Email">
+                <span class="material-symbols-outlined" data-icon="mail">mail</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 relative">
+          <div
+            class="reveal-scale delay-200 glass-panel spotlight-card tilt-card p-space-sm rounded-3xl bg-surface-container-lowest/80 border border-outline-variant shadow-xl glow-cyan relative overflow-hidden group">
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-secondary/10 opacity-70 pointer-events-none">
+            </div>
+            <div
+              class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-surface-container flex items-center justify-center">
+              <img alt="Om Samadhan Gaikwad"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBogP0mCM-JXk8nmPZpuJn7wSW0F74kcpDzEOtdOvPUfSPUa1WBdHnIg8FqfhRI18yAX3CHOvVaJTccNwbhDXSActjdaaMrrehqtRecm_JSeFdNvv3jDp-iTIRO1JalobicbxB4vXwuvFnXbnRKnpTGa6m7W7Irk_VFz-jPcoMn5C_nHAOouuVbuFNOsJRTPFZQ68183ePtK4fIqnU0-OpGVA8WX2YQX-jc6dRjT8CY8J2C8CQtwkF1sZrQblv9PGOkD2s" />
+            </div>
+            <div class="p-4 flex items-center justify-between relative z-10">
+              <div>
+                <h3 class="font-display font-semibold text-lg text-on-surface">Om Samadhan Gaikwad</h3>
+                <p class="font-code text-[11px] text-primary">Full Stack &amp; AI Developer</p>
+              </div>
+              <span
+                class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-code text-[11px] border border-primary/30">B.E.
+                2025-28</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- QUICK STATS -->
+    <section class="py-space-xl border-b border-outline-variant/30 bg-surface-container-low/60" id="stats-section">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-75 p-space-lg rounded-xl flex flex-col justify-center text-center items-center bg-surface-container-lowest/80">
+            <span class="stat-number font-display text-4xl text-primary tracking-tight font-bold" data-decimals="2"
+              data-target="9.23">0.00</span>
+            <span class="font-body-sm text-on-surface-variant mt-1 font-medium">Engineering CGPA</span>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-150 p-space-lg rounded-xl flex flex-col justify-center text-center items-center bg-surface-container-lowest/80">
+            <span class="stat-number font-display text-4xl text-secondary tracking-tight font-bold" data-suffix="+"
+              data-target="3">0+</span>
+            <span class="font-body-sm text-on-surface-variant mt-1 font-medium">Major Full-Stack &amp; AI
+              Projects</span>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-200 p-space-lg rounded-xl flex flex-col justify-center text-center items-center bg-surface-container-lowest/80">
+            <span class="stat-number font-display text-4xl text-tertiary tracking-tight font-bold" data-suffix="+"
+              data-target="1">0+</span>
+            <span class="font-body-sm text-on-surface-variant mt-1 font-medium">Years Building Real Software</span>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-250 p-space-lg rounded-xl flex flex-col justify-center text-center items-center bg-surface-container-lowest/80 relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 w-20 h-20 rounded-full bg-primary/10 blur-xl"></div>
+            <span class="font-display text-3xl text-primary tracking-tight font-bold pt-1 shimmer-text">Winner</span>
+            <span class="font-body-sm text-on-surface-variant mt-1 font-medium">Best Project Designer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT SECTION -->
+    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface" id="about">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="max-w-3xl mb-space-2xl reveal-on-scroll">
+          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">About The
+            Engineer</span>
+          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">
+            A developer who loves turning ideas into working products.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-start">
+          <div class="lg:col-span-7 space-y-space-md text-on-surface-variant font-body-lg text-lg leading-relaxed">
+            <p class="reveal-on-scroll delay-75">
+              I’m OM Samadhan Gaikwad, a Computer Engineering undergraduate passionate about Full Stack Development,
+              Artificial Intelligence and building practical digital products.
+            </p>
+            <p class="reveal-on-scroll delay-150">
+              I enjoy working across the stack — from designing intuitive interfaces to developing APIs, databases and
+              AI-powered features.
+            </p>
+            <p class="reveal-on-scroll delay-200">
+              My goal is to create software that is not only technically strong, but also useful, scalable and enjoyable
+              to use.
+            </p>
+            <div class="pt-space-md grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+              <div
+                class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-75 p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-xs">
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  data-icon="deployed_code">deployed_code</span>
+                <h4 class="font-display text-lg text-on-surface mt-2 font-semibold">Full Stack</h4>
+                <p class="font-body-sm text-outline mt-1">Seamless client &amp; server synchrony.</p>
+              </div>
+              <div
+                class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-150 p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-xs">
+                <span class="material-symbols-outlined text-secondary text-2xl" data-icon="psychology">psychology</span>
+                <h4 class="font-display text-lg text-on-surface mt-2 font-semibold">AI Systems</h4>
+                <p class="font-body-sm text-outline mt-1">LLM integrations and GenAI flows.</p>
+              </div>
+              <div
+                class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-200 p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-xs">
+                <span class="material-symbols-outlined text-tertiary text-2xl" data-icon="speed">speed</span>
+                <h4 class="font-display text-lg text-on-surface mt-2 font-semibold">Performance</h4>
+                <p class="font-body-sm text-outline mt-1">Optimized runtimes and low latency.</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div
+              class="glass-panel spotlight-card tilt-card reveal-scale delay-150 p-space-xl rounded-2xl glow-violet bg-surface-container-lowest border border-outline-variant">
+              <div class="flex items-center gap-4 border-b border-outline-variant/40 pb-space-md mb-space-md">
+                <div
+                  class="w-16 h-16 rounded-xl overflow-hidden border border-primary/30 flex-shrink-0 bg-surface-container relative group">
+                  <img alt="Om Samadhan Gaikwad"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgATXVS8xbb2UgvUSKF3jbp7StWt5b4uPpbNTONXBwccJy0oMyx9GR9dNxMmGat4BUaMf_t2eyBNkmvUX4MlM7HBl98jBd59netBywWr5sP_npXxWAke1-9tbmvGQ_MZbtR0X228piiCUf_J7MdsM9lg_7yjBHkZNCm1Iz3BDUa68VVZJ7oMI-MI2jxigXVasi0rJiH-qhldiPPnRGp2_LkVFi6qjCiHxHdY69LdKr43G1E1GYgIxrqjt5kTWI_C2xXvo" />
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-display text-xl text-on-surface font-semibold">Developer Profile</h3>
+                  <span
+                    class="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-code text-[11px] border border-primary/35">B.E.
+                    2025-28</span>
+                </div>
+              </div>
+              <dl class="space-y-space-sm font-body-sm text-sm">
+                <div class="flex justify-between border-b border-outline-variant/30 pb-space-xs">
+                  <dt class="text-outline">Role</dt>
+                  <dd class="text-on-surface font-medium">Full Stack &amp; AI Developer</dd>
+                </div>
+                <div class="flex justify-between border-b border-outline-variant/30 pb-space-xs">
+                  <dt class="text-outline">Education</dt>
+                  <dd class="text-on-surface font-medium">B.E. Computer Engineering</dd>
+                </div>
+                <div class="flex justify-between border-b border-outline-variant/30 pb-space-xs">
+                  <dt class="text-outline">CGPA</dt>
+                  <dd class="text-primary font-code font-semibold">9.23 / 10</dd>
+                </div>
+                <div class="flex justify-between border-b border-outline-variant/30 pb-space-xs">
+                  <dt class="text-outline">Location</dt>
+                  <dd class="text-on-surface font-medium">Pune, Maharashtra</dd>
+                </div>
+                <div class="flex justify-between pb-space-xs">
+                  <dt class="text-outline">Focus</dt>
+                  <dd class="text-secondary font-medium">AI • Full Stack • Product</dd>
+                </div>
+              </dl>
+              <div class="mt-space-md p-space-sm rounded-xl bg-surface-container border border-outline-variant/50">
+                <div class="flex items-center justify-between text-outline font-code text-[11px] mb-1.5">
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary pulse-dot"></span>
+                    DEPLOYED NODES
+                  </span>
+                  <span class="text-primary font-semibold">100% HEALTH</span>
+                </div>
+                <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                  <div
+                    class="bg-gradient-to-r from-primary via-primary-container to-secondary h-full w-[94%] transition-all duration-1000 ease-out">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- TECHNICAL SKILLS -->
+    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface-container-low/40" id="skills">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
+          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Capabilities</span>
+          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">My technical toolkit</h2>
+          <p class="font-body-md text-on-surface-variant mt-1.5 text-base">Clean, categorized technologies with hands-on
+            production experience.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-75 p-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <div class="flex items-center gap-2 mb-space-sm">
+              <span class="material-symbols-outlined text-primary text-2xl" data-icon="code">code</span>
+              <h3 class="font-display text-xl text-on-surface font-semibold">Languages</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Java</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Python</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">JavaScript</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">C</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">C++</span>
+            </div>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-150 p-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <div class="flex items-center gap-2 mb-space-sm">
+              <span class="material-symbols-outlined text-primary text-2xl" data-icon="web">web</span>
+              <h3 class="font-display text-xl text-on-surface font-semibold">Frontend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">React.js</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Next.js</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">HTML5</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">CSS3</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Bootstrap</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Tailwind
+                CSS</span>
+            </div>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-200 p-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <div class="flex items-center gap-2 mb-space-sm">
+              <span class="material-symbols-outlined text-secondary text-2xl" data-icon="dns">dns</span>
+              <h3 class="font-display text-xl text-on-surface font-semibold">Backend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Node.js</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Express.js</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Django</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">REST
+                APIs</span>
+            </div>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-100 p-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <div class="flex items-center gap-2 mb-space-sm">
+              <span class="material-symbols-outlined text-secondary text-2xl" data-icon="cloud">cloud</span>
+              <h3 class="font-display text-xl text-on-surface font-semibold">Mobile &amp; Cloud</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Flutter</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Firebase</span>
+            </div>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-150 p-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <div class="flex items-center gap-2 mb-space-sm">
+              <span class="material-symbols-outlined text-tertiary text-2xl" data-icon="database">database</span>
+              <h3 class="font-display text-xl text-on-surface font-semibold">Databases</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">MongoDB</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">MySQL</span>
+            </div>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-200 p-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant glow-cyan">
+            <div class="flex items-center gap-2 mb-space-sm">
+              <span class="material-symbols-outlined text-primary text-2xl" data-icon="smart_toy">smart_toy</span>
+              <h3 class="font-display text-xl text-on-surface font-semibold">Artificial Intelligence</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-primary/30 text-primary font-code text-sm">Google
+                Gemini API</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">AI
+                App Development</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">AI
+                Integration</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Generative
+                AI</span>
+            </div>
+          </div>
+          <div
+            class="glass-panel spotlight-card reveal-on-scroll delay-250 p-space-lg rounded-2xl lg:col-span-3 bg-surface-container-lowest border border-outline-variant">
+            <div class="flex items-center gap-2 mb-space-sm">
+              <span class="material-symbols-outlined text-outline text-2xl" data-icon="build">build</span>
+              <h3 class="font-display text-xl text-on-surface font-semibold">Tools &amp; Workflows</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Git</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">GitHub</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">VS
+                Code</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Android
+                Studio</span>
+              <span
+                class="skill-badge px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface-variant font-code text-sm">Postman</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- EXPERIENCE -->
+    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface" id="experience">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
+          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Track Record</span>
+          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Experience</h2>
+        </div>
+        <div class="relative border-l-2 border-outline-variant/60 ml-4 md:ml-8 space-y-space-2xl">
+          <!-- Experience 01 -->
+          <div class="relative pl-space-xl reveal-on-scroll delay-75">
+            <div
+              class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-tertiary flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-tertiary pulse-dot"></div>
+            </div>
+            <div
+              class="glass-panel spotlight-card p-space-xl rounded-2xl bg-surface-container-lowest border border-outline-variant">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div>
+                  <h3 class="font-display text-xl text-on-surface font-semibold">IEEE Student Branch Member</h3>
+                  <span class="font-body-sm text-outline">SKN IEEE Student Branch, Smt. Kashibai Navale College of
+                    Engineering</span>
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-code text-[12px]">2024
+                  — Present</span>
+              </div>
+              <p class="font-body-md text-on-surface-variant mb-space-md text-base">Active member participating in
+                technical workshops, collegiate events, and promoting technical innovation on campus.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">IEEE</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">Leadership</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">Community</span>
+              </div>
+            </div>
+          </div>
+          <!-- Experience 02 -->
+          <div class="relative pl-space-xl reveal-on-scroll delay-150">
+            <div
+              class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-primary flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-primary pulse-dot"></div>
+            </div>
+            <div
+              class="glass-panel spotlight-card p-space-xl rounded-2xl bg-surface-container-lowest border border-outline-variant">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div>
+                  <h3 class="font-display text-xl text-on-surface font-semibold">Freelance Full Stack &amp; AI Developer
+                  </h3>
+                  <span class="font-body-sm text-outline">Self-Employed • Remote</span>
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-code text-[12px]">2025
+                  — Present</span>
+              </div>
+              <p class="font-body-md text-on-surface-variant mb-space-md text-base">Developed responsive web and mobile
+                applications using React.js, Flutter, Firebase and Node.js for freelance clients. Designed full-cycle
+                architecture from user stories to deployment.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">React.js</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">Flutter</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">Firebase</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">Node.js</span>
+              </div>
+            </div>
+          </div>
+          <!-- Experience 03 -->
+          <div class="relative pl-space-xl reveal-on-scroll delay-200">
+            <div
+              class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-secondary flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-secondary pulse-dot"></div>
+            </div>
+            <div
+              class="glass-panel spotlight-card p-space-xl rounded-2xl bg-surface-container-lowest border border-outline-variant">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div>
+                  <h3 class="font-display text-xl text-on-surface font-semibold">Full Stack Development Intern</h3>
+                  <span class="font-body-sm text-outline">Sumago Infotech Pvt. Ltd., Nashik</span>
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/30 text-secondary font-code text-[12px]">June
+                  2024 — July 2024</span>
+              </div>
+              <p class="font-body-md text-on-surface-variant mb-space-md text-base">Developed Django-based web
+                applications using HTML, CSS, Bootstrap and JavaScript. Honored for exemplary architectural discipline
+                and rapid prototyping turnaround.</p>
+              <div
+                class="inline-flex items-center gap-2 px-space-sm py-1.5 rounded-lg bg-tertiary-container/10 border border-tertiary/30 text-tertiary mb-space-md font-body-sm text-sm font-medium">
+                <span class="material-symbols-outlined text-[18px]" data-icon="emoji_events">emoji_events</span>
+                <span>Best Project Designer Award</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">Django</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">HTML</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">CSS</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">Bootstrap</span>
+                <span
+                  class="skill-badge px-2.5 py-1 rounded bg-surface-container border border-outline-variant/50 text-on-surface font-code text-xs">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FEATURED PROJECTS -->
+    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface-container-low/40" id="projects">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-space-xl">
+          <div class="max-w-2xl reveal-on-scroll">
+            <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Portfolio</span>
+            <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Things I've built</h2>
+          </div>
+          <!-- Project Category Filter Pills -->
+          <div class="reveal-on-scroll delay-100 flex flex-wrap items-center gap-2" id="project-filters">
+            <button class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-semibold transition-all bg-primary text-on-primary shadow-xs cursor-pointer active" data-filter="all">All (3)</button>
+            <button class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-medium transition-all bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary/40 border border-outline-variant/60 cursor-pointer" data-filter="ai">AI &amp; GenAI (2)</button>
+            <button class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-medium transition-all bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary/40 border border-outline-variant/60 cursor-pointer" data-filter="fullstack">Full Stack (3)</button>
+            <button class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-medium transition-all bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary/40 border border-outline-variant/60 cursor-pointer" data-filter="mobile">Mobile (1)</button>
+          </div>
+        </div>
+        <div class="projects-stack relative flex flex-col pb-24" id="projects-container">
+          <!-- Project 01: BloodLink AI -->
+          <div class="project-card-wrapper sticky top-[5.5rem] z-10 w-full mb-16" data-categories="ai fullstack mobile" data-index="0">
+            <div data-categories="ai fullstack mobile" class="project-card glass-panel spotlight-card reveal-on-scroll delay-75 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-outline-variant bg-surface-container-lowest transition-all duration-300">
+            <div class="lg:col-span-6 p-space-xl flex flex-col justify-between relative z-10">
+              <div>
+                <div class="flex items-center gap-2 mb-space-xs">
+                  <span class="font-code text-primary font-bold">01</span>
+                  <span class="text-outline">•</span>
+                  <span class="font-code text-[11px] text-outline uppercase tracking-wider">AI • Healthcare • Full Stack
+                    • Mobile</span>
+                </div>
+                <h3 class="font-display text-3xl text-on-surface mb-space-sm font-semibold">BloodLink AI</h3>
+                <p class="font-body-md text-on-surface-variant mb-space-md text-base">
+                  An AI-powered blood donation platform connecting donors, hospitals and recipients with real-time
+                  location tracking and AI-assisted emergency support. Features intelligent matching protocols and
+                  instant donor mobilization.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-space-lg">
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Flutter</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">React.js</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Firebase</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Python</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Google
+                    Gemini API</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">OpenStreetMap
+                    API</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-space-sm pt-space-xs">
+                <button
+                  class="magnetic-btn px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
+                  onclick="openProjectModal('bloodlink')">
+                  View Project
+                </button>
+                <a class="magnetic-btn inline-flex items-center gap-1 px-space-md py-2.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-body-sm hover:border-primary transition-colors"
+                  href="https://github.com" rel="noreferrer" target="_blank">
+                  <span class="">GitHub</span>
+                  <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+            <div
+              class="lg:col-span-6 min-h-[380px] p-space-xl flex items-center justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden group">
+              <!-- BloodLink Thematic Background Image -->
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80"
+                alt="BloodLink AI Emergency Healthcare Network" loading="lazy"
+                class="project-card-bg-img absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-40 group-hover:scale-105 transition-transform duration-700" />
+              <!-- Warm Editorial Gradient Overlay for Text Legibility -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5ee]/95 via-[#faf5ee]/85 to-[#faf5ee]/65 backdrop-blur-[2px] pointer-events-none"></div>
+              <!-- Animated Radar Scanner Element -->
+              <div class="radar-scanner -top-10 -right-10 opacity-70 z-[5]"></div>
+              <div
+                class="w-full max-w-sm rounded-2xl bg-surface-container-lowest/90 backdrop-blur-md p-space-md border border-outline-variant shadow-xl glow-cyan relative z-10 spotlight-card">
+                <div
+                  class="flex items-center justify-between pb-space-sm border-b border-outline-variant/30 text-on-surface font-code text-[13px]">
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-error pulse-dot"></span>
+                    Emergency Radar (Pune East)
+                  </span>
+                  <span class="text-primary font-semibold">O+ MATCH FOUND</span>
+                </div>
+                <div class="py-space-md space-y-2">
+                  <div
+                    class="flex justify-between items-center p-2.5 rounded-xl bg-surface-container border border-outline-variant/40 text-body-sm hover:border-primary/40 transition-colors">
+                    <span class="font-medium text-on-surface">Ruby Hall Clinic</span>
+                    <span class="font-code text-primary text-xs font-semibold">1.2 km away</span>
+                  </div>
+                  <div
+                    class="flex justify-between items-center p-2.5 rounded-xl bg-surface-container border border-outline-variant/40 text-body-sm hover:border-primary/40 transition-colors">
+                    <span class="font-medium text-on-surface">Active Donors (Nearby)</span>
+                    <span class="font-code text-secondary text-xs font-semibold">8 Verified</span>
+                  </div>
+                  <div
+                    class="p-2.5 rounded-xl bg-primary/10 border border-primary/30 font-code text-[11px] text-primary flex items-start gap-1.5">
+                    <span class="material-symbols-outlined text-[14px] mt-0.5" data-icon="psychology">psychology</span>
+                    <span>AI Diagnosis Node: Synthesized urgent route with ~14 min transit ETA.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Project 02: FarmConnect -->
+          <div class="project-card-wrapper sticky top-[7rem] z-20 w-full mb-16" data-categories="fullstack" data-index="1">
+            <div data-categories="fullstack" class="project-card glass-panel spotlight-card reveal-on-scroll delay-100 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-outline-variant bg-surface-container-lowest transition-all duration-300">
+            <div class="lg:col-span-6 p-space-xl flex flex-col justify-between relative z-10">
+              <div>
+                <div class="flex items-center gap-2 mb-space-xs">
+                  <span class="font-code text-secondary font-bold">02</span>
+                  <span class="text-outline">•</span>
+                  <span class="font-code text-[11px] text-outline uppercase tracking-wider">Full Stack • Marketplace •
+                    Web</span>
+                </div>
+                <h3 class="font-display text-3xl text-on-surface mb-space-sm font-semibold">FarmConnect</h3>
+                <p class="font-body-md text-on-surface-variant mb-space-md text-base">
+                  A digital marketplace connecting farmers directly with buyers, eliminating middlemen overhead.
+                  Features secure multi-tenant authentication, dynamic produce listings, price trends, and order
+                  tracking.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-space-lg">
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">React.js</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Node.js</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Express.js</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">MongoDB</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Firebase</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-space-sm pt-space-xs">
+                <button
+                  class="magnetic-btn px-space-md py-2.5 rounded-lg bg-secondary text-on-secondary font-body-sm font-semibold hover:bg-secondary/90 transition-all shadow-xs cursor-pointer"
+                  onclick="openProjectModal('farmconnect')">
+                  View Project
+                </button>
+                <a class="magnetic-btn inline-flex items-center gap-1 px-space-md py-2.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-body-sm hover:border-secondary transition-colors"
+                  href="https://github.com" rel="noreferrer" target="_blank">
+                  <span class="">GitHub</span>
+                  <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+            <div
+              class="lg:col-span-6 min-h-[380px] p-space-xl flex items-center justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden group">
+              <!-- FarmConnect Thematic Background Image -->
+              <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80"
+                alt="FarmConnect Smart Agriculture Fields" loading="lazy"
+                class="project-card-bg-img absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 group-hover:scale-105 transition-transform duration-700" />
+              <!-- Warm Editorial Gradient Overlay for Text Legibility -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5ee]/95 via-[#faf5ee]/85 to-[#faf5ee]/65 backdrop-blur-[2px] pointer-events-none"></div>
+              <div
+                class="w-full max-w-sm rounded-2xl bg-surface-container-lowest/90 backdrop-blur-md p-space-md border border-outline-variant shadow-xl glow-violet relative z-10 spotlight-card">
+                <div
+                  class="flex items-center justify-between pb-space-sm border-b border-outline-variant/30 text-on-surface font-code text-[13px]">
+                  <span class="">FarmConnect Analytics</span>
+                  <span class="text-secondary font-semibold">₹ 1,42,000 Volume</span>
+                </div>
+                <div class="py-space-md space-y-2 font-body-sm">
+                  <div
+                    class="flex justify-between p-2.5 rounded-xl bg-surface-container text-on-surface border border-outline-variant/40 hover:border-secondary/40 transition-colors">
+                    <span class="">Active Produce Catalog</span>
+                    <span class="font-code text-primary text-xs font-semibold">48 Batches</span>
+                  </div>
+                  <div
+                    class="flex justify-between p-2.5 rounded-xl bg-surface-container text-on-surface border border-outline-variant/40 hover:border-secondary/40 transition-colors">
+                    <span class="">Direct Farmer Margin</span>
+                    <span class="font-code text-secondary text-xs font-semibold">+28% Gain</span>
+                  </div>
+                  <div
+                    class="flex justify-between p-2.5 rounded-xl bg-surface-container text-on-surface border border-outline-variant/40 hover:border-secondary/40 transition-colors">
+                    <span class="">Escrow Order Settlement</span>
+                    <span class="text-[#2d8a60] font-code text-xs font-semibold">Instant UPI</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Project 03: InterviewAI -->
+          <div class="project-card-wrapper sticky top-[8.5rem] z-30 w-full mb-6" data-categories="ai fullstack" data-index="2">
+            <div data-categories="ai fullstack" class="project-card glass-panel spotlight-card reveal-on-scroll delay-100 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-outline-variant bg-surface-container-lowest transition-all duration-300">
+            <div class="lg:col-span-6 p-space-xl flex flex-col justify-between relative z-10">
+              <div>
+                <div class="flex items-center gap-2 mb-space-xs">
+                  <span class="font-code text-tertiary font-bold">03</span>
+                  <span class="text-outline">•</span>
+                  <span class="font-code text-[11px] text-outline uppercase tracking-wider">AI • Generative AI •
+                    EdTech</span>
+                </div>
+                <h3 class="font-display text-3xl text-on-surface mb-space-sm font-semibold">InterviewAI</h3>
+                <p class="font-body-md text-on-surface-variant mb-space-md text-base">
+                  An AI-powered mock interview platform offering HR, technical and behavioral interviews with
+                  AI-generated questions, real-time evaluation, and personalized feedback reports with confidence
+                  telemetry.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-space-lg">
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Next.js</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">React.js</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Google
+                    Gemini API</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Firebase</span>
+                  <span
+                    class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Tailwind
+                    CSS</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-space-sm pt-space-xs">
+                <button
+                  class="magnetic-btn px-space-md py-2.5 rounded-lg bg-tertiary text-on-tertiary font-body-sm font-semibold hover:bg-tertiary/90 transition-all shadow-xs cursor-pointer"
+                  onclick="openProjectModal('interviewai')">
+                  View Project
+                </button>
+                <a class="magnetic-btn inline-flex items-center gap-1 px-space-md py-2.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-body-sm hover:border-tertiary transition-colors"
+                  href="https://github.com" rel="noreferrer" target="_blank">
+                  <span class="">GitHub</span>
+                  <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+            <div
+              class="lg:col-span-6 min-h-[380px] p-space-xl flex items-center justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden group">
+              <!-- InterviewAI Thematic Background Image -->
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+                alt="InterviewAI Engineering & Code IDE Evaluation" loading="lazy"
+                class="project-card-bg-img absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-40 group-hover:scale-105 transition-transform duration-700" />
+              <!-- Warm Editorial Gradient Overlay for Text Legibility -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5ee]/95 via-[#faf5ee]/85 to-[#faf5ee]/65 backdrop-blur-[2px] pointer-events-none"></div>
+              <div
+                class="w-full max-w-sm rounded-2xl bg-surface-container-lowest/90 backdrop-blur-md p-space-md border border-outline-variant shadow-xl relative z-10 spotlight-card">
+                <div
+                  class="flex items-center justify-between pb-space-sm border-b border-outline-variant/30 text-on-surface font-code text-[13px]">
+                  <span class="">Mock Evaluation</span>
+                  <span class="text-tertiary font-semibold">Score: 92/100</span>
+                </div>
+                <div class="py-space-md space-y-2">
+                  <div class="p-2.5 rounded-xl bg-surface-container border border-outline-variant/40">
+                    <span class="font-code text-[11px] text-outline block mb-1">Technical Depth:</span>
+                    <span class="font-body-sm text-on-surface">Strong grasp on Distributed Systems &amp; CAP
+                      theorem.</span>
+                  </div>
+                  <div class="p-2.5 rounded-xl bg-surface-container border border-outline-variant/40">
+                    <span class="font-code text-[11px] text-outline block mb-1">Speech Clarity:</span>
+                    <span class="font-body-sm text-primary font-medium">Confident cadence, low filler count.</span>
+                  </div>
+                  <div
+                    class="p-2.5 rounded-xl bg-tertiary/10 border border-tertiary/30 font-code text-[11px] text-tertiary flex items-start gap-1.5">
+                    <span class="material-symbols-outlined text-[14px] mt-0.5" data-icon="psychology">psychology</span>
+                    <span>Gemini Feedback: Recommend structuring answers with the STAR framework.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- EDUCATION & RESUME -->
+    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface" id="resume">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-space-2xl">
+          <div class="max-w-2xl reveal-on-scroll">
+            <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Academic Foundation &amp; Credentials</span>
+            <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Education &amp; Resume</h2>
+          </div>
+          <div class="reveal-on-scroll delay-100 flex items-center gap-space-xs">
+            <button onclick="openResumeModal()"
+              class="magnetic-btn px-4 py-2.5 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 transition-all shadow-xs cursor-pointer flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+              <span>View &amp; Print Full Resume</span>
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+          <div
+            class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-75 p-space-xl rounded-2xl border border-outline-variant bg-surface-container-lowest">
+            <div class="flex items-center justify-between gap-2 mb-space-xs">
+              <span
+                class="px-3 py-1 rounded-full bg-primary/10 text-primary font-code text-[12px] border border-primary/30">2025
+                — 2028</span>
+              <span class="font-code text-sm font-semibold text-primary">CGPA: 9.23 / 10.00</span>
+            </div>
+            <h3 class="font-display text-xl text-on-surface font-semibold mt-2">Bachelor of Engineering — Computer
+              Engineering</h3>
+            <p class="font-body-md text-on-surface-variant mt-1.5 text-base">Smt. Kashibai Navale College of Engineering
+            </p>
+            <p class="font-body-sm text-outline mt-3">Active research in generative algorithms, data structures, and
+              computer architecture.</p>
+          </div>
+          <div
+            class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-150 p-space-xl rounded-2xl border border-outline-variant bg-surface-container-lowest">
+            <div class="flex items-center justify-between gap-2 mb-space-xs">
+              <span
+                class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-code text-[12px] border border-secondary/30">2022
+                — 2025</span>
+              <span class="font-code text-sm font-semibold text-secondary">Percentage: 90.71%</span>
+            </div>
+            <h3 class="font-display text-xl text-on-surface font-semibold mt-2">Diploma — Computer Science Engineering
+            </h3>
+            <p class="font-body-md text-on-surface-variant mt-1.5 text-base">SNJB's Hiralal Hastimal Jain Brothers
+              Polytechnic</p>
+            <p class="font-body-sm text-outline mt-3">Graduated with Distinction; strong bedrock in Object-Oriented
+              Programming and relational databases.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ACHIEVEMENTS & CERTIFICATIONS -->
+    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface-container-low/40">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
+          <div class="lg:col-span-6 space-y-space-md">
+            <div class="reveal-on-scroll">
+              <span
+                class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Recognition</span>
+              <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Achievements &amp; Leadership
+              </h2>
+            </div>
+            <div class="space-y-space-sm">
+              <div
+                class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-75 p-space-lg rounded-2xl flex items-start gap-space-md bg-surface-container-lowest border border-outline-variant">
+                <span class="material-symbols-outlined text-primary text-3xl mt-0.5"
+                  data-icon="workspace_premium">workspace_premium</span>
+                <div>
+                  <h4 class="font-display text-xl text-on-surface font-semibold">Best Project Designer Award</h4>
+                  <p class="font-body-sm text-on-surface-variant mt-1 text-sm">Sumago Infotech Pvt. Ltd. internship
+                    recognition for superior interface and code craftsmanship.</p>
+                </div>
+              </div>
+              <div
+                class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-150 p-space-lg rounded-2xl flex items-start gap-space-md bg-surface-container-lowest border border-outline-variant">
+                <span class="material-symbols-outlined text-secondary text-3xl mt-0.5" data-icon="groups">groups</span>
+                <div>
+                  <h4 class="font-display text-xl text-on-surface font-semibold">IEEE Student Branch Member</h4>
+                  <p class="font-body-sm text-on-surface-variant mt-1 text-sm">SKN IEEE Student Branch, Smt. Kashibai
+                    Navale College of Engineering.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 space-y-space-md">
+            <div class="reveal-on-scroll">
+              <span
+                class="font-code text-[12px] text-secondary uppercase tracking-widest font-semibold">Accreditations</span>
+              <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Certifications</h2>
+            </div>
+            <div class="space-y-space-sm">
+              <div
+                class="glass-panel spotlight-card reveal-on-scroll delay-75 p-space-md rounded-2xl flex items-center justify-between bg-surface-container-lowest border border-outline-variant">
+                <div>
+                  <h4 class="font-body-lg text-on-surface font-medium text-base">Full Stack Python Development with
+                    Django</h4>
+                  <span class="font-body-sm text-outline">Sumago Infotech (2024)</span>
+                </div>
+                <span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+              </div>
+              <div
+                class="glass-panel spotlight-card reveal-on-scroll delay-150 p-space-md rounded-2xl flex items-center justify-between bg-surface-container-lowest border border-outline-variant">
+                <div>
+                  <h4 class="font-body-lg text-on-surface font-medium text-base">Getting Python Interview Ready</h4>
+                  <span class="font-body-sm text-outline">Simplilearn SkillUP (2024)</span>
+                </div>
+                <span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+              </div>
+              <div
+                class="glass-panel spotlight-card reveal-on-scroll delay-200 p-space-md rounded-2xl flex items-center justify-between bg-surface-container-lowest border border-outline-variant">
+                <div>
+                  <h4 class="font-body-lg text-on-surface font-medium text-base">Python for Data Science</h4>
+                  <span class="font-body-sm text-outline">Intellipaat Academy (2024)</span>
+                </div>
+                <span class="material-symbols-outlined text-tertiary" data-icon="verified">verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- DEVELOPMENT PHILOSOPHY & CURRENT FOCUS -->
+    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
+          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Mindset &amp;
+            Horizons</span>
+          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Build. Learn. Iterate.</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg mb-space-3xl">
+          <div
+            class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-75 p-space-xl rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <span class="font-code text-[11px] text-primary font-semibold">01 / PRINCIPLE</span>
+            <h3 class="font-display text-2xl text-on-surface font-semibold mt-2 mb-1.5">Build</h3>
+            <p class="font-body-md text-on-surface-variant text-base">Turn ideas into real products. Theory without
+              execution is incomplete; real users and workloads reveal true system resilience.</p>
+          </div>
+          <div
+            class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-150 p-space-xl rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <span class="font-code text-[11px] text-secondary font-semibold">02 / PRINCIPLE</span>
+            <h3 class="font-display text-2xl text-on-surface font-semibold mt-2 mb-1.5">Learn</h3>
+            <p class="font-body-md text-on-surface-variant text-base">Keep exploring AI, software engineering and
+              emerging technologies. Master the underlying fundamentals rather than ephemeral fads.</p>
+          </div>
+          <div
+            class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-200 p-space-xl rounded-2xl bg-surface-container-lowest border border-outline-variant">
+            <span class="font-code text-[11px] text-tertiary font-semibold">03 / PRINCIPLE</span>
+            <h3 class="font-display text-2xl text-on-surface font-semibold mt-2 mb-1.5">Iterate</h3>
+            <p class="font-body-md text-on-surface-variant text-base">Improve through experimentation, telemetry,
+              feedback and continuous development. Polish until it feels effortless.</p>
+          </div>
+        </div>
+        <div
+          class="glass-panel spotlight-card reveal-on-scroll delay-250 p-space-xl rounded-2xl bg-surface-container-lowest border border-outline-variant">
+          <h4 class="font-display text-2xl text-on-surface mb-space-md font-semibold">Currently Exploring &amp;
+            Researching</h4>
+          <div class="flex flex-wrap gap-space-sm">
+            <div
+              class="skill-badge inline-flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container border border-primary/30 text-on-surface font-code text-sm">
+              <span class="w-2 h-2 rounded-full bg-primary pulse-dot"></span>
+              AI Engineering
+            </div>
+            <div
+              class="skill-badge inline-flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container border border-secondary/30 text-on-surface font-code text-sm">
+              <span class="w-2 h-2 rounded-full bg-secondary pulse-dot"></span>
+              Generative AI
+            </div>
+            <div
+              class="skill-badge inline-flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-code text-sm">
+              <span class="w-2 h-2 rounded-full bg-tertiary pulse-dot"></span>
+              Full Stack Development
+            </div>
+            <div
+              class="skill-badge inline-flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container border border-primary/30 text-on-surface font-code text-sm">
+              <span class="w-2 h-2 rounded-full bg-primary pulse-dot"></span>
+              Cloud &amp; Backend Systems
+            </div>
+            <div
+              class="skill-badge inline-flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-code text-sm">
+              <span class="w-2 h-2 rounded-full bg-outline pulse-dot"></span>
+              Developer Tools
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTACT SECTION -->
+    <section class="py-space-4xl relative bg-surface-container-low/30" id="contact">
+      <div class="max-w-container-max mx-auto px-gutter-desktop">
+        <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
+          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Collaboration</span>
+          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Have an idea? Let's build it.</h2>
+          <p class="font-body-md text-on-surface-variant mt-1.5 text-base">
+            Whether it's an interesting project, internship opportunity, collaboration or simply a conversation about
+            technology, I'd love to hear from you.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
+          <div class="lg:col-span-7">
+            <form
+              class="glass-panel spotlight-card reveal-on-scroll delay-75 p-space-xl rounded-2xl space-y-space-md border border-outline-variant bg-surface-container-lowest"
+              id="contact-form" onsubmit="handleFormSubmit(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                <div>
+                  <label class="block font-body-sm text-outline mb-1.5 font-medium" for="contact-name">Your Name</label>
+                  <input id="contact-name" name="name"
+                    class="w-full rounded-xl bg-surface-container/40 border border-outline-variant text-on-surface placeholder:text-outline/50 px-space-sm py-3 focus:border-primary focus:ring-1 focus:ring-primary font-body-sm transition-all"
+                    placeholder="Jane Doe" required="" type="text" />
+                </div>
+                <div>
+                  <label class="block font-body-sm text-outline mb-1.5 font-medium" for="contact-email">Your Email</label>
+                  <input id="contact-email" name="email"
+                    class="w-full rounded-xl bg-surface-container/40 border border-outline-variant text-on-surface placeholder:text-outline/50 px-space-sm py-3 focus:border-primary focus:ring-1 focus:ring-primary font-body-sm transition-all"
+                    placeholder="jane@example.com" required="" type="email" />
+                </div>
+              </div>
+              <div>
+                <label class="block font-body-sm text-outline mb-1.5 font-medium" for="contact-subject">Subject</label>
+                <input id="contact-subject" name="subject"
+                  class="w-full rounded-xl bg-surface-container/40 border border-outline-variant text-on-surface placeholder:text-outline/50 px-space-sm py-3 focus:border-primary focus:ring-1 focus:ring-primary font-body-sm transition-all"
+                  placeholder="Internship Opportunity / Project Collaboration" required="" type="text" />
+              </div>
+              <div>
+                <label class="block font-body-sm text-outline mb-1.5 font-medium" for="contact-message">Message</label>
+                <textarea id="contact-message" name="message"
+                  class="w-full rounded-xl bg-surface-container/40 border border-outline-variant text-on-surface placeholder:text-outline/50 px-space-sm py-3 focus:border-primary focus:ring-1 focus:ring-primary font-body-sm transition-all"
+                  placeholder="Tell me about your project, timeline, and goals..." required="" rows="4"></textarea>
+              </div>
+              <div class="flex items-center justify-between pt-space-xs">
+                <button
+                  class="magnetic-btn px-space-xl py-3 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 glow-cyan transition-all duration-200 shadow-sm cursor-pointer"
+                  type="submit">
+                  Send Message
+                </button>
+                <span class="font-code text-sm text-primary hidden font-medium" id="form-status">Message logged
+                  successfully!</span>
+              </div>
+            </form>
+          </div>
+          <div class="lg:col-span-5 space-y-space-md">
+            <button
+              class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-75 p-space-lg rounded-2xl flex items-center gap-space-md hover:border-primary/40 transition-colors w-full text-left bg-surface-container-lowest border border-outline-variant cursor-pointer group"
+              onclick="copyToClipboard('contact@omgaikwad.dev', 'Email copied to clipboard!')">
+              <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform"
+                data-icon="mail">mail</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-code text-[11px] text-outline uppercase tracking-wider">Direct Email</span>
+                  <span class="font-code text-[11px] text-primary group-hover:underline">Click to Copy</span>
+                </div>
+                <h4 class="font-display text-xl text-on-surface font-semibold">contact@omgaikwad.dev</h4>
+              </div>
+            </button>
+            <a class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-150 p-space-lg rounded-2xl flex items-center gap-space-md hover:border-secondary/40 transition-colors block bg-surface-container-lowest border border-outline-variant group"
+              href="https://linkedin.com" rel="noreferrer" target="_blank">
+              <span class="material-symbols-outlined text-secondary text-3xl group-hover:scale-110 transition-transform"
+                data-icon="link">link</span>
+              <div>
+                <span class="font-code text-[11px] text-outline uppercase tracking-wider">LinkedIn Profile</span>
+                <h4 class="font-display text-xl text-on-surface font-semibold">om-samadhan-gaikwad</h4>
+              </div>
+            </a>
+            <a class="glass-panel spotlight-card tilt-card reveal-on-scroll delay-200 p-space-lg rounded-2xl flex items-center gap-space-md hover:border-outline-variant transition-colors block bg-surface-container-lowest border border-outline-variant group"
+              href="https://github.com" rel="noreferrer" target="_blank">
+              <span class="material-symbols-outlined text-outline text-3xl group-hover:scale-110 transition-transform"
+                data-icon="terminal">terminal</span>
+              <div>
+                <span class="font-code text-[11px] text-outline uppercase tracking-wider">Open Source</span>
+                <h4 class="font-display text-xl text-on-surface font-semibold">github.com/omgaikwad</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest text-primary border-t border-outline-variant/60 relative z-10">
+    <div
+      class="max-w-container-max mx-auto px-gutter-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md w-full">
+      <div class="flex flex-col md:flex-row items-center gap-2">
+        <span class="font-code text-code-md font-semibold text-on-surface">OM SAMADHAN GAIKWAD</span>
+        <span class="hidden md:inline text-outline">•</span>
+        <span class="font-body-sm text-on-surface-variant">Building the future, one project at a time.</span>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150"
+          href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+        <a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150"
+          href="https://linkedin.com" rel="noreferrer" target="_blank">LinkedIn</a>
+        <a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150"
+          href="https://twitter.com" rel="noreferrer" target="_blank">Twitter</a>
+        <a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150"
+          href="mailto:contact@omgaikwad.dev">Email</a>
+        <button class="font-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150 cursor-pointer"
+          onclick="openResumeModal()">Resume</button>
+      </div>
+      <div class="font-code text-[11px] text-outline text-center md:text-right">
+        © 2025 Om Samadhan Gaikwad. Engineered with precision. Build. Learn. Iterate.
+      </div>
+    </div>
+  </footer>
+  <!-- PROJECT DETAIL INTERACTIVE MODAL -->
+  <div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" id="project-modal"
+    onclick="handleModalBackdropClick(event)">
+    <div
+      class="glass-panel bg-surface-container-lowest max-w-3xl w-full rounded-3xl border border-outline-variant shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div class="p-space-lg border-b border-outline-variant/40 flex items-center justify-between bg-surface">
+        <div>
+          <h3 class="font-display text-2xl text-on-surface font-semibold" id="modal-title">Project Details</h3>
+          <p class="font-code text-[12px] text-primary mt-0.5" id="modal-category">Category</p>
+        </div>
+        <button
+          class="p-2 rounded-xl text-outline hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer"
+          onclick="closeProjectModal()">
+          <span class="material-symbols-outlined text-2xl" data-icon="close">close</span>
+        </button>
+      </div>
+      <div
+        class="flex border-b border-outline-variant/40 px-space-lg bg-surface-container-low font-body-sm overflow-x-auto scrollbar-none">
+        <button class="py-3 px-4 text-primary border-b-2 border-primary font-semibold transition-all cursor-pointer whitespace-nowrap flex-shrink-0"
+          id="tab-btn-overview" onclick="switchModalTab('overview')">Overview</button>
+        <button class="py-3 px-4 text-outline hover:text-on-surface font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0"
+          id="tab-btn-problem" onclick="switchModalTab('problem')">Problem &amp; Solution</button>
+        <button class="py-3 px-4 text-outline hover:text-on-surface font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0"
+          id="tab-btn-features" onclick="switchModalTab('features')">Key Features</button>
+        <button class="py-3 px-4 text-outline hover:text-on-surface font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0"
+          id="tab-btn-architecture" onclick="switchModalTab('architecture')">Architecture &amp; Tech</button>
+        <button class="py-3 px-4 text-outline hover:text-on-surface font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0"
+          id="tab-btn-learnings" onclick="switchModalTab('learnings')">Learnings</button>
+      </div>
+      <div class="p-space-lg overflow-y-auto font-body-md text-on-surface-variant flex-1 space-y-space-md bg-surface">
+        <div class="space-y-space-sm" id="modal-tab-overview">
+          <p class="text-base" id="modal-desc-text">Detailed overview goes here...</p>
+          <div class="p-4 rounded-2xl bg-surface-container border border-outline-variant/60 space-y-2">
+            <span class="font-code text-[11px] text-outline uppercase block font-semibold">Architecture
+              Highlights</span>
+            <div class="flex flex-wrap gap-1.5" id="modal-badges"></div>
+          </div>
+        </div>
+        <div class="hidden space-y-space-sm" id="modal-tab-problem">
+          <h4 class="font-display text-xl text-on-surface font-semibold">The Problem</h4>
+          <p class="text-base" id="modal-problem-text">Identified major operational delays and lack of verified data
+            channels.</p>
+          <h4 class="font-display text-xl text-on-surface font-semibold pt-2">The Solution</h4>
+          <p class="text-base" id="modal-solution-text">Architected automated dispatch pipelines paired with localized
+            AI verification.</p>
+        </div>
+        <div class="hidden space-y-space-sm" id="modal-tab-features">
+          <ul class="list-disc pl-5 space-y-2 text-base" id="modal-features-list"></ul>
+        </div>
+        <div class="hidden space-y-space-sm" id="modal-tab-architecture">
+          <p class="text-base" id="modal-arch-text">Client layer powered by responsive reactive UI with edge latency
+            buffers and asynchronous REST workers.</p>
+        </div>
+        <div class="hidden space-y-space-sm" id="modal-tab-learnings">
+          <p class="text-base" id="modal-learnings-text">Iterative profiling cut payload sizes by 40% while preserving
+            sub-100ms UI responsiveness.</p>
+        </div>
+      </div>
+      <div class="p-space-md border-t border-outline-variant/40 flex items-center justify-between gap-space-sm bg-surface">
+        <div class="flex items-center gap-2">
+          <a id="modal-repo-link" href="https://github.com" target="_blank" rel="noreferrer"
+            class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-code text-xs hover:border-primary hover:text-primary transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[15px]" data-icon="terminal">terminal</span>
+            <span>View GitHub Code</span>
+          </a>
+        </div>
+        <button
+          class="magnetic-btn px-space-md py-2 rounded-xl bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high transition-colors font-body-sm font-medium cursor-pointer"
+          onclick="closeProjectModal()">Close</button>
+      </div>
+    </div>
+  </div>
+  <!-- RESUME INTERACTIVE & PRINT MODAL -->
+  <div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6" id="resume-modal"
+    onclick="handleResumeBackdropClick(event)">
+    <div
+      class="glass-panel bg-surface-container-lowest max-w-4xl w-full rounded-3xl border border-outline-variant shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+      <!-- Modal Header -->
+      <div class="p-space-lg border-b border-outline-variant/40 flex items-center justify-between bg-surface no-print">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-2xl" data-icon="description">description</span>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl text-on-surface font-semibold">Om Samadhan Gaikwad</h3>
+            <p class="font-code text-[12px] text-primary">Curriculum Vitae • Full Stack &amp; AI Developer</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()"
+            class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+            title="Print or Save as PDF">
+            <span class="material-symbols-outlined text-[16px]" data-icon="print">print</span>
+            <span>Print / Save PDF</span>
+          </button>
+          <button
+            class="p-2 rounded-xl text-outline hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer"
+            onclick="closeResumeModal()" title="Close">
+            <span class="material-symbols-outlined text-2xl" data-icon="close">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Resume Body -->
+      <div class="p-space-xl overflow-y-auto font-body-md text-on-surface-variant flex-1 space-y-space-xl bg-surface-container-lowest">
+        <!-- Resume Top Header (Also visible in print) -->
+        <div class="border-b border-outline-variant/60 pb-space-lg flex flex-col md:flex-row md:items-start justify-between gap-4">
+          <div>
+            <h1 class="font-display text-3xl sm:text-4xl text-on-surface font-bold tracking-tight">Om Samadhan Gaikwad</h1>
+            <p class="font-code text-sm sm:text-base text-primary font-medium mt-1">Computer Engineering Undergraduate • Full Stack &amp; AI Developer</p>
+            <p class="font-body-sm text-outline mt-1">Pune, Maharashtra, India • contact@omgaikwad.dev</p>
+          </div>
+          <div class="font-code text-xs text-on-surface-variant space-y-1">
+            <div class="flex items-center gap-1.5">
+              <span class="text-primary font-semibold">GitHub:</span>
+              <a href="https://github.com" target="_blank" rel="noreferrer" class="underline hover:text-primary">github.com/omgaikwad</a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-primary font-semibold">LinkedIn:</span>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="underline hover:text-primary">linkedin.com/in/om-samadhan-gaikwad</a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-primary font-semibold">Portfolio:</span>
+              <span>omgaikwad.dev</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div>
+          <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-2 flex items-center gap-2">
+            <span>01 // Professional Summary</span>
+            <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
+          </h2>
+          <p class="font-body-sm text-on-surface leading-relaxed">
+            Passionate Computer Engineering student with a proven track record in architecting modern full-stack web and mobile applications integrated with Artificial Intelligence and LLM services. Recognized with the Best Project Designer Award for outstanding system architecture and user interface engineering. Experienced in building robust, performant software with React.js, Next.js, Node.js, Python, Flutter, and Google Gemini.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
+            <span>02 // Education</span>
+            <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
+          </h2>
+          <div class="space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 p-3 rounded-xl bg-surface-container/50 border border-outline-variant/40">
+              <div>
+                <h3 class="font-display text-lg text-on-surface font-semibold">Bachelor of Engineering — Computer Engineering</h3>
+                <p class="font-body-sm text-on-surface-variant">Smt. Kashibai Navale College of Engineering, Pune</p>
+              </div>
+              <div class="text-right">
+                <span class="font-code text-xs font-semibold text-primary block">CGPA: 9.23 / 10.00</span>
+                <span class="font-code text-[11px] text-outline">2025 — 2028</span>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 p-3 rounded-xl bg-surface-container/50 border border-outline-variant/40">
+              <div>
+                <h3 class="font-display text-lg text-on-surface font-semibold">Diploma in Computer Science Engineering</h3>
+                <p class="font-body-sm text-on-surface-variant">SNJB's Hiralal Hastimal Jain Brothers Polytechnic</p>
+              </div>
+              <div class="text-right">
+                <span class="font-code text-xs font-semibold text-secondary block">Percentage: 90.71% (Distinction)</span>
+                <span class="font-code text-[11px] text-outline">2022 — 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div>
+          <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
+            <span>03 // Experience</span>
+            <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
+          </h2>
+          <div class="space-y-4">
+            <div class="border-l-2 border-primary/60 pl-3.5 space-y-1">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <h3 class="font-display text-base text-on-surface font-semibold">Freelance Full Stack &amp; AI Developer</h3>
+                <span class="font-code text-xs text-primary">2025 — Present</span>
+              </div>
+              <p class="font-body-sm text-outline">Remote • Independent Software Practice</p>
+              <p class="font-body-sm text-on-surface">Designed and deployed responsive web and mobile applications using React, Next.js, Flutter, and Firebase. Engineered LLM prompt pipelines with Google Gemini for automated triage and dynamic evaluation.</p>
+            </div>
+            <div class="border-l-2 border-secondary/60 pl-3.5 space-y-1">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <h3 class="font-display text-base text-on-surface font-semibold">Full Stack Development Intern</h3>
+                <span class="font-code text-xs text-secondary">June 2024 — July 2024</span>
+              </div>
+              <p class="font-body-sm text-outline">Sumago Infotech Pvt. Ltd., Nashik</p>
+              <p class="font-body-sm text-on-surface">Developed Django-based web applications with robust MVC architecture and modern responsive interfaces. Awarded <strong>Best Project Designer Award</strong> for interface excellence and codebase cleanliness.</p>
+            </div>
+            <div class="border-l-2 border-outline/60 pl-3.5 space-y-1">
+              <div class="flex flex-wrap items-baseline justify-between gap-1">
+                <h3 class="font-display text-base text-on-surface font-semibold">IEEE Student Branch Member</h3>
+                <span class="font-code text-xs text-outline">2024 — Present</span>
+              </div>
+              <p class="font-body-sm text-outline">SKN IEEE Student Branch</p>
+              <p class="font-body-sm text-on-surface">Coordinated technical events, hackathons, and technology workshops focusing on software engineering and AI.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Projects -->
+        <div>
+          <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
+            <span>04 // Key Projects</span>
+            <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-surface-container/50 border border-outline-variant/40 space-y-1">
+              <h3 class="font-display text-base text-on-surface font-semibold">BloodLink AI</h3>
+              <p class="font-code text-[11px] text-primary">Flutter, React, Gemini API, Firebase</p>
+              <p class="font-body-sm text-on-surface-variant text-xs">AI blood donation radar with real-time geolocation matching and autonomous emergency dispatch.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-surface-container/50 border border-outline-variant/40 space-y-1">
+              <h3 class="font-display text-base text-on-surface font-semibold">FarmConnect</h3>
+              <p class="font-code text-[11px] text-secondary">React, Node, Express, MongoDB</p>
+              <p class="font-body-sm text-on-surface-variant text-xs">Peer-to-peer agricultural marketplace eliminating middlemen with instant settlement and price trends.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-surface-container/50 border border-outline-variant/40 space-y-1">
+              <h3 class="font-display text-base text-on-surface font-semibold">InterviewAI</h3>
+              <p class="font-code text-[11px] text-tertiary">Next.js, Gemini API, Tailwind</p>
+              <p class="font-body-sm text-on-surface-variant text-xs">AI-driven mock interview simulation with real-time question generation and structured STAR feedback.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div>
+          <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
+            <span>05 // Technical Toolkit</span>
+            <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-code">
+            <div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/30">
+              <span class="text-primary block font-semibold mb-1">Languages:</span>
+              <p class="text-on-surface-variant">Java, Python, JavaScript, C, C++</p>
+            </div>
+            <div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/30">
+              <span class="text-primary block font-semibold mb-1">Frontend:</span>
+              <p class="text-on-surface-variant">React, Next.js, Flutter, Tailwind, HTML5/CSS3</p>
+            </div>
+            <div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/30">
+              <span class="text-primary block font-semibold mb-1">Backend &amp; DB:</span>
+              <p class="text-on-surface-variant">Node.js, Express, Django, MongoDB, MySQL, Firebase</p>
+            </div>
+            <div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/30">
+              <span class="text-primary block font-semibold mb-1">AI &amp; Tools:</span>
+              <p class="text-on-surface-variant">Gemini API, GenAI, Git, GitHub, VS Code, Postman</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications & Awards -->
+        <div>
+          <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-2 flex items-center gap-2">
+            <span>06 // Accreditations &amp; Honors</span>
+            <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
+          </h2>
+          <ul class="list-disc pl-5 font-body-sm text-on-surface-variant space-y-1 text-xs sm:text-sm">
+            <li><strong>Best Project Designer Award:</strong> Sumago Infotech Pvt. Ltd. (2024)</li>
+            <li><strong>Full Stack Python Development with Django:</strong> Sumago Infotech (2024)</li>
+            <li><strong>Getting Python Interview Ready:</strong> Simplilearn SkillUP (2024)</li>
+            <li><strong>Python for Data Science:</strong> Intellipaat Academy (2024)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-space-md border-t border-outline-variant/40 flex items-center justify-between bg-surface no-print">
+        <span class="font-code text-xs text-outline">Verified Academic &amp; Project Record</span>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()"
+            class="px-4 py-2 rounded-xl bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 transition-all shadow-xs cursor-pointer flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]" data-icon="print">print</span>
+            <span>Print / Save as PDF</span>
+          </button>
+          <button
+            class="magnetic-btn px-space-md py-2 rounded-xl bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high transition-colors font-body-sm font-medium cursor-pointer"
+            onclick="closeResumeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- PROJECT DATA ---
+    const projectData = {
+      bloodlink: {
+        title: "BloodLink AI",
+        category: "AI • Healthcare • Full Stack • Mobile",
+        desc: "An AI-powered blood donation platform connecting donors, hospitals and recipients with real-time location tracking and AI-assisted emergency support.",
+        tags: ["Flutter", "React.js", "Firebase", "Python", "Google Gemini API", "OpenStreetMap API"],
+        github: "https://github.com/omgaikwad/BloodLink-AI",
+        problem: "During critical emergencies, identifying matching rare blood groups within short transit windows often fails due to fragmented manual phone calls and unverified donor availability.",
+        solution: "BloodLink AI automates real-time proximity broadcasting with verified health criteria verification powered by Gemini API, routing donors and drivers safely with zero downtime.",
+        features: [
+          "Real-time geographic radar utilizing OpenStreetMap coordinates.",
+          "Autonomous emergency dispatch with automated triage.",
+          "AI-driven donor eligibility screening via Gemini 1.5 Pro.",
+          "Cross-platform mobile and responsive administrative portals."
+        ],
+        arch: "Flutter client frontend communicates via Firebase Firestore real-time listeners and Python FastAPI microservices, delegating inference tasks to Google Gemini endpoints.",
+        learnings: "Achieved zero-latency map rendering on mobile hardware and learned advanced geospatial indexing techniques."
+      },
+      farmconnect: {
+        title: "FarmConnect",
+        category: "Full Stack • Marketplace • Web",
+        desc: "A digital marketplace connecting farmers directly with buyers, featuring secure authentication, product listings and order management.",
+        tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Firebase"],
+        github: "https://github.com/omgaikwad/FarmConnect",
+        problem: "Traditional supply chains inflict high broker fee margins on rural farmers while obscuring accurate retail consumer pricing.",
+        solution: "FarmConnect deploys a peer-to-peer digital commodity bazaar with instant escrow clearing, verifiable harvest certificates, and direct transport logistics.",
+        features: [
+          "Multi-tenant role architecture for farmers, wholesale buyers, and drivers.",
+          "Real-time market price index based on local APMC mandis.",
+          "Order processing flow with verified delivery receipts.",
+          "Lightweight design targeted for low-bandwidth mobile networks."
+        ],
+        arch: "React Single Page Application backed by Node/Express RESTful services, MongoDB cluster for catalog storage, and Firebase Authentication.",
+        learnings: "Implemented multi-tenant schema partitioning and optimized image compression for agricultural photo uploads in 2G/3G networks."
+      },
+      interviewai: {
+        title: "InterviewAI",
+        category: "AI • Generative AI • EdTech",
+        desc: "An AI-powered mock interview platform offering HR, technical and behavioral interviews with AI-generated questions, real-time evaluation and personalized feedback.",
+        tags: ["Next.js", "React.js", "Google Gemini API", "Firebase", "Tailwind CSS"],
+        github: "https://github.com/omgaikwad/InterviewAI",
+        problem: "Engineering students and junior job seekers often lack access to senior interviewers for mock practice and rigorous critique.",
+        solution: "InterviewAI emulates adaptive senior hiring engineers, generating live follow-up questions customized to user answers, along with structured STAR evaluations.",
+        features: [
+          "Dynamic question generation adapted in real-time to candidate responses.",
+          "Speech synthesis and audio transcription integration.",
+          "Deep feedback breakdown with strengths, technical gaps, and STAR formatting tips.",
+          "Historical performance tracking across multiple domains (Backend, Systems, HR)."
+        ],
+        arch: "Next.js App Router front-end, Google Gemini 1.5 streaming completions via Server-Sent Events (SSE), and Firebase session persistence.",
+        learnings: "Mastered LLM token streaming callbacks, prompt orchestration, and mitigating conversational drift in long-context interviews."
+      }
+    };
+
+    let activeProjectKey = 'bloodlink';
+
+    // --- MOBILE NAVIGATION CONTROLLERS ---
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (!mobileNav) return;
+      const isOpen = !mobileNav.classList.contains('hidden');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        mobileNav.classList.remove('hidden');
+        if (icon) icon.textContent = 'close';
+      }
+    }
+
+    function closeMobileMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (mobileNav) {
+        mobileNav.classList.add('hidden');
+      }
+      if (icon) icon.textContent = 'menu';
+    }
+
+    // Auto close mobile menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        closeMobileMenu();
+      }
+    });
+
+    // --- RESUME MODAL CONTROLLERS ---
+    function openResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      requestAnimationFrame(() => {
+        modal.classList.add('modal-active');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      if (!modal) return;
+      modal.classList.remove('modal-active');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        // Restore body scroll only if project modal is also closed
+        const projModal = document.getElementById('project-modal');
+        if (!projModal || projModal.classList.contains('hidden')) {
+          document.body.style.overflow = '';
+        }
+      }, 250);
+    }
+
+    function handleResumeBackdropClick(e) {
+      if (e.target.id === 'resume-modal') {
+        closeResumeModal();
+      }
+    }
+
+    // --- PROJECT MODAL CONTROLLERS ---
+    function openProjectModal(key) {
+      activeProjectKey = key;
+      const data = projectData[key];
+      if (!data) return;
+
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-category').textContent = data.category;
+      document.getElementById('modal-desc-text').textContent = data.desc;
+      document.getElementById('modal-problem-text').textContent = data.problem;
+      document.getElementById('modal-solution-text').textContent = data.solution;
+      document.getElementById('modal-arch-text').textContent = data.arch;
+      document.getElementById('modal-learnings-text').textContent = data.learnings;
+
+      const repoLink = document.getElementById('modal-repo-link');
+      if (repoLink && data.github) {
+        repoLink.href = data.github;
+      }
+
+      const badgeContainer = document.getElementById('modal-badges');
+      badgeContainer.innerHTML = '';
+      data.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'skill-badge px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface font-code text-[11px] border border-outline-variant/40';
+        span.textContent = tag;
+        badgeContainer.appendChild(span);
+      });
+
+      const featureList = document.getElementById('modal-features-list');
+      featureList.innerHTML = '';
+      data.features.forEach(f => {
+        const li = document.createElement('li');
+        li.textContent = f;
+        featureList.appendChild(li);
+      });
+
+      switchModalTab('overview');
+      const modal = document.getElementById('project-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // Trigger smooth spring fade
+      requestAnimationFrame(() => {
+        modal.classList.add('modal-active');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('project-modal');
+      if (!modal) return;
+      modal.classList.remove('modal-active');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        const resumeModal = document.getElementById('resume-modal');
+        if (!resumeModal || resumeModal.classList.contains('hidden')) {
+          document.body.style.overflow = '';
+        }
+      }, 250);
+    }
+
+    function handleModalBackdropClick(e) {
+      if (e.target.id === 'project-modal') {
+        closeProjectModal();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeProjectModal();
+        closeResumeModal();
+        closeMobileMenu();
+      }
+    });
+
+    function switchModalTab(tabName) {
+      const tabs = ['overview', 'problem', 'features', 'architecture', 'learnings'];
+      tabs.forEach(t => {
+        const tabEl = document.getElementById(`modal-tab-${t}`);
+        const btnEl = document.getElementById(`tab-btn-${t}`);
+        if (!tabEl || !btnEl) return;
+        if (t === tabName) {
+          tabEl.classList.remove('hidden');
+          btnEl.className = 'py-3 px-4 text-primary border-b-2 border-primary font-semibold transition-all cursor-pointer whitespace-nowrap flex-shrink-0';
+        } else {
+          tabEl.classList.add('hidden');
+          btnEl.className = 'py-3 px-4 text-outline hover:text-on-surface font-medium transition-all cursor-pointer whitespace-nowrap flex-shrink-0';
+        }
+      });
+    }
+
+    // --- ULTRA-SMOOTH STICKY PROJECT CARDS SCROLL OVERRIDE ANIMATION (60-120fps) ---
+    const stackWrappers = document.querySelectorAll('.project-card-wrapper');
+    const projectsSec = document.getElementById('projects');
+    let stackTicking = false;
+
+    function updateCardStacking() {
+      if (!stackWrappers.length || !projectsSec) return;
+
+      const pRect = projectsSec.getBoundingClientRect();
+      // Skip loop if user is scrolled away from projects
+      if (pRect.bottom < 0 || pRect.top > window.innerHeight) return;
+
+      for (let i = 0; i < stackWrappers.length - 1; i++) {
+        const wrapper = stackWrappers[i];
+        if (wrapper.style.display === 'none') {
+          wrapper.style.transform = '';
+          continue;
+        }
+
+        // Find next visible wrapper
+        let nextWrapper = null;
+        for (let j = i + 1; j < stackWrappers.length; j++) {
+          if (stackWrappers[j].style.display !== 'none') {
+            nextWrapper = stackWrappers[j];
+            break;
+          }
+        }
+        if (!nextWrapper) continue;
+
+        const currentRect = wrapper.getBoundingClientRect();
+        const nextRect = nextWrapper.getBoundingClientRect();
+        const overlap = currentRect.bottom - nextRect.top;
+
+        if (overlap > 0 && nextRect.top < currentRect.bottom) {
+          const progress = Math.min(Math.max(overlap / (currentRect.height * 0.7), 0), 1);
+          // Pure 3D hardware-accelerated transform: 0 repaints, instant GPU composite
+          const scale = 1 - (progress * 0.05);
+          wrapper.style.transform = `translate3d(0, 0, 0) scale(${scale})`;
+        } else {
+          wrapper.style.transform = 'translate3d(0, 0, 0) scale(1)';
+        }
+      }
+    }
+
+    function onScrollStack() {
+      if (!stackTicking) {
+        requestAnimationFrame(() => {
+          updateCardStacking();
+          stackTicking = false;
+        });
+        stackTicking = true;
+      }
+    }
+    window.addEventListener('scroll', onScrollStack, { passive: true });
+    updateCardStacking();
+
+    // --- PROJECT CATEGORY FILTERS (With Stacking Support) ---
+    function setupProjectFilters() {
+      const filterBtns = document.querySelectorAll('.project-filter-btn');
+      const wrappers = document.querySelectorAll('.project-card-wrapper');
+      if (!filterBtns.length || !wrappers.length) return;
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+
+          // Update active button state
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'bg-primary', 'text-on-primary', 'shadow-xs');
+            b.classList.add('bg-surface-container', 'text-on-surface-variant', 'border', 'border-outline-variant/60');
+          });
+          btn.classList.add('active', 'bg-primary', 'text-on-primary', 'shadow-xs');
+          btn.classList.remove('bg-surface-container', 'text-on-surface-variant', 'border-outline-variant/60');
+
+          // Filter wrappers with smooth fade & update stack positions
+          wrappers.forEach(wrapper => {
+            const categories = wrapper.getAttribute('data-categories') || '';
+            const match = filter === 'all' || categories.split(' ').includes(filter);
+
+            if (match) {
+              wrapper.style.display = '';
+              requestAnimationFrame(() => {
+                wrapper.style.opacity = '1';
+                wrapper.style.transform = '';
+              });
+            } else {
+              wrapper.style.opacity = '0';
+              setTimeout(() => {
+                const currentFilter = btn.getAttribute('data-filter');
+                if (currentFilter !== 'all' && !categories.split(' ').includes(currentFilter)) {
+                  wrapper.style.display = 'none';
+                  onScrollStack();
+                }
+              }, 200);
+            }
+          });
+
+          setTimeout(onScrollStack, 250);
+        });
+      });
+    }
+
+    // --- FORM SUBMISSION & TOAST NOTIFICATION ---
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.textContent : 'Send Message';
+      const status = document.getElementById('form-status');
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Message Sent! ✓';
+        }
+        if (status) {
+          status.textContent = 'Message sent successfully!';
+          status.classList.remove('hidden');
+        }
+        showToast("Thank you! Your message has been received.");
+
+        setTimeout(() => {
+          if (submitBtn) submitBtn.textContent = originalText;
+          if (status) status.classList.add('hidden');
+          form.reset();
+        }, 3000);
+      }, 700);
+    }
+
+    function copyToClipboard(text, message = 'Copied to clipboard!') {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(message);
+        }).catch(() => {
+          showToast(text);
+        });
+      } else {
+        showToast(message);
+      }
+    }
+
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const text = document.getElementById('toast-text');
+      if (!toast || !text) return;
+      text.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // --- SCROLL PROGRESS & BACK TO TOP ---
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? Math.min(1, Math.max(0, scrollTop / scrollHeight)) : 0;
+
+      // Top progress bar
+      const progressBar = document.getElementById('scroll-progress');
+      if (progressBar) {
+        progressBar.style.width = `${progress * 100}%`;
+      }
+
+      // Back to top circular ring
+      const bttBtn = document.getElementById('back-to-top');
+      if (bttBtn) {
+        const ring = bttBtn.querySelector('circle.progress-ring');
+        if (ring) {
+          const offset = 138 - (progress * 138);
+          ring.style.strokeDashoffset = offset;
+        }
+        if (scrollTop > 350) {
+          bttBtn.classList.add('visible');
+        } else {
+          bttBtn.classList.remove('visible');
+        }
+      }
+    }, { passive: true });
+
+    // --- ACCURATE ACTIVE NAVIGATION TRACKER ---
+    const navSections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + 160;
+      let currentSectionId = 'home';
+
+      navSections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentSectionId}`) {
+          link.className = 'nav-link text-primary font-medium border-b-2 border-primary pb-0.5 font-body-sm transition-all duration-200';
+        } else {
+          link.className = 'nav-link text-on-surface-variant hover:text-primary transition-colors font-body-sm pb-0.5 border-b-2 border-transparent';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    // --- SCROLL REVEALS (IntersectionObserver & Immediate Viewport Check) ---
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-scale, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 80px 0px' });
+
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 50 && rect.bottom > -50) {
+        requestAnimationFrame(() => {
+          el.classList.add('is-revealed');
+        });
+      } else {
+        revealObserver.observe(el);
+      }
+    });
+
+    // --- ANIMATED NUMBER COUNTERS ---
+    let statsCounted = false;
+    function runCounters() {
+      if (statsCounted) return;
+      statsCounted = true;
+      document.querySelectorAll('.stat-number').forEach(stat => {
+        const target = parseFloat(stat.getAttribute('data-target'));
+        const decimals = parseInt(stat.getAttribute('data-decimals') || '0', 10);
+        const suffix = stat.getAttribute('data-suffix') || '';
+        const duration = 1800; // ms
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const currentVal = easeOut * target;
+          stat.textContent = currentVal.toFixed(decimals) + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            stat.textContent = target.toFixed(decimals) + suffix;
+          }
+        }
+        requestAnimationFrame(updateCounter);
+      });
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          runCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const statsSection = document.getElementById('stats-section');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+      const sRect = statsSection.getBoundingClientRect();
+      if (sRect.top < window.innerHeight && sRect.bottom > 0) {
+        setTimeout(runCounters, 350);
+      }
+    }
+
+    // --- DYNAMIC SPOTLIGHT & TACTILE 3D TILT (Optimized with RAF) ---
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+      let isTilting = false;
+      card.addEventListener('mousemove', (e) => {
+        if (!isTilting) {
+          requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+
+            if (card.classList.contains('tilt-card')) {
+              const cx = rect.width / 2;
+              const cy = rect.height / 2;
+              const dx = (x - cx) / cx;
+              const dy = (y - cy) / cy;
+              card.style.transform = `perspective(850px) rotateX(${-dy * 5}deg) rotateY(${dx * 5}deg) translateY(-4px)`;
+            }
+            isTilting = false;
+          });
+          isTilting = true;
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', '-999px');
+        card.style.setProperty('--mouse-y', '-999px');
+        if (card.classList.contains('tilt-card')) {
+          card.style.transform = '';
+        }
+      });
+    });
+
+    // --- MAGNETIC BUTTONS (Fluid spring pull) ---
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+        btn.style.transform = `translate3d(${x * 0.32}px, ${y * 0.32}px, 0) scale(1.02)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate3d(0, 0, 0) scale(1)';
+      });
+    });
+
+    // Global mouse tracker for particles and cursor
+    let globalMouseX = -999;
+    let globalMouseY = -999;
+    window.addEventListener('mousemove', (e) => {
+      globalMouseX = e.clientX;
+      globalMouseY = e.clientY;
+    }, { passive: true });
+
+    // --- CUSTOM DESIGNER CURSOR (Fluid Lerp & Expanding Ring) ---
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+
+    if (cursorDot && cursorRing) {
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let ringX = mouseX;
+      let ringY = mouseY;
+      let isVisible = false;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible) {
+          isVisible = true;
+          cursorDot.style.opacity = '1';
+          cursorRing.style.opacity = '1';
+        }
+        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      });
+
+      function renderCursor() {
+        // Smooth lerp physics
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+        cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(renderCursor);
+      }
+      requestAnimationFrame(renderCursor);
+
+      // Cursor expansion on interactive elements
+      const interactiveTargets = document.querySelectorAll('a, button, select, .skill-badge, .spotlight-card, [role="button"]');
+      interactiveTargets.forEach(target => {
+        target.addEventListener('mouseenter', () => {
+          cursorRing.classList.add('cursor-hover');
+        });
+        target.addEventListener('mouseleave', () => {
+          cursorRing.classList.remove('cursor-hover');
+        });
+      });
+
+      // Special viewing cursor on images
+      document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('mouseenter', () => {
+          cursorRing.classList.add('cursor-view');
+        });
+        img.addEventListener('mouseleave', () => {
+          cursorRing.classList.remove('cursor-view');
+        });
+      });
+
+      // Hide custom cursor ring over text inputs for clean caret visibility
+      document.querySelectorAll('input, textarea').forEach(input => {
+        input.addEventListener('mouseenter', () => {
+          cursorDot.style.opacity = '0';
+          cursorRing.style.opacity = '0';
+        });
+        input.addEventListener('mouseleave', () => {
+          if (isVisible) {
+            cursorDot.style.opacity = '1';
+            cursorRing.style.opacity = '1';
+          }
+        });
+      });
+
+      window.addEventListener('mousedown', () => {
+        cursorDot.classList.add('cursor-active');
+        cursorRing.classList.add('cursor-active');
+      });
+      window.addEventListener('mouseup', () => {
+        cursorDot.classList.remove('cursor-active');
+        cursorRing.classList.remove('cursor-active');
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursorDot.style.opacity = '0';
+        cursorRing.style.opacity = '0';
+        isVisible = false;
+        globalMouseX = -999;
+        globalMouseY = -999;
+      });
+    }
+
+    // --- INTERACTIVE AMBIENT CONSTELLATION PARTICLES ---
+    const canvas = document.getElementById('ambient-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      const particleCount = 42;
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        if (ctx.resetTransform) {
+          ctx.resetTransform();
+        } else {
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+        }
+        ctx.scale(dpr, dpr);
+      }
+      window.addEventListener('resize', resize, { passive: true });
+      resize();
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.55;
+          this.vy = (Math.random() - 0.5) * 0.55;
+          this.radius = Math.random() * 2.2 + 1.2;
+          this.alpha = Math.random() * 0.35 + 0.15;
+          // Sienna, warm ember, or golden accent
+          const r = Math.random();
+          if (r > 0.6) {
+            this.color = '194, 101, 42'; // Primary sienna
+          } else if (r > 0.3) {
+            this.color = '224, 136, 80'; // Primary container
+          } else {
+            this.color = '140, 60, 60'; // Tertiary rose
+          }
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0) this.x = width;
+          if (this.x > width) this.x = 0;
+          if (this.y < 0) this.y = height;
+          if (this.y > height) this.y = 0;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        if (!document.hidden) {
+          ctx.clearRect(0, 0, width, height);
+
+          // Draw particles & interconnecting constellation filaments
+          for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+
+            // Connect nearby particles
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 135) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                const lineAlpha = 0.14 * (1 - dist / 135);
+                ctx.strokeStyle = `rgba(194, 101, 42, ${lineAlpha})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+              }
+            }
+
+            // Interactive filament link to mouse cursor
+            if (globalMouseX > 0 && globalMouseY > 0) {
+              const mdx = particles[i].x - globalMouseX;
+              const mdy = particles[i].y - globalMouseY;
+              const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+              if (mdist < 155) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(globalMouseX, globalMouseY);
+                const mAlpha = 0.22 * (1 - mdist / 155);
+                ctx.strokeStyle = `rgba(194, 101, 42, ${mAlpha})`;
+                ctx.lineWidth = 1.25;
+                ctx.stroke();
+              }
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    }
+
+    // Initialize Project Filters on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      setupProjectFilters();
+    });
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      setupProjectFilters();
+    }
+  </script>
+</body>
+
+</html>
