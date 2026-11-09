@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Niconne&amp;family=Montez&amp;family=Courgette&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script id="tailwind-config">
@@ -29,20 +29,20 @@
             "surface-container": "#222429",
             "surface-container-high": "#2A2C32",
             "surface-container-highest": "#33363E",
-            "surface-tint": "#FFC928",
+            "surface-tint": "#E5A800",
 
             "on-background": "#F2F4F1",
             "on-surface": "#F2F4F1",
-            "on-surface-variant": "#A2A6AD",
-            "outline": "#6B7078",
+            "on-surface-variant": "#EAECE8",
+            "outline": "#B4B9B1",
             "outline-variant": "rgba(255, 255, 255, 0.10)",
 
-            "primary": "#FFC928",
+            "primary": "#E5A800",
             "on-primary": "#141517",
             "primary-container": "#3A3010",
-            "on-primary-container": "#FFE58A",
-            "primary-fixed": "#FFC928",
-            "primary-fixed-dim": "#E5B320",
+            "on-primary-container": "#F5D070",
+            "primary-fixed": "#E5A800",
+            "primary-fixed-dim": "#C89200",
             "on-primary-fixed": "#141517",
             "on-primary-fixed-variant": "#4A3E15",
 
@@ -55,11 +55,11 @@
             "on-secondary-fixed": "#F2F4F1",
             "on-secondary-fixed-variant": "#C4C8C2",
 
-            "tertiary": "#FFD452",
+            "tertiary": "#D49B00",
             "on-tertiary": "#141517",
             "tertiary-container": "#3D3414",
-            "on-tertiary-container": "#FFECA3",
-            "tertiary-fixed": "#FFD452",
+            "on-tertiary-container": "#F8DE90",
+            "tertiary-fixed": "#D49B00",
             "tertiary-fixed-dim": "#E8BE3B",
             "on-tertiary-fixed": "#141517",
             "on-tertiary-fixed-variant": "#4E4218",
@@ -71,7 +71,7 @@
 
             "inverse-surface": "#F2F4F1",
             "inverse-on-surface": "#1C1D20",
-            "inverse-primary": "#FFC928"
+            "inverse-primary": "#E5A800"
           },
           "borderRadius": {
             "DEFAULT": "0.25rem",
@@ -95,16 +95,20 @@
             "gutter-mobile": "1.25rem"
           },
           "fontFamily": {
+            "niconne": ["Niconne", "cursive"],
+            "montez": ["Niconne", "cursive"],
+            "courgette": ["Montez", "cursive"],
             "display": ["EB Garamond", "serif"],
             "headline": ["EB Garamond", "serif"],
             "display-hero": ["EB Garamond", "serif"],
             "headline-lg": ["EB Garamond", "serif"],
             "headline-md": ["EB Garamond", "serif"],
             "headline-sm": ["EB Garamond", "serif"],
-            "body": ["Manrope", "sans-serif"],
-            "body-lg": ["Manrope", "sans-serif"],
-            "body-md": ["Manrope", "sans-serif"],
-            "body-sm": ["Manrope", "sans-serif"],
+            "body": ["EB Garamond", "serif"],
+            "body-lg": ["EB Garamond", "serif"],
+            "body-md": ["EB Garamond", "serif"],
+            "body-sm": ["EB Garamond", "serif"],
+            "garamond": ["EB Garamond", "serif"],
             "code": ["JetBrains Mono", "monospace"],
             "code-lg": ["JetBrains Mono", "monospace"],
             "code-md": ["JetBrains Mono", "monospace"],
@@ -129,6 +133,60 @@
     }
   </script>
   <style>
+    /* EB Garamond - High-Visibility Information & Reading Font */
+    .eb-garamond-regular,
+    .font-body,
+    .font-body-lg,
+    .font-body-md,
+    .font-body-sm,
+    .font-body-lg p,
+    .font-body-md p,
+    .font-body-sm p {
+      font-family: "EB Garamond", serif !important;
+      font-optical-sizing: auto;
+    }
+
+    /* Highly Visible, Warm Contrast Information Text */
+    p.font-body-lg,
+    p.font-body-md,
+    p.font-body-sm,
+    .font-body-lg p,
+    .font-body-md p,
+    .font-body-sm p,
+    .text-on-surface-variant {
+      color: #EAECE8 !important;
+    }
+
+    .text-outline {
+      color: #B4B9B1 !important;
+    }
+
+
+    /* Niconne Regular - Stylish Header Font with White & Dark Yellow Mixing Color */
+    .niconne-regular, .niconne-regular, .courgette-regular {
+      font-family: "Niconne", cursive !important;
+      font-weight: 400;
+      font-style: normal;
+      background: linear-gradient(135deg, #FFFFFF 15%, #FFF0BA 48%, #E5A800 82%, #C89200 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    /* Generic White and Yellow Mixed Color Gradient for Headers */
+    .mix-white-yellow {
+      background: linear-gradient(135deg, #FFFFFF 15%, #FFF0BA 48%, #E5A800 82%, #C89200 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+      display: inline-block;
+      max-width: 100%;
+    }
+
     /* Prevent horizontal overflow while ensuring position: sticky works 100% reliably */
     html, body {
       overflow-x: clip !important;
@@ -179,13 +237,13 @@
       top: 0;
       left: 0;
       height: 3px;
-      background: linear-gradient(90deg, #FFC928, #FFE27A, #FFB800, #FFC928);
+      background: linear-gradient(90deg, #E5A800, #F0C048, #FFB800, #E5A800);
       background-size: 300% 100%;
       animation: gradientFlow 6s ease infinite;
       z-index: 100;
       width: 0%;
       transition: width 0.08s cubic-bezier(0.1, 0.9, 0.2, 1);
-      box-shadow: 0 0 14px rgba(255, 201, 40, 0.65);
+      box-shadow: 0 0 14px rgba(229, 168, 0, 0.65);
     }
 
     @keyframes gradientFlow {
@@ -231,13 +289,13 @@
         left: 0;
         width: 8px;
         height: 8px;
-        background-color: #FFC928;
+        background-color: #E5A800;
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
         transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
-        box-shadow: 0 0 12px rgba(255, 201, 40, 0.75);
+        box-shadow: 0 0 12px rgba(229, 168, 0, 0.75);
       }
 
       .cursor-ring {
@@ -246,7 +304,7 @@
         left: 0;
         width: 36px;
         height: 36px;
-        border: 1.5px solid rgba(255, 201, 40, 0.45);
+        border: 1.5px solid rgba(229, 168, 0, 0.45);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9998;
@@ -261,15 +319,15 @@
       .cursor-ring.cursor-hover {
         width: 54px;
         height: 54px;
-        border-color: rgba(255, 201, 40, 0.9);
-        background-color: rgba(255, 201, 40, 0.10);
+        border-color: rgba(229, 168, 0, 0.9);
+        background-color: rgba(229, 168, 0, 0.10);
       }
 
       .cursor-ring.cursor-view {
         width: 72px;
         height: 72px;
-        border-color: #FFC928;
-        background-color: rgba(255, 201, 40, 0.15);
+        border-color: #E5A800;
+        background-color: rgba(229, 168, 0, 0.15);
       }
 
       .cursor-dot.cursor-active {
@@ -310,7 +368,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 201, 40, 0.16), rgba(255, 201, 40, 0.03) 45%, transparent 70%);
+      background: radial-gradient(420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(229, 168, 0, 0.16), rgba(229, 168, 0, 0.03) 45%, transparent 70%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -323,13 +381,13 @@
     }
 
     .spotlight-card:hover {
-      border-color: rgba(255, 201, 40, 0.45);
+      border-color: rgba(229, 168, 0, 0.45);
       transform: translateY(-5px);
-      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(255, 201, 40, 0.18);
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(229, 168, 0, 0.18);
     }
 
     .glow-cyan {
-      box-shadow: 0 0 35px -8px rgba(255, 201, 40, 0.25);
+      box-shadow: 0 0 35px -8px rgba(229, 168, 0, 0.25);
     }
 
     .glow-violet {
@@ -389,7 +447,7 @@
 
     /* Shimmer Text Effect - Bright sunshine yellow luxury sweep */
     .shimmer-text {
-      background: linear-gradient(110deg, #F2F4F1 0%, #FFC928 35%, #FFFFFF 50%, #FFC928 65%, #F2F4F1 100%);
+      background: linear-gradient(110deg, #F2F4F1 0%, #E5A800 35%, #FFFFFF 50%, #E5A800 65%, #F2F4F1 100%);
       background-size: 220% 100%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -500,10 +558,10 @@
 
     .skill-badge:hover {
       transform: translateY(-2.5px) scale(1.05);
-      border-color: rgba(255, 201, 40, 0.5) !important;
-      background: rgba(255, 201, 40, 0.14) !important;
-      color: #FFC928 !important;
-      box-shadow: 0 4px 14px rgba(255, 201, 40, 0.22);
+      border-color: rgba(229, 168, 0, 0.5) !important;
+      background: rgba(229, 168, 0, 0.14) !important;
+      color: #E5A800 !important;
+      box-shadow: 0 4px 14px rgba(229, 168, 0, 0.22);
     }
 
     /* BloodLink Cyber Grid & Circuit Emblem Theme */
@@ -607,11 +665,11 @@
       width: 320px;
       height: 320px;
       border-radius: 50%;
-      background: conic-gradient(from 0deg at 50% 50%, rgba(255, 201, 40, 0.4) 0deg, rgba(255, 201, 40, 0.05) 60deg, transparent 75deg);
+      background: conic-gradient(from 0deg at 50% 50%, rgba(229, 168, 0, 0.4) 0deg, rgba(229, 168, 0, 0.05) 60deg, transparent 75deg);
       animation: radar-sweep 4s linear infinite;
       pointer-events: none;
-      border: 1px dashed rgba(255, 201, 40, 0.35);
-      box-shadow: inset 0 0 40px rgba(255, 201, 40, 0.08);
+      border: 1px dashed rgba(229, 168, 0, 0.35);
+      box-shadow: inset 0 0 40px rgba(229, 168, 0, 0.08);
     }
 
     /* Floating Back To Top Button */
@@ -645,9 +703,9 @@
 
     #back-to-top:hover {
       transform: translateY(-3px);
-      border-color: #FFC928;
-      color: #FFC928;
-      box-shadow: 0 12px 28px -4px rgba(255, 201, 40, 0.35);
+      border-color: #E5A800;
+      color: #E5A800;
+      box-shadow: 0 12px 28px -4px rgba(229, 168, 0, 0.35);
     }
 
     @media (max-width: 640px) {
@@ -693,7 +751,7 @@
       z-index: 9999;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
-      border: 1px solid rgba(255, 201, 40, 0.3);
+      border: 1px solid rgba(229, 168, 0, 0.3);
     }
 
     #toast-notification.show {
@@ -735,6 +793,14 @@
       }
     }
 
+    /* Print styles for Resume */
+    @media print {
+      .niconne-regular, .niconne-regular, .mix-white-yellow {
+        -webkit-text-fill-color: #111111 !important;
+        color: #111111 !important;
+        background: none !important;
+      }
+    }
     /* Print styles for Resume */
     @media print {
       body {
@@ -841,10 +907,10 @@
   <!-- Background Floating Light Gradients (Cinematic Spotlight and Atmospheric Glows) -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
     <!-- Top-Right Dramatic Cinematic Light Shaft (matching dark editorial hero reference) -->
-    <div class="absolute -top-[10%] right-[10%] w-[48rem] h-[58rem] rounded-full bg-[radial-gradient(ellipse_at_top,rgba(255,201,40,0.08)_0%,rgba(242,244,241,0.02)_40%,transparent_70%)] rotate-12 pointer-events-none"></div>
-    <div class="absolute top-[8%] left-[4%] w-[28rem] h-[28rem] rounded-full bg-[radial-gradient(circle,rgba(255,201,40,0.06)_0%,transparent_70%)] animate-float"></div>
+    <div class="absolute -top-[10%] right-[10%] w-[48rem] h-[58rem] rounded-full bg-[radial-gradient(ellipse_at_top,rgba(229,168,0,0.08)_0%,rgba(242,244,241,0.02)_40%,transparent_70%)] rotate-12 pointer-events-none"></div>
+    <div class="absolute top-[8%] left-[4%] w-[28rem] h-[28rem] rounded-full bg-[radial-gradient(circle,rgba(229,168,0,0.06)_0%,transparent_70%)] animate-float"></div>
     <div class="absolute top-[38%] right-[6%] w-[32rem] h-[32rem] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_70%)] animate-float-reverse"></div>
-    <div class="absolute top-[72%] left-[10%] w-[28rem] h-[28rem] rounded-full bg-[radial-gradient(circle,rgba(255,201,40,0.05)_0%,transparent_70%)] animate-float"></div>
+    <div class="absolute top-[72%] left-[10%] w-[28rem] h-[28rem] rounded-full bg-[radial-gradient(circle,rgba(229,168,0,0.05)_0%,transparent_70%)] animate-float"></div>
   </div>
 
   <!-- Floating Toast Notification -->
@@ -857,7 +923,7 @@
   <button id="back-to-top" aria-label="Back to top" onclick="scrollToTop()">
     <svg viewBox="0 0 48 48">
       <circle cx="24" cy="24" r="22" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2.5"></circle>
-      <circle class="progress-ring" cx="24" cy="24" r="22" fill="none" stroke="#FFC928" stroke-width="2.5"
+      <circle class="progress-ring" cx="24" cy="24" r="22" fill="none" stroke="#E5A800" stroke-width="2.5"
         stroke-linecap="round"></circle>
     </svg>
     <span class="material-symbols-outlined text-[20px] text-on-surface z-10"
@@ -1069,9 +1135,7 @@
     <section class="py-space-4xl border-b border-outline-variant/30 bg-surface" id="about">
       <div class="max-w-container-max mx-auto px-gutter-desktop">
         <div class="max-w-3xl mb-space-2xl reveal-on-scroll">
-          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">About The
-            Engineer</span>
-          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">
+          <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">
             A developer who loves turning ideas into working products.
           </h2>
         </div>
@@ -1173,11 +1237,7 @@
     <section class="py-10 border-b border-outline-variant/30 bg-surface-container-low/30 relative overflow-hidden" id="skills-marquee-section">
       <div class="max-w-container-max mx-auto px-gutter-desktop mb-5">
         <div class="reveal-on-scroll">
-          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-primary pulse-dot"></span>
-            Tech Stack in Motion
-          </span>
-          <h3 class="font-display text-2xl sm:text-3xl text-on-surface mt-1 font-semibold">Continuous Technologies &amp; Tools</h3>
+          <h3 class="font-display text-2xl sm:text-3xl text-on-surface font-semibold">Continuous Technologies &amp; Tools</h3>
         </div>
       </div>
 
@@ -1186,168 +1246,168 @@
         <!-- Single Horizontal Scrolling Track -->
         <div class="marquee-track-left gap-4">
           <!-- All Skills -->
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Python</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Core Language</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="code">code</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">React.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Frontend</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="smart_toy">smart_toy</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Google Gemini AI</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">LLMs & GenAI</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="dns">dns</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Node.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Backend Runtime</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="phone_iphone">phone_iphone</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Flutter</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Mobile & Cross-Platform</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="layers">layers</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Next.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Full Stack SSR</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="javascript">javascript</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">TypeScript & JS</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Web Standard</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="schema">schema</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Django</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Python MVC</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="local_fire_department">local_fire_department</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Firebase</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Cloud & Auth</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="database">database</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">MongoDB</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">NoSQL</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="coffee">coffee</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Java</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">OOP Architecture</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="memory">memory</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">C++</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Data Structures</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="api">api</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">RESTful APIs</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Integration</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="palette">palette</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Tailwind CSS</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Utility Styling</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="hub">hub</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Express.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Server Framework</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="folder_code">folder_code</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Git & GitHub</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Version Control</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="storage">storage</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">PostgreSQL</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Relational SQL</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="send">send</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Postman</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">API Testing</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="deployed_code">deployed_code</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Docker</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Containers</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Fast Prototyping</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Agile Execution</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="grid_view">grid_view</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Bootstrap</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">UI Kit</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="html">html</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">HTML5 & CSS3</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Modern Semantic</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Real-Time WebSockets</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Network Sync</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="draw">draw</span>
               </div>
@@ -1355,168 +1415,168 @@
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Interface Craft</span>
             </div>
           <!-- Duplicated for Seamless Infinite Loop -->
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Python</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Core Language</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="code">code</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">React.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Frontend</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="smart_toy">smart_toy</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Google Gemini AI</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">LLMs & GenAI</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="dns">dns</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Node.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Backend Runtime</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="phone_iphone">phone_iphone</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Flutter</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Mobile & Cross-Platform</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="layers">layers</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Next.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Full Stack SSR</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="javascript">javascript</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">TypeScript & JS</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Web Standard</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="schema">schema</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Django</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Python MVC</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="local_fire_department">local_fire_department</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Firebase</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Cloud & Auth</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="database">database</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">MongoDB</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">NoSQL</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="coffee">coffee</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Java</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">OOP Architecture</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="memory">memory</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">C++</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Data Structures</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="api">api</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">RESTful APIs</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Integration</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="palette">palette</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Tailwind CSS</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Utility Styling</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="hub">hub</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Express.js</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Server Framework</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="folder_code">folder_code</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Git & GitHub</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Version Control</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="storage">storage</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">PostgreSQL</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Relational SQL</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="send">send</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Postman</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">API Testing</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="deployed_code">deployed_code</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Docker</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Containers</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Fast Prototyping</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Agile Execution</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="grid_view">grid_view</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Bootstrap</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">UI Kit</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="html">html</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">HTML5 & CSS3</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Modern Semantic</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="sync_alt">sync_alt</span>
               </div>
               <span class="font-display text-base text-on-surface font-semibold group-hover/chip:text-primary transition-colors">Real-Time WebSockets</span>
               <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-outline text-[11px] font-code">Network Sync</span>
             </div>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(255,201,40,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-surface-container/80 border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(229,168,0,0.22)] transition-all duration-300 cursor-default group/chip whitespace-nowrap">
               <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover/chip:scale-110 group-hover/chip:rotate-6 transition-transform duration-300">
                 <span class="material-symbols-outlined text-lg" data-icon="draw">draw</span>
               </div>
@@ -1531,8 +1591,7 @@
     <section class="py-space-4xl border-b border-outline-variant/30 bg-surface-container-low/40" id="skills">
       <div class="max-w-container-max mx-auto px-gutter-desktop">
         <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
-          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Capabilities</span>
-          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">My technical toolkit</h2>
+          <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">My technical toolkit</h2>
           <p class="font-body-md text-on-surface-variant mt-1.5 text-base">Clean, categorized technologies with hands-on
             production experience.</p>
         </div>
@@ -1671,8 +1730,7 @@
     <section class="py-space-4xl border-b border-outline-variant/30 bg-surface" id="experience">
       <div class="max-w-container-max mx-auto px-gutter-desktop">
         <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
-          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Track Record</span>
-          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Experience</h2>
+          <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Experience</h2>
         </div>
         <div class="relative border-l-2 border-outline-variant/60 ml-4 md:ml-8 space-y-space-2xl">
           <!-- Experience 01 -->
@@ -1817,8 +1875,7 @@
       <div class="max-w-container-max mx-auto px-gutter-desktop">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-space-xl">
           <div class="max-w-2xl reveal-on-scroll">
-            <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Portfolio</span>
-            <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Things I've built</h2>
+            <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Things I've built</h2>
           </div>
           <!-- Project Category Filter Pills -->
           <div class="reveal-on-scroll delay-100 flex flex-wrap items-center gap-2" id="project-filters">
@@ -2474,8 +2531,7 @@
       <div class="max-w-container-max mx-auto px-gutter-desktop">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-space-2xl">
           <div class="max-w-2xl reveal-on-scroll">
-            <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Academic Foundation &amp; Credentials</span>
-            <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Education &amp; Resume</h2>
+            <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Education &amp; Resume</h2>
           </div>
           <div class="reveal-on-scroll delay-100 flex items-center gap-space-xs">
             <button onclick="openResumeModal()"
@@ -2525,9 +2581,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
           <div class="lg:col-span-6 space-y-space-md">
             <div class="reveal-on-scroll">
-              <span
-                class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Recognition</span>
-              <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Achievements &amp; Leadership
+              <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Achievements &amp; Leadership
               </h2>
             </div>
             <div class="space-y-space-sm">
@@ -2563,9 +2617,7 @@
           </div>
           <div class="lg:col-span-6 space-y-space-md">
             <div class="reveal-on-scroll">
-              <span
-                class="font-code text-[12px] text-secondary uppercase tracking-widest font-semibold">Accreditations</span>
-              <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Certifications</h2>
+              <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Certifications</h2>
             </div>
             <div class="space-y-space-sm">
               <div
@@ -2602,9 +2654,7 @@
     <section class="py-space-4xl border-b border-outline-variant/30 bg-surface">
       <div class="max-w-container-max mx-auto px-gutter-desktop">
         <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
-          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Mindset &amp;
-            Horizons</span>
-          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Build. Learn. Iterate.</h2>
+          <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Build. Learn. Iterate.</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg mb-space-3xl">
           <div
@@ -2667,8 +2717,7 @@
     <section class="py-space-4xl relative bg-surface-container-low/30" id="contact">
       <div class="max-w-container-max mx-auto px-gutter-desktop">
         <div class="max-w-2xl mb-space-2xl reveal-on-scroll">
-          <span class="font-code text-[12px] text-primary uppercase tracking-widest font-semibold">Collaboration</span>
-          <h2 class="font-display text-4xl text-on-surface mt-space-xs font-semibold">Have an idea? Let's build it.</h2>
+          <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Have an idea? Let's build it.</h2>
           <p class="font-body-md text-on-surface-variant mt-1.5 text-base">
             Whether it's an interesting project, internship opportunity, collaboration or simply a conversation about
             technology, I'd love to hear from you.
@@ -2865,7 +2914,7 @@
             <span class="material-symbols-outlined text-2xl" data-icon="description">description</span>
           </div>
           <div>
-            <h3 class="font-display text-2xl text-on-surface font-semibold">Om Samadhan Gaikwad</h3>
+            <h3 class="niconne-regular text-2xl text-primary font-normal">Om Samadhan Gaikwad</h3>
             <p class="font-code text-[12px] text-primary">Curriculum Vitae • Full Stack &amp; AI Developer</p>
           </div>
         </div>
@@ -2889,7 +2938,7 @@
         <!-- Resume Top Header (Also visible in print) -->
         <div class="border-b border-outline-variant/60 pb-space-lg flex flex-col md:flex-row md:items-start justify-between gap-4">
           <div>
-            <h1 class="font-display text-3xl sm:text-4xl text-on-surface font-bold tracking-tight">Om Samadhan Gaikwad</h1>
+            <h1 class="niconne-regular text-3xl sm:text-4xl text-primary font-normal tracking-wide">Om Samadhan Gaikwad</h1>
             <p class="font-code text-sm sm:text-base text-primary font-medium mt-1">Computer Engineering Undergraduate • Full Stack &amp; AI Developer</p>
             <p class="font-body-sm text-outline mt-1">Pune, Maharashtra, India • omgaikwad.dev@gmail.com</p>
           </div>
@@ -2912,7 +2961,7 @@
         <!-- Professional Summary -->
         <div>
           <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-2 flex items-center gap-2">
-            <span>01 // Professional Summary</span>
+            <span class="niconne-regular text-base sm:text-lg text-primary font-normal">01 // Professional Summary</span>
             <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
           </h2>
           <p class="font-body-sm text-on-surface leading-relaxed">
@@ -2923,7 +2972,7 @@
         <!-- Education -->
         <div>
           <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
-            <span>02 // Education</span>
+            <span class="niconne-regular text-base sm:text-lg text-primary font-normal">02 // Education</span>
             <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
           </h2>
           <div class="space-y-3">
@@ -2953,7 +3002,7 @@
         <!-- Experience -->
         <div>
           <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
-            <span>03 // Experience</span>
+            <span class="niconne-regular text-base sm:text-lg text-primary font-normal">03 // Experience</span>
             <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
           </h2>
           <div class="space-y-4">
@@ -2995,7 +3044,7 @@
         <!-- Key Projects -->
         <div>
           <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
-            <span>04 // Key Projects</span>
+            <span class="niconne-regular text-base sm:text-lg text-primary font-normal">04 // Key Projects</span>
             <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -3045,7 +3094,7 @@
         <!-- Technical Skills -->
         <div>
           <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-3 flex items-center gap-2">
-            <span>05 // Technical Toolkit</span>
+            <span class="niconne-regular text-base sm:text-lg text-primary font-normal">05 // Technical Toolkit</span>
             <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
           </h2>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-code">
@@ -3071,7 +3120,7 @@
         <!-- Certifications & Awards -->
         <div>
           <h2 class="font-code text-xs text-primary uppercase tracking-widest font-bold mb-2 flex items-center gap-2">
-            <span>06 // Accreditations &amp; Honors</span>
+            <span class="niconne-regular text-base sm:text-lg text-primary font-normal">06 // Accreditations &amp; Honors</span>
             <span class="flex-1 h-[1px] bg-outline-variant/60"></span>
           </h2>
           <ul class="list-disc pl-5 font-body-sm text-on-surface-variant space-y-1 text-xs sm:text-sm">
@@ -3685,7 +3734,7 @@
 
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 201, 40, ${p.alpha})`;
+            ctx.fillStyle = `rgba(229, 168, 0, ${p.alpha})`;
             ctx.fill();
           }
 
@@ -3701,7 +3750,7 @@
               }
             }
           }
-          ctx.strokeStyle = 'rgba(255, 201, 40, 0.09)';
+          ctx.strokeStyle = 'rgba(229, 168, 0, 0.09)';
           ctx.lineWidth = 1;
           ctx.stroke(); // Single GPU draw call!
         }
