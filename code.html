@@ -525,6 +525,72 @@
       background: radial-gradient(circle at center, transparent 35%, rgba(12, 13, 17, 0.82) 90%);
     }
 
+    /* --- LIGHTWEIGHT HARDWARE-ACCELERATED 30px PROJECT GRIDS (ZERO LAG) --- */
+    .project-grid-bloodlink {
+      background-color: #0c0d12;
+      background-image: 
+        radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 59, 92, 0.12) 0%, transparent 160px),
+        linear-gradient(to right, rgba(255, 59, 92, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 59, 92, 0.08) 1px, transparent 1px);
+      background-size: 100% 100%, 30px 30px, 30px 30px;
+    }
+
+    .project-grid-farmconnect {
+      background-color: #08120e;
+      background-image: 
+        radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(34, 197, 94, 0.12) 0%, transparent 160px),
+        linear-gradient(to right, rgba(34, 197, 94, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(34, 197, 94, 0.08) 1px, transparent 1px);
+      background-size: 100% 100%, 30px 30px, 30px 30px;
+    }
+
+    .project-grid-interviewai {
+      background-color: #060910;
+      background-image: 
+        radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 240, 255, 0.12) 0%, transparent 160px),
+        linear-gradient(to right, rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+      background-size: 100% 100%, 30px 30px, 30px 30px;
+    }
+
+    .project-grid-churnguard {
+      background-color: #06100d;
+      background-image: 
+        radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(16, 185, 129, 0.12) 0%, transparent 160px),
+        linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+      background-size: 100% 100%, 30px 30px, 30px 30px;
+    }
+
+    /* Project 1 ECG Vital Pulse Wave */
+    @keyframes ecgPulse {
+      0% { stroke-dashoffset: 600; opacity: 0.3; }
+      50% { opacity: 0.8; }
+      100% { stroke-dashoffset: 0; opacity: 0.3; }
+    }
+    .ecg-path {
+      stroke-dasharray: 600;
+      animation: ecgPulse 3.5s linear infinite;
+    }
+
+    /* Project 2 Floating Agricultural Fireflies */
+    @keyframes harvestFirefly {
+      0% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+      50% { transform: translate3d(15px, -24px, 0); opacity: 0.8; }
+      100% { transform: translate3d(-10px, -48px, 0); opacity: 0; }
+    }
+
+    /* Project 3 Cyber Laser Scan Line */
+    @keyframes cyberLaserScan {
+      0% { transform: translateY(-10%); opacity: 0; }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.6; }
+      100% { transform: translateY(460px); opacity: 0; }
+    }
+    .cyber-laser-beam {
+      animation: cyberLaserScan 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
     /* Radar Scanner Sweep */
     @keyframes radar-sweep {
       0% {
@@ -1811,12 +1877,14 @@
               </div>
             </div>
             <div
-              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden bg-[#0c0d11] select-none group" id="bloodlink-card-panel">
-              <!-- Interactive Cyber Grid Canvas -->
-              <canvas id="bloodlink-grid-canvas" class="absolute inset-0 w-full h-full pointer-events-auto cursor-crosshair z-[1]"></canvas>
-
-              <!-- Vignette Gradient Overlay -->
+              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-bloodlink select-none group" id="bloodlink-card-panel" onmousemove="updateCardSpotlight(event, this)">
+              <!-- Ambient Red Radial Glow -->
               <div class="absolute inset-0 bg-radial-vignette pointer-events-none z-[2]"></div>
+
+              <!-- Lightweight ECG Vital Heartbeat Line across Grid -->
+              <svg class="absolute bottom-6 left-0 right-0 w-full h-12 pointer-events-none z-[2] opacity-40" viewBox="0 0 600 60" preserveAspectRatio="none">
+                <path class="ecg-path" d="M0,30 L180,30 L195,12 L210,48 L225,24 L240,30 L380,30 L395,8 L410,52 L425,20 L440,30 L600,30" fill="none" stroke="#ff3b5c" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
 
               <!-- Top Telemetry Status Pill -->
               <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
@@ -1997,9 +2065,14 @@
               </div>
             </div>
             <div
-              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden bg-gradient-to-br from-[#0a120e] via-[#0d1712] to-[#122019] select-none group" id="farmconnect-card-panel">
-              <!-- Ambient Agricultural Canvas & Mesh -->
-              <canvas id="farmconnect-ambient-canvas" class="absolute inset-0 w-full h-full pointer-events-auto cursor-default z-[1]"></canvas>
+              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-farmconnect select-none group" id="farmconnect-card-panel" onmousemove="updateCardSpotlight(event, this)">
+              <!-- Lightweight CSS Floating Harvest Fireflies (0% CPU) -->
+              <div class="absolute inset-0 pointer-events-none overflow-hidden z-[2]">
+                <span class="absolute w-1.5 h-1.5 rounded-full bg-emerald-400 blur-[0.5px]" style="left:18%; top:65%; animation: harvestFirefly 4.5s ease-in-out infinite;"></span>
+                <span class="absolute w-2 h-2 rounded-full bg-amber-400 blur-[0.5px]" style="left:72%; top:45%; animation: harvestFirefly 5.2s ease-in-out infinite 1s;"></span>
+                <span class="absolute w-1.5 h-1.5 rounded-full bg-emerald-300 blur-[0.5px]" style="left:40%; top:78%; animation: harvestFirefly 4.8s ease-in-out infinite 2s;"></span>
+                <span class="absolute w-2 h-2 rounded-full bg-amber-300 blur-[0.5px]" style="left:85%; top:70%; animation: harvestFirefly 5.6s ease-in-out infinite 0.5s;"></span>
+              </div>
 
               <!-- Soft Emerald & Amber Radial Glow Orbs -->
               <div class="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -2175,9 +2248,9 @@
               </div>
             </div>
             <div
-              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden bg-[#06080e] select-none group" id="interviewai-card-panel">
-              <!-- Cyber Grid Canvas -->
-              <canvas id="interviewai-cyber-canvas" class="absolute inset-0 w-full h-full pointer-events-auto cursor-crosshair z-[1]"></canvas>
+              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-interviewai select-none group" id="interviewai-card-panel" onmousemove="updateCardSpotlight(event, this)">
+              <!-- Lightweight Cyber Laser Scan Line (0% CPU) -->
+              <div class="cyber-laser-beam absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_12px_#00f0ff] pointer-events-none z-[2]"></div>
 
               <!-- Neon Cyan Right Accent Indicator (Matching Screenshot) -->
               <div class="absolute top-0 right-0 bottom-0 w-[3px] bg-[#00f0ff] shadow-[0_0_15px_#00f0ff,0_0_30px_#00f0ff] pointer-events-none z-10"></div>
@@ -2287,9 +2360,9 @@
                 </div>
               </div>
             <div
-              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden bg-gradient-to-br from-[#06100d] via-[#081512] to-[#0c1d18] select-none group" id="churnguard-card-panel">
-              <!-- Interactive Cyber Grid Canvas matching 1st project grid size (30px) -->
-              <canvas id="churnguard-cyber-canvas" class="absolute inset-0 w-full h-full pointer-events-auto cursor-crosshair z-[1]"></canvas>
+              class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-churnguard select-none group" id="churnguard-card-panel" onmousemove="updateCardSpotlight(event, this)">
+              <!-- Soft Drift Pulse Glow Aura (0% CPU) -->
+              <div class="absolute inset-0 bg-radial-vignette pointer-events-none z-[2]"></div>
 
               <!-- Soft Emerald & Cyan Radial Glow Orbs -->
               <div class="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -3637,350 +3710,18 @@
       requestAnimationFrame(animateParticles);
     }
 
-    // --- BLOODLINK AI INTERACTIVE CYBER GRID ---
-    function initBloodLinkGrid() {
-      const canvas = document.getElementById('bloodlink-grid-canvas');
-      const panel = document.getElementById('bloodlink-card-panel');
-      if (!canvas || !panel) return;
+    // --- ZERO-LAG HARDWARE-ACCELERATED CARD SPOTLIGHT & TELEMETRY ---
+    function updateCardSpotlight(e, panel) {
+      const rect = panel.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      panel.style.setProperty('--mouse-x', `${x}px`);
+      panel.style.setProperty('--mouse-y', `${y}px`);
+    }
 
-      const ctx = canvas.getContext('2d');
-      let width = 0, height = 0;
-      let animId = null;
-      let isVisible = false;
-
-      // Mouse tracking
-      let mouse = { x: -1000, y: -1000, active: false };
-      let smoothMouse = { x: -1000, y: -1000 };
-
-      // Grid settings
-      const cellSize = 30;
-
-      // Data packets traversing grid
-      const packets = [];
-      const packetCount = 8;
-
-      // Radar pulse waves
-      const pings = [];
-
-      function resize() {
-        const rect = panel.getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = rect.width;
-        height = rect.height;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        ctx.scale(dpr, dpr);
-
-        // Spawn initial packets
-        if (packets.length === 0) {
-          for (let i = 0; i < packetCount; i++) {
-            spawnPacket();
-          }
-        }
-      }
-
-      function spawnPacket() {
-        const horizontal = Math.random() > 0.5;
-        const col = Math.floor(Math.random() * Math.max(1, Math.floor(width / cellSize)));
-        const row = Math.floor(Math.random() * Math.max(1, Math.floor(height / cellSize)));
-        packets.push({
-          x: col * cellSize,
-          y: row * cellSize,
-          dir: horizontal ? (Math.random() > 0.5 ? 'right' : 'left') : (Math.random() > 0.5 ? 'down' : 'up'),
-          speed: 1.2 + Math.random() * 1.6,
-          length: 12 + Math.random() * 14,
-          color: Math.random() > 0.25 ? '#ff3b5c' : '#ffc928'
-        });
-      }
-
-      function triggerPing(x, y) {
-        pings.push({
-          x: x !== undefined ? x : width / 2,
-          y: y !== undefined ? y : height / 2,
-          radius: 0,
-          maxRadius: Math.max(width, height) * 0.85,
-          alpha: 0.9,
-          speed: 3.5
-        });
-      }
-
-      window.triggerBloodLinkRadarPing = function(e) {
-        if (e && e.stopPropagation) e.stopPropagation();
-        const rect = panel.getBoundingClientRect();
-        const clickX = e && e.clientX ? e.clientX - rect.left : width / 2;
-        const clickY = e && e.clientY ? e.clientY - rect.top : height / 2;
-        triggerPing(clickX, clickY);
-        showToast("Emergency Radar Ping broadcasted across network nodes!");
-      };
-
-      // Event listeners
-      panel.addEventListener('mousemove', (e) => {
-        const rect = panel.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-        mouse.active = true;
-      });
-
-      panel.addEventListener('mouseleave', () => {
-        mouse.active = false;
-      });
-
-      panel.addEventListener('click', (e) => {
-        const rect = panel.getBoundingClientRect();
-        triggerPing(e.clientX - rect.left, e.clientY - rect.top);
-      });
-
-      // Auto ping interval
-      let lastAutoPing = Date.now();
-
-      function draw() {
-        if (!isVisible) return;
-
-        // Clear
-        ctx.clearRect(0, 0, width, height);
-
-        // Smooth mouse
-        if (mouse.active) {
-          smoothMouse.x += (mouse.x - smoothMouse.x) * 0.15;
-          smoothMouse.y += (mouse.y - smoothMouse.y) * 0.15;
-        } else {
-          smoothMouse.x += (-1000 - smoothMouse.x) * 0.1;
-          smoothMouse.y += (-1000 - smoothMouse.y) * 0.1;
-        }
-
-        const now = Date.now();
-        if (now - lastAutoPing > 4200) {
-          triggerPing(width / 2, height / 2);
-          lastAutoPing = now;
-        }
-
-        const cols = Math.ceil(width / cellSize) + 1;
-        const rows = Math.ceil(height / cellSize) + 1;
-        const hoverRadius = 140;
-
-        // Draw vertical grid lines
-        for (let c = 0; c < cols; c++) {
-          const x = c * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(x, 0);
-          ctx.lineTo(x, height);
-
-          // Calculate mouse proximity
-          const distToMouse = Math.abs(x - smoothMouse.x);
-          let alpha = 0.05;
-          let strokeColor = 'rgba(255, 255, 255, 0.05)';
-
-          if (distToMouse < hoverRadius && smoothMouse.y >= 0 && smoothMouse.y <= height) {
-            const factor = 1 - distToMouse / hoverRadius;
-            alpha = 0.05 + factor * 0.28;
-            strokeColor = `rgba(255, 59, 92, ${alpha})`;
-          }
-
-          // Check if ping intersects line
-          for (let p of pings) {
-            if (Math.abs(x - p.x) < p.radius && Math.abs(x - p.x) > p.radius - 12) {
-              strokeColor = `rgba(255, 94, 126, ${Math.min(1, alpha + p.alpha * 0.4)})`;
-            }
-          }
-
-          ctx.strokeStyle = strokeColor;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        // Draw horizontal grid lines
-        for (let r = 0; r < rows; r++) {
-          const y = r * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(width, y);
-
-          const distToMouse = Math.abs(y - smoothMouse.y);
-          let alpha = 0.05;
-          let strokeColor = 'rgba(255, 255, 255, 0.05)';
-
-          if (distToMouse < hoverRadius && smoothMouse.x >= 0 && smoothMouse.x <= width) {
-            const factor = 1 - distToMouse / hoverRadius;
-            alpha = 0.05 + factor * 0.28;
-            strokeColor = `rgba(255, 59, 92, ${alpha})`;
-          }
-
-          for (let p of pings) {
-            if (Math.abs(y - p.y) < p.radius && Math.abs(y - p.y) > p.radius - 12) {
-              strokeColor = `rgba(255, 94, 126, ${Math.min(1, alpha + p.alpha * 0.4)})`;
-            }
-          }
-
-          ctx.strokeStyle = strokeColor;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        // Draw grid intersection dots & interactive connectors
-        const nearestNodes = [];
-        for (let c = 0; c < cols; c++) {
-          for (let r = 0; r < rows; r++) {
-            const x = c * cellSize;
-            const y = r * cellSize;
-            const dist = Math.hypot(x - smoothMouse.x, y - smoothMouse.y);
-
-            let dotRadius = 1;
-            let dotAlpha = 0.12;
-            let dotColor = `rgba(255, 255, 255, ${dotAlpha})`;
-
-            if (dist < hoverRadius) {
-              const factor = 1 - dist / hoverRadius;
-              dotRadius = 1.2 + factor * 2.2;
-              dotAlpha = 0.15 + factor * 0.75;
-              dotColor = `rgba(255, 107, 135, ${dotAlpha})`;
-              nearestNodes.push({ x, y, dist });
-            }
-
-            // Check ping ripple highlight
-            for (let p of pings) {
-              const pDist = Math.hypot(x - p.x, y - p.y);
-              if (Math.abs(pDist - p.radius) < 14) {
-                dotRadius = Math.max(dotRadius, 2.5);
-                dotColor = `rgba(255, 59, 92, ${p.alpha})`;
-              }
-            }
-
-            ctx.beginPath();
-            ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
-            ctx.fillStyle = dotColor;
-            ctx.fill();
-          }
-        }
-
-        // Connect mouse to closest 4 intersections
-        if (mouse.active && nearestNodes.length > 0) {
-          nearestNodes.sort((a, b) => a.dist - b.dist);
-          const topNodes = nearestNodes.slice(0, 4);
-          for (let n of topNodes) {
-            const factor = 1 - n.dist / hoverRadius;
-            ctx.beginPath();
-            ctx.moveTo(smoothMouse.x, smoothMouse.y);
-            ctx.lineTo(n.x, n.y);
-            ctx.strokeStyle = `rgba(255, 59, 92, ${factor * 0.4})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-
-          // Cursor core glowing point
-          ctx.beginPath();
-          ctx.arc(smoothMouse.x, smoothMouse.y, 3, 0, Math.PI * 2);
-          ctx.fillStyle = '#ff6b87';
-          ctx.shadowColor = '#ff3b5c';
-          ctx.shadowBlur = 10;
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        }
-
-        // Draw and update data packets
-        for (let i = packets.length - 1; i >= 0; i--) {
-          const pkt = packets[i];
-
-          // Advance packet
-          if (pkt.dir === 'right') pkt.x += pkt.speed;
-          else if (pkt.dir === 'left') pkt.x -= pkt.speed;
-          else if (pkt.dir === 'down') pkt.y += pkt.speed;
-          else if (pkt.dir === 'up') pkt.y -= pkt.speed;
-
-          // Check if packet reached an intersection
-          const atCol = Math.abs(pkt.x % cellSize) < pkt.speed;
-          const atRow = Math.abs(pkt.y % cellSize) < pkt.speed;
-
-          if (atCol && atRow && Math.random() < 0.28) {
-            // Turn
-            if (pkt.dir === 'right' || pkt.dir === 'left') {
-              pkt.dir = Math.random() > 0.5 ? 'up' : 'down';
-            } else {
-              pkt.dir = Math.random() > 0.5 ? 'left' : 'right';
-            }
-          }
-
-          // Respawn if out of bounds
-          if (pkt.x < -20 || pkt.x > width + 20 || pkt.y < -20 || pkt.y > height + 20) {
-            packets.splice(i, 1);
-            spawnPacket();
-            continue;
-          }
-
-          // Render packet as a glowing trailing streak
-          ctx.beginPath();
-          let tailX = pkt.x, tailY = pkt.y;
-          if (pkt.dir === 'right') tailX = pkt.x - pkt.length;
-          else if (pkt.dir === 'left') tailX = pkt.x + pkt.length;
-          else if (pkt.dir === 'down') tailY = pkt.y - pkt.length;
-          else if (pkt.dir === 'up') tailY = pkt.y + pkt.length;
-
-          const grad = ctx.createLinearGradient(tailX, tailY, pkt.x, pkt.y);
-          grad.addColorStop(0, 'rgba(255, 59, 92, 0)');
-          grad.addColorStop(1, pkt.color);
-
-          ctx.moveTo(tailX, tailY);
-          ctx.lineTo(pkt.x, pkt.y);
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 2;
-          ctx.lineCap = 'round';
-          ctx.stroke();
-
-          // Packet head dot
-          ctx.beginPath();
-          ctx.arc(pkt.x, pkt.y, 2, 0, Math.PI * 2);
-          ctx.fillStyle = '#ffffff';
-          ctx.fill();
-        }
-
-        // Draw and update radar pings
-        for (let i = pings.length - 1; i >= 0; i--) {
-          const p = pings[i];
-          p.radius += p.speed;
-          p.alpha -= 0.007;
-
-          if (p.alpha <= 0 || p.radius >= p.maxRadius) {
-            pings.splice(i, 1);
-            continue;
-          }
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(255, 59, 92, ${p.alpha * 0.6})`;
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-
-          // Secondary echo wave
-          if (p.radius > 25) {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius - 20, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(255, 94, 126, ${p.alpha * 0.25})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-
-        animId = requestAnimationFrame(draw);
-      }
-
-      // Intersection observer to only animate when in view
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            isVisible = true;
-            resize();
-            if (!animId) animId = requestAnimationFrame(draw);
-          } else {
-            isVisible = false;
-            if (animId) {
-              cancelAnimationFrame(animId);
-              animId = null;
-            }
-          }
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(panel);
-      window.addEventListener('resize', resize);
+    function triggerBloodLinkRadarPing(e) {
+      if (e && e.stopPropagation) e.stopPropagation();
+      showToast("Emergency Radar Ping: O+ Match broadcasted to Ruby Hall Clinic (1.2 km)!");
     }
 
     // --- FARMCONNECT INTERACTIVE SHOWCASE ---
@@ -4005,164 +3746,9 @@
           el.innerHTML = `<span>${item.name} — ${item.price}</span> <span class="${item.up ? 'text-emerald-400' : 'text-red-400'} font-semibold">${item.up ? '↑' : '↓'}</span>`;
           el.style.opacity = '1';
           el.style.transform = 'translateY(0)';
-        }, 150);
+        }, 120);
       }
       showToast(`APMC Mandi: ${item.name} updated to ${item.price}`);
-    }
-
-    function initFarmConnectAmbient() {
-      const canvas = document.getElementById('farmconnect-ambient-canvas');
-      const panel = document.getElementById('farmconnect-card-panel');
-      if (!canvas || !panel) return;
-
-      const ctx = canvas.getContext('2d');
-      let width = 0, height = 0;
-      let animId = null;
-      let isVisible = false;
-
-      let mouse = { x: -1000, y: -1000, active: false };
-
-      const particles = [];
-      const particleCount = 26;
-
-      function resize() {
-        const rect = panel.getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = rect.width;
-        height = rect.height;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        ctx.scale(dpr, dpr);
-
-        if (particles.length === 0) {
-          for (let i = 0; i < particleCount; i++) {
-            particles.push({
-              x: Math.random() * width,
-              y: Math.random() * height,
-              radius: 1 + Math.random() * 2,
-              vy: -0.3 - Math.random() * 0.5,
-              vx: (Math.random() - 0.5) * 0.4,
-              color: Math.random() > 0.4 ? 'rgba(34, 197, 94, ' : 'rgba(245, 158, 11, ',
-              alpha: 0.15 + Math.random() * 0.45
-            });
-          }
-        }
-      }
-
-      panel.addEventListener('mousemove', (e) => {
-        const rect = panel.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-        mouse.active = true;
-      });
-
-      panel.addEventListener('mouseleave', () => {
-        mouse.active = false;
-      });
-
-      function draw() {
-        if (!isVisible) return;
-        ctx.clearRect(0, 0, width, height);
-
-        // Draw orthogonal grid with cellSize = 30 matching 1st project
-        const cellSize = 30;
-        const cols = Math.ceil(width / cellSize) + 1;
-        const rows = Math.ceil(height / cellSize) + 1;
-        const hoverRadius = 140;
-
-        for (let c = 0; c < cols; c++) {
-          const x = c * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(x, 0);
-          ctx.lineTo(x, height);
-          let alpha = 0.05;
-          if (mouse.active) {
-            const dist = Math.abs(x - mouse.x);
-            if (dist < hoverRadius) alpha = 0.05 + (1 - dist / hoverRadius) * 0.25;
-          }
-          ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        for (let r = 0; r < rows; r++) {
-          const y = r * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(width, y);
-          let alpha = 0.05;
-          if (mouse.active) {
-            const dist = Math.abs(y - mouse.y);
-            if (dist < hoverRadius) alpha = 0.05 + (1 - dist / hoverRadius) * 0.25;
-          }
-          ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        // Draw grid dots
-        for (let c = 0; c < cols; c++) {
-          for (let r = 0; r < rows; r++) {
-            const x = c * cellSize;
-            const y = r * cellSize;
-            ctx.beginPath();
-            ctx.arc(x, y, 1, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(34, 197, 94, 0.15)';
-            ctx.fill();
-          }
-        }
-
-        for (let p of particles) {
-          p.y += p.vy;
-          p.x += p.vx;
-
-          if (mouse.active) {
-            const dx = p.x - mouse.x;
-            const dy = p.y - mouse.y;
-            const dist = Math.hypot(dx, dy);
-            if (dist < 80) {
-              p.x += (dx / dist) * 1.5;
-              p.y += (dy / dist) * 1.5;
-            }
-          }
-
-          if (p.y < -10) {
-            p.y = height + 10;
-            p.x = Math.random() * width;
-          }
-          if (p.x < -10) p.x = width + 10;
-          if (p.x > width + 10) p.x = -10;
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `${p.color}${p.alpha})`;
-          ctx.shadowColor = p.color.includes('34') ? '#22c55e' : '#f59e0b';
-          ctx.shadowBlur = 6;
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        }
-
-        animId = requestAnimationFrame(draw);
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            isVisible = true;
-            resize();
-            if (!animId) animId = requestAnimationFrame(draw);
-          } else {
-            isVisible = false;
-            if (animId) {
-              cancelAnimationFrame(animId);
-              animId = null;
-            }
-          }
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(panel);
-      window.addEventListener('resize', resize);
     }
 
     // --- INTERVIEW AI INTERACTIVE SHOWCASE ---
@@ -4195,7 +3781,7 @@
         setTimeout(() => {
           questionEl.textContent = `"${companyTracks[company]}"`;
           questionEl.style.opacity = '1';
-        }, 150);
+        }, 120);
       }
       showToast(`Switched AI Interview Track to ${company}!`);
     }
@@ -4207,247 +3793,7 @@
       showToast(`Gemini 1.5 Pro: New mock interview prompt generated!`);
     }
 
-    function initInterviewAICyberGrid() {
-      const canvas = document.getElementById('interviewai-cyber-canvas');
-      const panel = document.getElementById('interviewai-card-panel');
-      if (!canvas || !panel) return;
-
-      const ctx = canvas.getContext('2d');
-      let width = 0, height = 0;
-      let animId = null;
-      let isVisible = false;
-
-      let mouse = { x: -1000, y: -1000, active: false };
-      let smoothMouse = { x: -1000, y: -1000 };
-
-      // Exact matching grid size as 1st project (30px)
-      const cellSize = 30;
-
-      const packets = [];
-      const packetCount = 8;
-      let scanY = 0;
-
-      function resize() {
-        const rect = panel.getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = rect.width;
-        height = rect.height;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        ctx.scale(dpr, dpr);
-
-        if (packets.length === 0) {
-          for (let i = 0; i < packetCount; i++) {
-            spawnPacket();
-          }
-        }
-      }
-
-      function spawnPacket() {
-        const horizontal = Math.random() > 0.5;
-        const col = Math.floor(Math.random() * Math.max(1, Math.floor(width / cellSize)));
-        const row = Math.floor(Math.random() * Math.max(1, Math.floor(height / cellSize)));
-        packets.push({
-          x: col * cellSize,
-          y: row * cellSize,
-          dir: horizontal ? (Math.random() > 0.5 ? 'right' : 'left') : (Math.random() > 0.5 ? 'down' : 'up'),
-          speed: 1.2 + Math.random() * 1.5,
-          length: 12 + Math.random() * 14,
-          color: Math.random() > 0.3 ? '#00f0ff' : '#ec4899'
-        });
-      }
-
-      panel.addEventListener('mousemove', (e) => {
-        const rect = panel.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-        mouse.active = true;
-      });
-
-      panel.addEventListener('mouseleave', () => {
-        mouse.active = false;
-      });
-
-      function draw() {
-        if (!isVisible) return;
-        ctx.clearRect(0, 0, width, height);
-
-        if (mouse.active) {
-          smoothMouse.x += (mouse.x - smoothMouse.x) * 0.15;
-          smoothMouse.y += (mouse.y - smoothMouse.y) * 0.15;
-        } else {
-          smoothMouse.x += (-1000 - smoothMouse.x) * 0.1;
-          smoothMouse.y += (-1000 - smoothMouse.y) * 0.1;
-        }
-
-        scanY = (scanY + 1.2) % height;
-
-        const cols = Math.ceil(width / cellSize) + 1;
-        const rows = Math.ceil(height / cellSize) + 1;
-        const hoverRadius = 140;
-
-        // Vertical grid lines
-        for (let c = 0; c < cols; c++) {
-          const x = c * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(x, 0);
-          ctx.lineTo(x, height);
-
-          let alpha = 0.05;
-          let strokeColor = 'rgba(255, 255, 255, 0.05)';
-
-          if (mouse.active) {
-            const dist = Math.abs(x - smoothMouse.x);
-            if (dist < hoverRadius && smoothMouse.y >= 0 && smoothMouse.y <= height) {
-              const factor = 1 - dist / hoverRadius;
-              alpha = 0.05 + factor * 0.3;
-              strokeColor = `rgba(0, 240, 255, ${alpha})`;
-            }
-          }
-
-          ctx.strokeStyle = strokeColor;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        // Horizontal grid lines
-        for (let r = 0; r < rows; r++) {
-          const y = r * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(width, y);
-
-          let alpha = 0.05;
-          let strokeColor = 'rgba(255, 255, 255, 0.05)';
-
-          if (mouse.active) {
-            const dist = Math.abs(y - smoothMouse.y);
-            if (dist < hoverRadius && smoothMouse.x >= 0 && smoothMouse.x <= width) {
-              const factor = 1 - dist / hoverRadius;
-              alpha = 0.05 + factor * 0.3;
-              strokeColor = `rgba(0, 240, 255, ${alpha})`;
-            }
-          }
-
-          ctx.strokeStyle = strokeColor;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        // Scan line across grid
-        ctx.beginPath();
-        const scanGrad = ctx.createLinearGradient(0, scanY - 18, 0, scanY);
-        scanGrad.addColorStop(0, 'rgba(0, 240, 255, 0)');
-        scanGrad.addColorStop(1, 'rgba(0, 240, 255, 0.22)');
-        ctx.fillStyle = scanGrad;
-        ctx.fillRect(0, Math.max(0, scanY - 18), width, 18);
-
-        ctx.beginPath();
-        ctx.moveTo(0, scanY);
-        ctx.lineTo(width, scanY);
-        ctx.strokeStyle = 'rgba(0, 240, 255, 0.45)';
-        ctx.lineWidth = 1.2;
-        ctx.stroke();
-
-        // Intersection dots & connectors
-        for (let c = 0; c < cols; c++) {
-          for (let r = 0; r < rows; r++) {
-            const x = c * cellSize;
-            const y = r * cellSize;
-            const dist = Math.hypot(x - smoothMouse.x, y - smoothMouse.y);
-
-            let dotRadius = 1;
-            let dotAlpha = 0.12;
-            let dotColor = `rgba(255, 255, 255, ${dotAlpha})`;
-
-            if (dist < hoverRadius && mouse.active) {
-              const factor = 1 - dist / hoverRadius;
-              dotRadius = 1.2 + factor * 2.2;
-              dotAlpha = 0.15 + factor * 0.8;
-              dotColor = `rgba(0, 240, 255, ${dotAlpha})`;
-            }
-
-            ctx.beginPath();
-            ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
-            ctx.fillStyle = dotColor;
-            ctx.fill();
-          }
-        }
-
-        // Moving data packets
-        for (let i = packets.length - 1; i >= 0; i--) {
-          const pkt = packets[i];
-
-          if (pkt.dir === 'right') pkt.x += pkt.speed;
-          else if (pkt.dir === 'left') pkt.x -= pkt.speed;
-          else if (pkt.dir === 'down') pkt.y += pkt.speed;
-          else if (pkt.dir === 'up') pkt.y -= pkt.speed;
-
-          const atCol = Math.abs(pkt.x % cellSize) < pkt.speed;
-          const atRow = Math.abs(pkt.y % cellSize) < pkt.speed;
-
-          if (atCol && atRow && Math.random() < 0.28) {
-            if (pkt.dir === 'right' || pkt.dir === 'left') {
-              pkt.dir = Math.random() > 0.5 ? 'up' : 'down';
-            } else {
-              pkt.dir = Math.random() > 0.5 ? 'left' : 'right';
-            }
-          }
-
-          if (pkt.x < -20 || pkt.x > width + 20 || pkt.y < -20 || pkt.y > height + 20) {
-            packets.splice(i, 1);
-            spawnPacket();
-            continue;
-          }
-
-          ctx.beginPath();
-          let tailX = pkt.x, tailY = pkt.y;
-          if (pkt.dir === 'right') tailX = pkt.x - pkt.length;
-          else if (pkt.dir === 'left') tailX = pkt.x + pkt.length;
-          else if (pkt.dir === 'down') tailY = pkt.y - pkt.length;
-          else if (pkt.dir === 'up') tailY = pkt.y + pkt.length;
-
-          const grad = ctx.createLinearGradient(tailX, tailY, pkt.x, pkt.y);
-          grad.addColorStop(0, 'rgba(0, 240, 255, 0)');
-          grad.addColorStop(1, pkt.color);
-
-          ctx.moveTo(tailX, tailY);
-          ctx.lineTo(pkt.x, pkt.y);
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 2;
-          ctx.lineCap = 'round';
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(pkt.x, pkt.y, 2, 0, Math.PI * 2);
-          ctx.fillStyle = '#ffffff';
-          ctx.fill();
-        }
-
-        animId = requestAnimationFrame(draw);
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            isVisible = true;
-            resize();
-            if (!animId) animId = requestAnimationFrame(draw);
-          } else {
-            isVisible = false;
-            if (animId) {
-              cancelAnimationFrame(animId);
-              animId = null;
-            }
-          }
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(panel);
-      window.addEventListener('resize', resize);
-    }
-
-    // --- CHURNGUARD AI INTERACTIVE SHOWCASE (MATCHING SCREENSHOT) ---
+    // --- CHURNGUARD AI INTERACTIVE SHOWCASE ---
     const churnModels = [
       { model: "Random Forest (v2.0)", roc: "0.843", acc: "76.4%", drift: "Healthy (No Drift)" },
       { model: "Gradient Boosting (v1.8)", roc: "0.871", acc: "79.2%", drift: "Healthy (No Drift)" },
@@ -4482,247 +3828,17 @@
           if (rocEl) rocEl.style.opacity = '1';
           if (accEl) accEl.style.opacity = '1';
           if (driftEl) driftEl.style.opacity = '1';
-        }, 150);
+        }, 120);
       }
       showToast(`Active ML Engine switched to ${item.model} • ROC-AUC: ${item.roc}`);
-    }
-
-    function initChurnGuardCyberGrid() {
-      const canvas = document.getElementById('churnguard-cyber-canvas');
-      const panel = document.getElementById('churnguard-card-panel');
-      if (!canvas || !panel) return;
-
-      const ctx = canvas.getContext('2d');
-      let width = 0, height = 0;
-      let animId = null;
-      let isVisible = false;
-
-      let mouse = { x: -1000, y: -1000, active: false };
-      let smoothMouse = { x: -1000, y: -1000 };
-
-      // Exact matching grid size as 1st project (30px)
-      const cellSize = 30;
-
-      const packets = [];
-      const packetCount = 8;
-
-      function resize() {
-        const rect = panel.getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        width = rect.width;
-        height = rect.height;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        ctx.scale(dpr, dpr);
-
-        if (packets.length === 0) {
-          for (let i = 0; i < packetCount; i++) {
-            spawnPacket();
-          }
-        }
-      }
-
-      function spawnPacket() {
-        const horizontal = Math.random() > 0.5;
-        const col = Math.floor(Math.random() * Math.max(1, Math.floor(width / cellSize)));
-        const row = Math.floor(Math.random() * Math.max(1, Math.floor(height / cellSize)));
-        packets.push({
-          x: col * cellSize,
-          y: row * cellSize,
-          dir: horizontal ? (Math.random() > 0.5 ? 'right' : 'left') : (Math.random() > 0.5 ? 'down' : 'up'),
-          speed: 1.2 + Math.random() * 1.5,
-          length: 12 + Math.random() * 14,
-          color: Math.random() > 0.4 ? '#10b981' : '#06b6d4'
-        });
-      }
-
-      panel.addEventListener('mousemove', (e) => {
-        const rect = panel.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-        mouse.active = true;
-      });
-
-      panel.addEventListener('mouseleave', () => {
-        mouse.active = false;
-      });
-
-      function draw() {
-        if (!isVisible) return;
-        ctx.clearRect(0, 0, width, height);
-
-        if (mouse.active) {
-          smoothMouse.x += (mouse.x - smoothMouse.x) * 0.15;
-          smoothMouse.y += (mouse.y - smoothMouse.y) * 0.15;
-        } else {
-          smoothMouse.x += (-1000 - smoothMouse.x) * 0.1;
-          smoothMouse.y += (-1000 - smoothMouse.y) * 0.1;
-        }
-
-        const cols = Math.ceil(width / cellSize) + 1;
-        const rows = Math.ceil(height / cellSize) + 1;
-        const hoverRadius = 140;
-
-        // Vertical grid lines in emerald-teal
-        for (let c = 0; c < cols; c++) {
-          const x = c * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(x, 0);
-          ctx.lineTo(x, height);
-
-          let alpha = 0.05;
-          let strokeColor = 'rgba(255, 255, 255, 0.05)';
-
-          if (mouse.active) {
-            const dist = Math.abs(x - smoothMouse.x);
-            if (dist < hoverRadius && smoothMouse.y >= 0 && smoothMouse.y <= height) {
-              const factor = 1 - dist / hoverRadius;
-              alpha = 0.05 + factor * 0.3;
-              strokeColor = `rgba(16, 185, 129, ${alpha})`;
-            }
-          }
-
-          ctx.strokeStyle = strokeColor;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        // Horizontal grid lines in emerald-teal
-        for (let r = 0; r < rows; r++) {
-          const y = r * cellSize;
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(width, y);
-
-          let alpha = 0.05;
-          let strokeColor = 'rgba(255, 255, 255, 0.05)';
-
-          if (mouse.active) {
-            const dist = Math.abs(y - smoothMouse.y);
-            if (dist < hoverRadius && smoothMouse.x >= 0 && smoothMouse.x <= width) {
-              const factor = 1 - dist / hoverRadius;
-              alpha = 0.05 + factor * 0.3;
-              strokeColor = `rgba(16, 185, 129, ${alpha})`;
-            }
-          }
-
-          ctx.strokeStyle = strokeColor;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-
-        // Intersection dots & connectors
-        for (let c = 0; c < cols; c++) {
-          for (let r = 0; r < rows; r++) {
-            const x = c * cellSize;
-            const y = r * cellSize;
-            const dist = Math.hypot(x - smoothMouse.x, y - smoothMouse.y);
-
-            let dotRadius = 1;
-            let dotAlpha = 0.12;
-            let dotColor = `rgba(255, 255, 255, ${dotAlpha})`;
-
-            if (dist < hoverRadius && mouse.active) {
-              const factor = 1 - dist / hoverRadius;
-              dotRadius = 1.2 + factor * 2.2;
-              dotAlpha = 0.15 + factor * 0.8;
-              dotColor = `rgba(16, 185, 129, ${dotAlpha})`;
-            }
-
-            ctx.beginPath();
-            ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
-            ctx.fillStyle = dotColor;
-            ctx.fill();
-          }
-        }
-
-        // Moving data packets in emerald & cyan
-        for (let i = packets.length - 1; i >= 0; i--) {
-          const pkt = packets[i];
-
-          if (pkt.dir === 'right') pkt.x += pkt.speed;
-          else if (pkt.dir === 'left') pkt.x -= pkt.speed;
-          else if (pkt.dir === 'down') pkt.y += pkt.speed;
-          else if (pkt.dir === 'up') pkt.y -= pkt.speed;
-
-          const atCol = Math.abs(pkt.x % cellSize) < pkt.speed;
-          const atRow = Math.abs(pkt.y % cellSize) < pkt.speed;
-
-          if (atCol && atRow && Math.random() < 0.28) {
-            if (pkt.dir === 'right' || pkt.dir === 'left') {
-              pkt.dir = Math.random() > 0.5 ? 'up' : 'down';
-            } else {
-              pkt.dir = Math.random() > 0.5 ? 'left' : 'right';
-            }
-          }
-
-          if (pkt.x < -20 || pkt.x > width + 20 || pkt.y < -20 || pkt.y > height + 20) {
-            packets.splice(i, 1);
-            spawnPacket();
-            continue;
-          }
-
-          ctx.beginPath();
-          let tailX = pkt.x, tailY = pkt.y;
-          if (pkt.dir === 'right') tailX = pkt.x - pkt.length;
-          else if (pkt.dir === 'left') tailX = pkt.x + pkt.length;
-          else if (pkt.dir === 'down') tailY = pkt.y - pkt.length;
-          else if (pkt.dir === 'up') tailY = pkt.y + pkt.length;
-
-          const grad = ctx.createLinearGradient(tailX, tailY, pkt.x, pkt.y);
-          grad.addColorStop(0, 'rgba(16, 185, 129, 0)');
-          grad.addColorStop(1, pkt.color);
-
-          ctx.moveTo(tailX, tailY);
-          ctx.lineTo(pkt.x, pkt.y);
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 2;
-          ctx.lineCap = 'round';
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(pkt.x, pkt.y, 2, 0, Math.PI * 2);
-          ctx.fillStyle = '#ffffff';
-          ctx.fill();
-        }
-
-        animId = requestAnimationFrame(draw);
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            isVisible = true;
-            resize();
-            if (!animId) animId = requestAnimationFrame(draw);
-          } else {
-            isVisible = false;
-            if (animId) {
-              cancelAnimationFrame(animId);
-              animId = null;
-            }
-          }
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(panel);
-      window.addEventListener('resize', resize);
     }
 
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', () => {
       setupProjectFilters();
-      initBloodLinkGrid();
-      initFarmConnectAmbient();
-      initInterviewAICyberGrid();
-      initChurnGuardCyberGrid();
     });
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
       setupProjectFilters();
-      initBloodLinkGrid();
-      initFarmConnectAmbient();
-      initInterviewAICyberGrid();
-      initChurnGuardCyberGrid();
     }
   </script>
 </body>
