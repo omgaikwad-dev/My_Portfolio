@@ -214,25 +214,188 @@
       overflow-x: clip !important;
     }
 
-    /* Sticky Stacking Projects Animation */
-    .projects-stack {
+        /* --- CONTINUOUS ANTICLOCKWISE CIRCULAR PROJECT ORBIT --- */
+    @keyframes orbitAntiClockwise {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+
+    @keyframes counterRotateCard {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    :root {
+      --orbit-radius: 290px;
+      --orbit-speed: 46s;
+    }
+
+    @media (max-width: 1024px) {
+      :root {
+        --orbit-radius: 240px;
+        --orbit-speed: 40s;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --orbit-radius: 175px;
+        --orbit-speed: 36s;
+      }
+    }
+
+    .orbit-stage {
+      position: relative;
+      width: 100%;
+      height: 780px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       perspective: 1200px;
     }
 
-    .project-card-wrapper {
-      transform-origin: top center;
-      will-change: transform;
-      transform: translateZ(0);
-      /* No conflicting transition on transform here so scroll updates are 120fps butter-smooth */
+    @media (max-width: 1024px) {
+      .orbit-stage {
+        height: 700px;
+      }
     }
 
-    .project-card-wrapper .project-card {
-      background-color: #202227 !important;
-      border: 1px solid rgba(255, 255, 255, 0.10) !important;
-      box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.5), 0 24px 48px -12px rgba(0, 0, 0, 0.7);
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      transform: translateZ(0);
+    @media (max-width: 768px) {
+      .orbit-stage {
+        height: 560px;
+      }
+    }
+
+    .orbit-wheel {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: orbitAntiClockwise var(--orbit-speed, 46s) linear infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .orbit-card-inner {
+      animation: counterRotateCard var(--orbit-speed, 46s) linear infinite;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    /* Pause animation on hover */
+    .orbit-stage:hover .orbit-wheel,
+    .orbit-stage:hover .orbit-card-inner {
+      animation-play-state: paused;
+    }
+
+    /* Manual pause class */
+    .orbit-paused .orbit-wheel,
+    .orbit-paused .orbit-card-inner {
+      animation-play-state: paused !important;
+    }
+
+    /* Card slot placement on the orbit circle using polar coordinates */
+    .orbit-slot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 4 square cards distributed at 0deg, 90deg, 180deg, 270deg */
+    .orbit-slot-0 {
+      transform: rotate(0deg) translateY(calc(-1 * var(--orbit-radius))) rotate(0deg);
+    }
+    .orbit-slot-1 {
+      transform: rotate(90deg) translateY(calc(-1 * var(--orbit-radius))) rotate(-90deg);
+    }
+    .orbit-slot-2 {
+      transform: rotate(180deg) translateY(calc(-1 * var(--orbit-radius))) rotate(-180deg);
+    }
+    .orbit-slot-3 {
+      transform: rotate(270deg) translateY(calc(-1 * var(--orbit-radius))) rotate(-270deg);
+    }
+
+    /* Medium-sized Square Block Styling */
+    .project-square-card {
+      width: 320px;
+      height: 320px;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.85), 0 0 24px -5px rgba(229, 168, 0, 0.12);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, opacity 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    @media (max-width: 1024px) {
+      .project-square-card {
+        width: 270px;
+        height: 270px;
+        border-radius: 1.25rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .project-square-card {
+        width: 215px;
+        height: 215px;
+        border-radius: 1rem;
+      }
+    }
+
+    .project-square-card:hover {
+      transform: scale(1.06) translateZ(30px);
+      box-shadow: 0 24px 55px -10px rgba(0, 0, 0, 0.95), 0 0 32px rgba(229, 168, 0, 0.3);
+      z-index: 60;
+    }
+
+    /* Dashed orbital ring guides */
+    .orbit-track-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(var(--orbit-radius) * 2);
+      height: calc(var(--orbit-radius) * 2);
+      border-radius: 50%;
+      border: 1px dashed rgba(229, 168, 0, 0.22);
+      pointer-events: none;
+      box-shadow: 0 0 40px rgba(229, 168, 0, 0.04), inset 0 0 40px rgba(229, 168, 0, 0.04);
+    }
+
+    .orbit-track-outer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(var(--orbit-radius) * 2 + 130px);
+      height: calc(var(--orbit-radius) * 2 + 130px);
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      pointer-events: none;
     }
 
     .project-card-bg-img {
@@ -2245,9 +2408,11 @@
       </div>
     </section>
     <!-- FEATURED PROJECTS -->
-    <section class="py-space-4xl border-b border-outline-variant/30 bg-surface-container-low/40" id="projects">
+        <!-- PROJECTS: CONTINUOUS CIRCULAR ORBITAL SHOWCASE -->
+    <section class="py-space-3xl border-b border-outline-variant/30 bg-surface relative overflow-hidden select-none" id="projects">
       <div class="max-w-container-max mx-auto px-gutter-desktop">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-space-xl">
+        <!-- Section Header & Filter Pills -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4">
           <div class="max-w-2xl reveal-on-scroll">
             <h2 class="niconne-regular text-4xl sm:text-5xl text-primary font-normal">Things I've built</h2>
           </div>
@@ -2255,811 +2420,245 @@
           <div class="reveal-on-scroll delay-100 flex flex-wrap items-center gap-2" id="project-filters">
             <button
               class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-semibold transition-all bg-primary text-on-primary shadow-xs cursor-pointer active"
-              data-filter="all">All (4)</button>
+              onclick="filterOrbitProjects('all', this)">All (4)</button>
             <button
               class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-medium transition-all bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary/40 border border-outline-variant/60 cursor-pointer"
-              data-filter="ai">AI &amp; ML (3)</button>
+              onclick="filterOrbitProjects('ai', this)">AI &amp; ML (3)</button>
             <button
               class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-medium transition-all bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary/40 border border-outline-variant/60 cursor-pointer"
-              data-filter="fullstack">Full Stack (4)</button>
+              onclick="filterOrbitProjects('fullstack', this)">Full Stack (4)</button>
             <button
               class="project-filter-btn px-3.5 py-1.5 rounded-full text-xs font-code font-medium transition-all bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary/40 border border-outline-variant/60 cursor-pointer"
-              data-filter="mobile">Mobile (1)</button>
+              onclick="filterOrbitProjects('mobile', this)">Mobile (1)</button>
           </div>
         </div>
-        <div class="projects-stack relative flex flex-col pb-24" id="projects-container">
-          <!-- Project 01: BloodLink AI -->
-          <div class="project-card-wrapper sticky top-[5.5rem] z-10 w-full mb-16" data-categories="ai fullstack mobile"
-            data-index="0">
-            <div data-categories="ai fullstack mobile"
-              class="project-card glass-panel spotlight-card reveal-on-scroll delay-75 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-outline-variant bg-surface-container-lowest transition-all duration-300">
-              <div class="lg:col-span-6 p-space-xl flex flex-col justify-between relative z-10">
-                <div>
-                  <div class="flex items-center gap-2 mb-space-xs">
-                    <span class="font-code text-primary font-bold">01</span>
-                    <span class="text-outline">•</span>
-                    <span class="font-code text-[11px] text-outline uppercase tracking-wider">AI • Healthcare • Full
-                      Stack
-                      • Mobile</span>
-                  </div>
-                  <h3 class="font-display text-3xl text-on-surface mb-space-sm font-semibold">BloodLink AI</h3>
-                  <p class="font-body-md text-on-surface-variant mb-space-md text-base">
-                    An AI-powered blood donation platform connecting donors, hospitals and recipients with real-time
-                    location tracking and AI-assisted emergency support. Features intelligent matching protocols and
-                    instant donor mobilization.
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-space-lg">
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Flutter</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">React.js</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Firebase</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Python</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Google
-                      Gemini API</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">OpenStreetMap
-                      API</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-space-sm pt-space-xs">
-                  <button
-                    class="magnetic-btn px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
-                    onclick="openProjectModal('bloodlink')">
-                    View Project
-                  </button>
-                  <a class="magnetic-btn inline-flex items-center gap-1 px-space-md py-2.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-body-sm hover:border-primary transition-colors"
-                    href="https://github.com/omgaikwad-dev/BloodLink" rel="noreferrer" target="_blank">
-                    <span class="">GitHub</span>
-                    <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-bloodlink select-none group"
-                id="bloodlink-card-panel" onmousemove="updateCardSpotlight(event, this)">
-                <!-- Ambient Red Radial Glow -->
-                <div class="absolute inset-0 bg-radial-vignette pointer-events-none z-[2]"></div>
 
-                <!-- Lightweight ECG Vital Heartbeat Line across Grid -->
-                <svg class="absolute bottom-6 left-0 right-0 w-full h-12 pointer-events-none z-[2] opacity-40"
-                  viewBox="0 0 600 60" preserveAspectRatio="none">
-                  <path class="ecg-path"
-                    d="M0,30 L180,30 L195,12 L210,48 L225,24 L240,30 L380,30 L395,8 L410,52 L425,20 L440,30 L600,30"
-                    fill="none" stroke="#ff3b5c" stroke-width="1.8" stroke-linecap="round" />
-                </svg>
+        <!-- Single Page Circular Rotation Stage -->
+        <div class="orbit-stage" id="orbit-stage">
+          <!-- Orbital Guide Rings -->
+          <div class="orbit-track-outer"></div>
+          <div class="orbit-track-circle"></div>
 
-                <!-- Top Telemetry Status Pill -->
-                <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                  <div
-                    class="flex items-center gap-2 px-3 py-1 rounded-full bg-[#16171d]/90 border border-[#ff3b5c]/35 backdrop-blur-md text-[11px] font-code text-on-surface shadow-md">
-                    <span class="w-2 h-2 rounded-full bg-[#ff3b5c] animate-ping"></span>
-                    <span class="text-[#ff5e7e] font-semibold">LIVE RADAR</span>
-                    <span class="text-outline/60">•</span>
-                    <span class="text-on-surface-variant font-mono">18.5204° N, 73.8567° E</span>
-                  </div>
-                  <div
-                    class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#16171d]/80 border border-outline-variant/40 text-[10px] font-code text-outline backdrop-blur-md">
-                    <span class="material-symbols-outlined text-[13px] text-primary"
-                      data-icon="touch_app">touch_app</span>
-                    <span>Interactive Grid</span>
-                  </div>
-                </div>
+          <!-- Rotating Wheel Container (Continuous Anticlockwise Circulation) -->
+          <div class="orbit-wheel" id="orbit-wheel">
 
-                <!-- Central Cybernetic Blood Emblem (Matching Splash Screen) -->
-                <div class="relative z-10 flex flex-col items-center text-center my-auto py-6 pointer-events-none">
-                  <!-- Pulse Glow Container -->
-                  <div
-                    class="relative flex items-center justify-center bloodlink-emblem-wrap cursor-pointer pointer-events-auto"
-                    onclick="triggerBloodLinkRadarPing(event)" title="Click to pulse emergency radar">
-                    <!-- Outer Breathing Aura Rings -->
-                    <div
-                      class="absolute -inset-4 rounded-full bg-[#ff3b5c]/20 blur-xl animate-pulse-slow pointer-events-none">
-                    </div>
-                    <div
-                      class="absolute -inset-1 rounded-full border border-[#ff3b5c]/40 animate-ping opacity-30 pointer-events-none"
-                      style="animation-duration: 3s;"></div>
-
-                    <!-- High-Precision Circuit SVG Badge -->
-                    <svg
-                      class="w-28 h-28 sm:w-32 sm:h-32 drop-shadow-[0_0_24px_rgba(255,59,92,0.6)] transform group-hover:scale-105 transition-transform duration-500"
-                      viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <radialGradient id="bloodBadgeBg" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stop-color="#2a0d14" />
-                          <stop offset="70%" stop-color="#14151b" />
-                          <stop offset="100%" stop-color="#0d0e12" />
-                        </radialGradient>
-                        <linearGradient id="bloodDropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stop-color="#ff6b87" />
-                          <stop offset="45%" stop-color="#ff3b5c" />
-                          <stop offset="100%" stop-color="#b80625" />
-                        </linearGradient>
-                        <filter id="bloodGlow" x="-20%" y="-20%" width="140%" height="140%">
-                          <feGaussianBlur stdDeviation="3" result="blur" />
-                          <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                      </defs>
-
-                      <!-- Outer Hexagon / Circle Frame -->
-                      <circle cx="80" cy="80" r="76" stroke="rgba(255, 59, 92, 0.3)" stroke-width="1.5"
-                        stroke-dasharray="6 4" />
-                      <circle cx="80" cy="80" r="70" stroke="rgba(255, 59, 92, 0.65)" stroke-width="2" />
-                      <circle cx="80" cy="80" r="69" fill="url(#bloodBadgeBg)" />
-
-                      <!-- PCB Circuit Traces & Nodes -->
-                      <!-- Top routes -->
-                      <path d="M 80,48 L 80,32 L 68,20" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="68" cy="20" r="2.5" fill="#ff6b87" />
-                      <path d="M 80,48 L 80,32 L 92,20" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="92" cy="20" r="2.5" fill="#ff6b87" />
-
-                      <!-- Left routes -->
-                      <path d="M 52,68 L 38,68 L 26,56" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="26" cy="56" r="2.5" fill="#ff6b87" />
-                      <path d="M 50,84 L 34,84 L 22,84" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="22" cy="84" r="2.5" fill="#ff6b87" />
-                      <path d="M 54,98 L 40,98 L 28,110" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="28" cy="110" r="2.5" fill="#ff6b87" />
-
-                      <!-- Right routes -->
-                      <path d="M 108,68 L 122,68 L 134,56" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="134" cy="56" r="2.5" fill="#ff6b87" />
-                      <path d="M 110,84 L 126,84 L 138,84" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="138" cy="84" r="2.5" fill="#ff6b87" />
-                      <path d="M 106,98 L 120,98 L 132,110" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="132" cy="110" r="2.5" fill="#ff6b87" />
-
-                      <!-- Bottom routes -->
-                      <path d="M 80,114 L 80,128 L 68,140" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="68" cy="140" r="2.5" fill="#ff6b87" />
-                      <path d="M 80,114 L 80,128 L 92,140" stroke="#ff3b5c" stroke-width="1.6" stroke-linecap="round"
-                        opacity="0.85" />
-                      <circle cx="92" cy="140" r="2.5" fill="#ff6b87" />
-
-                      <!-- Diagonal micro-traces -->
-                      <path d="M 64,56 L 54,46 L 42,46" stroke="#ff5e7e" stroke-width="1.2" stroke-linecap="round"
-                        opacity="0.7" />
-                      <circle cx="42" cy="46" r="2" fill="#ff6b87" />
-                      <path d="M 96,56 L 106,46 L 118,46" stroke="#ff5e7e" stroke-width="1.2" stroke-linecap="round"
-                        opacity="0.7" />
-                      <circle cx="118" cy="46" r="2" fill="#ff6b87" />
-                      <path d="M 64,106 L 52,118 L 44,118" stroke="#ff5e7e" stroke-width="1.2" stroke-linecap="round"
-                        opacity="0.7" />
-                      <circle cx="44" cy="118" r="2" fill="#ff6b87" />
-                      <path d="M 96,106 L 108,118 L 116,118" stroke="#ff5e7e" stroke-width="1.2" stroke-linecap="round"
-                        opacity="0.7" />
-                      <circle cx="116" cy="118" r="2" fill="#ff6b87" />
-
-                      <!-- Inner Glow Halo for Blood Drop -->
-                      <circle cx="80" cy="80" r="32" fill="#ff3b5c" opacity="0.18" filter="url(#bloodGlow)" />
-
-                      <!-- Central Stylized Liquid Blood Drop -->
-                      <path
-                        d="M 80, 52 C 80, 52, 97, 75, 97, 88 C 97, 97.4, 89.4, 105, 80, 105 C 70.6, 105, 63, 97.4, 63, 88 C 63, 75, 80, 52, 80, 52 Z"
-                        fill="url(#bloodDropGrad)" filter="url(#bloodGlow)" />
-                      <!-- Specular 3D highlight reflection on the drop -->
-                      <path d="M 74, 68 C 76, 64, 79, 64, 78, 72 C 76.5, 80, 71, 84, 69, 82 C 68, 79, 70, 72, 74, 68 Z"
-                        fill="rgba(255, 255, 255, 0.65)" />
-                    </svg>
-                  </div>
-
-                  <!-- BloodLink AI Typography matching screenshot -->
-                  <h4
-                    class="font-display text-2xl sm:text-3xl font-bold tracking-tight mt-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-[#ff6b87] to-[#ff3b5c] drop-shadow-[0_2px_12px_rgba(255,59,92,0.4)]">
-                    BloodLink AI
-                  </h4>
-                  <p class="font-code text-xs sm:text-[13px] text-on-surface-variant/90 tracking-widest uppercase mt-1">
-                    Emergency Blood Network System
-                  </p>
-
-                  <!-- Live Operational Telemetry Pill Row -->
-                  <div class="flex flex-wrap items-center justify-center gap-2 mt-4 max-w-sm pointer-events-auto">
-                    <div
-                      class="px-2.5 py-1 rounded-lg bg-[#14151b]/80 border border-[#ff3b5c]/40 text-[11px] font-code text-[#ff6b87] flex items-center gap-1.5 shadow-sm">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#ff3b5c]"></span>
-                      <span>O+ MATCH READY</span>
-                    </div>
-                    <div
-                      class="px-2.5 py-1 rounded-lg bg-[#14151b]/80 border border-outline-variant/40 text-[11px] font-code text-on-surface flex items-center gap-1.5 shadow-sm">
-                      <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                      <span>8 Donors Locked</span>
-                    </div>
-                    <div
-                      class="px-2.5 py-1 rounded-lg bg-[#14151b]/80 border border-outline-variant/40 text-[11px] font-code text-primary flex items-center gap-1.5 shadow-sm">
-                      <span class="material-symbols-outlined text-[13px]" data-icon="route">route</span>
-                      <span>14m Route ETA</span>
-                    </div>
-                  </div>
-
-                  <!-- Interactive Radar Trigger Button -->
-                  <div class="mt-4 pointer-events-auto">
-                    <button type="button" onclick="triggerBloodLinkRadarPing(event)"
-                      class="px-4 py-1.5 rounded-full bg-[#1c1418] hover:bg-[#ff3b5c]/20 border border-[#ff3b5c]/50 text-[#ff6b87] hover:text-white font-code text-xs transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(255,59,92,0.25)] hover:shadow-[0_0_25px_rgba(255,59,92,0.5)] cursor-pointer active:scale-95 group">
-                      <span class="w-2 h-2 rounded-full bg-[#ff3b5c] animate-ping"></span>
-                      <span>Simulate Dispatch Pulse</span>
-                      <span
-                        class="material-symbols-outlined text-[15px] group-hover:rotate-90 transition-transform duration-300"
-                        data-icon="radar">radar</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 02: FarmConnect -->
-          <div class="project-card-wrapper sticky top-[7rem] z-20 w-full mb-16" data-categories="fullstack"
-            data-index="1">
-            <div data-categories="fullstack"
-              class="project-card glass-panel spotlight-card reveal-on-scroll delay-100 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-outline-variant bg-surface-container-lowest transition-all duration-300">
-              <div class="lg:col-span-6 p-space-xl flex flex-col justify-between relative z-10">
-                <div>
-                  <div class="flex items-center gap-2 mb-space-xs">
-                    <span class="font-code text-secondary font-bold">02</span>
-                    <span class="text-outline">•</span>
-                    <span class="font-code text-[11px] text-outline uppercase tracking-wider">Full Stack • Marketplace •
-                      Web</span>
-                  </div>
-                  <h3 class="font-display text-3xl text-on-surface mb-space-sm font-semibold">FarmConnect</h3>
-                  <p class="font-body-md text-on-surface-variant mb-space-md text-base">
-                    A digital marketplace connecting farmers directly with buyers, eliminating middlemen overhead.
-                    Features secure multi-tenant authentication, dynamic produce listings, price trends, and order
-                    tracking.
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-space-lg">
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">React.js</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Node.js</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Express.js</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">MongoDB</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Firebase</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-space-sm pt-space-xs">
-                  <button
-                    class="magnetic-btn px-space-md py-2.5 rounded-lg bg-secondary text-on-secondary font-body-sm font-semibold hover:bg-secondary/90 transition-all shadow-xs cursor-pointer"
-                    onclick="window.open('https://farmer-vert.vercel.app/', '_blank', 'noopener,noreferrer')">
-                    View Project
-                  </button>
-                  <a class="magnetic-btn inline-flex items-center gap-1 px-space-md py-2.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-body-sm hover:border-secondary transition-colors"
-                    href="https://github.com/omgaikwad-dev/Farmer" rel="noreferrer" target="_blank">
-                    <span class="">GitHub</span>
-                    <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-farmconnect select-none group"
-                id="farmconnect-card-panel" onmousemove="updateCardSpotlight(event, this)">
-                <!-- Lightweight CSS Floating Harvest Fireflies (0% CPU) -->
-                <div class="absolute inset-0 pointer-events-none overflow-hidden z-[2]">
-                  <span class="absolute w-1.5 h-1.5 rounded-full bg-emerald-400 blur-[0.5px]"
-                    style="left:18%; top:65%; animation: harvestFirefly 4.5s ease-in-out infinite;"></span>
-                  <span class="absolute w-2 h-2 rounded-full bg-amber-400 blur-[0.5px]"
-                    style="left:72%; top:45%; animation: harvestFirefly 5.2s ease-in-out infinite 1s;"></span>
-                  <span class="absolute w-1.5 h-1.5 rounded-full bg-emerald-300 blur-[0.5px]"
-                    style="left:40%; top:78%; animation: harvestFirefly 4.8s ease-in-out infinite 2s;"></span>
-                  <span class="absolute w-2 h-2 rounded-full bg-amber-300 blur-[0.5px]"
-                    style="left:85%; top:70%; animation: harvestFirefly 5.6s ease-in-out infinite 0.5s;"></span>
-                </div>
-
-                <!-- Soft Emerald & Amber Radial Glow Orbs -->
-                <div
-                  class="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none">
-                </div>
-                <div
-                  class="absolute -bottom-16 -left-16 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none">
-                </div>
-
-                <!-- Top Micro Navbar (Matching Screenshot) -->
-                <div
-                  class="relative z-10 flex items-center justify-between pb-3 border-b border-emerald-500/20 pointer-events-none">
-                  <!-- FarmConnect Sprout Brand -->
-                  <div class="flex items-center gap-2 pointer-events-auto">
-                    <div
-                      class="w-7 h-7 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center">
-                      <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M7 20h10M12 20v-8M12 12a4 4 0 0 1-4-4 4 4 0 0 1 4 0 4 4 0 0 1 4 4 4 4 0 0 1-4 0z" />
-                      </svg>
-                    </div>
-                    <span class="font-display font-bold text-base sm:text-lg text-white tracking-tight">Farm<span
-                        class="text-emerald-400">Connect</span></span>
-                  </div>
-
-                  <!-- Nav Links & CTA Button -->
-                  <div class="flex items-center gap-2 pointer-events-auto">
-                    <span class="hidden sm:inline font-code text-[11px] text-emerald-400/80">Features • How it
-                      Works</span>
-                    <a href="https://github.com/omgaikwad-dev/Farmer" target="_blank" rel="noreferrer"
-                      class="px-2.5 py-1 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-code text-[10px] font-semibold transition-all shadow-sm shadow-emerald-900/40 flex items-center gap-1 cursor-pointer">
-                      <span>Explore App</span>
-                      <span class="material-symbols-outlined text-[12px]" data-icon="arrow_forward">arrow_forward</span>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Center Showcase: Headline + Floating Interactive Marketplace Pills -->
-                <div class="relative z-10 py-3 my-auto space-y-3.5">
-                  <!-- Hero Tag Pill -->
-                  <div
-                    class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-code text-[11px] shadow-xs">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>Revolutionizing Indian Agriculture</span>
-                  </div>
-
-                  <!-- Bold Punchy Heading matching Screenshot -->
-                  <div>
-                    <h4
-                      class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-white">
-                      Farm Fresh, <br>
-                      <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400 drop-shadow-[0_2px_12px_rgba(34,197,94,0.3)]">Direct
-                        to You</span>
-                    </h4>
-                    <p class="font-body-sm text-on-surface-variant text-xs sm:text-sm mt-1.5 max-w-md">
-                      Empowering farmers with technology. Connecting buyers to the source. No middlemen, no markups —
-                      just fresh produce at fair prices.
-                    </p>
-                  </div>
-
-                  <!-- 4 Floating Interactive Market Telemetry Cards (Arranged as in Screenshot) -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1" id="farmconnect-floating-cards">
-                    <!-- Card 1: Today's Best Price (Interactive Click to Cycle) -->
-                    <div onclick="cycleFarmPrice()"
-                      class="p-2.5 rounded-xl bg-[#141e17]/85 border border-emerald-500/30 hover:border-emerald-400/60 shadow-lg backdrop-blur-md transition-all cursor-pointer group/card flex items-center gap-3">
-                      <div
-                        class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 group-hover/card:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-emerald-400 text-lg"
-                          data-icon="trending_up">trending_up</span>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <div class="flex items-center justify-between">
-                          <span class="font-code text-[10px] text-emerald-300/80 uppercase tracking-wider block">Today's
-                            Best Price</span>
-                          <span class="font-code text-[9px] text-on-surface-variant/70">tap to cycle</span>
-                        </div>
-                        <p id="farm-price-val"
-                          class="font-display text-sm font-bold text-white tracking-tight flex items-center gap-1 mt-0.5 transition-all duration-200">
-                          <span>Tomato — ₹58/kg</span>
-                          <span class="text-emerald-400 font-semibold">↑</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    <!-- Card 2: Active Listings -->
-                    <div
-                      class="p-2.5 rounded-xl bg-[#141e17]/85 border border-outline-variant/40 hover:border-amber-400/40 shadow-lg backdrop-blur-md transition-all flex items-center gap-3">
-                      <div
-                        class="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center shrink-0">
-                        <span class="material-symbols-outlined text-amber-400 text-lg"
-                          data-icon="agriculture">agriculture</span>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <span class="font-code text-[10px] text-outline uppercase tracking-wider block">Active
-                          Listings</span>
-                        <p class="font-display text-sm font-bold text-white tracking-tight mt-0.5">2,450+ Products</p>
-                      </div>
-                    </div>
-
-                    <!-- Card 3: Delivery Available -->
-                    <div
-                      class="p-2.5 rounded-xl bg-[#141e17]/85 border border-outline-variant/40 hover:border-blue-400/40 shadow-lg backdrop-blur-md transition-all flex items-center gap-3">
-                      <div
-                        class="w-9 h-9 rounded-lg bg-blue-500/20 border border-blue-500/40 flex items-center justify-center shrink-0">
-                        <span class="material-symbols-outlined text-blue-400 text-lg"
-                          data-icon="local_shipping">local_shipping</span>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <span class="font-code text-[10px] text-outline uppercase tracking-wider block">Delivery
-                          Available</span>
-                        <p class="font-display text-sm font-bold text-white tracking-tight mt-0.5">Same Day • 500+
-                          Cities</p>
-                      </div>
-                    </div>
-
-                    <!-- Card 4: Avg Rating -->
-                    <div
-                      class="p-2.5 rounded-xl bg-[#141e17]/85 border border-outline-variant/40 hover:border-amber-400/40 shadow-lg backdrop-blur-md transition-all flex items-center gap-3">
-                      <div
-                        class="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center shrink-0">
-                        <span class="material-symbols-outlined text-amber-400 text-lg" data-icon="star">star</span>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <span class="font-code text-[10px] text-outline uppercase tracking-wider block">Avg
-                          Rating</span>
-                        <p class="font-display text-sm font-bold text-amber-300 tracking-tight mt-0.5">4.8 / 5.0 (15k+
-                          Reviews)</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- CTAs & Social Proof Row matching Screenshot -->
-                  <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-                    <div class="flex items-center gap-2">
-                      <button type="button" onclick="cycleFarmPrice()"
-                        class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-code text-xs font-semibold transition-all shadow-md shadow-emerald-900/40 flex items-center gap-1.5 cursor-pointer active:scale-95">
-                        <span>Start Selling</span>
-                        <span class="material-symbols-outlined text-[14px]"
-                          data-icon="arrow_forward">arrow_forward</span>
-                      </button>
-                      <button type="button" onclick="cycleFarmPrice()"
-                        class="px-3 py-1.5 rounded-xl bg-[#141e17] hover:bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 font-code text-xs transition-colors cursor-pointer">
-                        <span>Start Buying</span>
-                      </button>
-                    </div>
-
-                    <!-- Trusted By Avatars -->
-                    <div class="flex items-center gap-2 text-on-surface-variant font-code text-[11px]">
-                      <div class="flex -space-x-1.5 overflow-hidden">
-                        <span
-                          class="w-5 h-5 rounded-full bg-emerald-700 border border-[#0d1612] flex items-center justify-center text-[10px]">👨‍🌾</span>
-                        <span
-                          class="w-5 h-5 rounded-full bg-amber-700 border border-[#0d1612] flex items-center justify-center text-[10px]">👩‍🌾</span>
-                        <span
-                          class="w-5 h-5 rounded-full bg-blue-700 border border-[#0d1612] flex items-center justify-center text-[10px]">🏪</span>
-                      </div>
-                      <span class="text-outline text-[11px]">Trusted by 15,000+ users</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 03: InterviewAI -->
-          <div class="project-card-wrapper sticky top-[8.5rem] z-30 w-full mb-16" data-categories="ai fullstack"
-            data-index="2">
-            <div data-categories="ai fullstack"
-              class="project-card glass-panel spotlight-card reveal-on-scroll delay-100 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-outline-variant bg-surface-container-lowest transition-all duration-300">
-              <div class="lg:col-span-6 p-space-xl flex flex-col justify-between relative z-10">
-                <div>
-                  <div class="flex items-center gap-2 mb-space-xs">
-                    <span class="font-code text-tertiary font-bold">03</span>
-                    <span class="text-outline">•</span>
-                    <span class="font-code text-[11px] text-outline uppercase tracking-wider">AI • Generative AI •
-                      EdTech</span>
-                  </div>
-                  <h3 class="font-display text-3xl text-on-surface mb-space-sm font-semibold">InterviewAI</h3>
-                  <p class="font-body-md text-on-surface-variant mb-space-md text-base">
-                    An AI-powered mock interview platform offering HR, technical and behavioral interviews with
-                    AI-generated questions, real-time evaluation, and personalized feedback reports with confidence
-                    telemetry.
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-space-lg">
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Next.js</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">React.js</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Google
-                      Gemini API</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Firebase</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Tailwind
-                      CSS</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-space-sm pt-space-xs">
-                  <button
-                    class="magnetic-btn px-space-md py-2.5 rounded-lg bg-tertiary text-on-tertiary font-body-sm font-semibold hover:bg-tertiary/90 transition-all shadow-xs cursor-pointer"
-                    onclick="window.open('https://ai-agent-seven-gray.vercel.app/', '_blank', 'noopener,noreferrer')">
-                    View Project
-                  </button>
-                  <a class="magnetic-btn inline-flex items-center gap-1 px-space-md py-2.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-body-sm hover:border-tertiary transition-colors"
-                    href="https://github.com/omgaikwad-dev/AI_Agent" rel="noreferrer" target="_blank">
-                    <span class="">GitHub</span>
-                    <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-interviewai select-none group"
-                id="interviewai-card-panel" onmousemove="updateCardSpotlight(event, this)">
-                <!-- Lightweight Cyber Laser Scan Line (0% CPU) -->
-                <div
-                  class="cyber-laser-beam absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent shadow-[0_0_12px_#00f0ff] pointer-events-none z-[2]">
-                </div>
-
-                <!-- Neon Cyan Right Accent Indicator (Matching Screenshot) -->
-                <div
-                  class="absolute top-0 right-0 bottom-0 w-[3px] bg-[#00f0ff] shadow-[0_0_15px_#00f0ff,0_0_30px_#00f0ff] pointer-events-none z-10">
-                </div>
-
-                <!-- Ambient Cyber Glow Orbs -->
-                <div
-                  class="absolute -top-16 -left-16 w-64 h-64 bg-[#00f0ff]/10 rounded-full blur-3xl pointer-events-none">
-                </div>
-                <div
-                  class="absolute -bottom-16 -right-16 w-64 h-64 bg-[#ec4899]/10 rounded-full blur-3xl pointer-events-none">
-                </div>
-
-                <!-- Center Showcase Container -->
-                <div
-                  class="relative z-10 flex flex-col items-center text-center my-auto py-3 space-y-3.5 max-w-lg mx-auto">
-                  <!-- Top AI Coach Pill Badge (Matching Screenshot) -->
-                  <div
-                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#081724]/90 border border-[#00f0ff]/40 text-[#00f0ff] font-code text-[10px] sm:text-[11px] tracking-widest uppercase shadow-[0_0_16px_rgba(0,240,255,0.25)] backdrop-blur-md">
-                    <span class="material-symbols-outlined text-[13px] animate-pulse" data-icon="memory">memory</span>
-                    <span>AI-POWERED INTERVIEW COACH</span>
-                  </div>
-
-                  <!-- Massive Synthwave Luminous Title: INTERVIEW AI -->
-                  <h4
-                    class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#a855f7] to-[#ec4899] drop-shadow-[0_0_25px_rgba(0,240,255,0.35)] drop-shadow-[0_0_40px_rgba(236,72,153,0.3)]">
-                    INTERVIEW AI
-                  </h4>
-
-                  <!-- Exact Subtitle matching Screenshot -->
-                  <p class="font-body-md text-slate-300 text-xs sm:text-sm leading-relaxed max-w-md">
-                    Your AI-powered mock interview coach that simulates <span
-                      class="text-[#00f0ff] font-semibold drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">real
-                      interviews</span> at top companies. Get instant feedback, personalized scoring, and a roadmap to
-                    your dream job.
-                  </p>
-
-                  <!-- Company Simulated Tracks Row (Matching Screenshot) -->
-                  <div class="flex flex-wrap items-center justify-center gap-1.5 pt-1" id="interview-company-chips">
-                    <button type="button" onclick="selectCompanyTrack('Google')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-[#00f0ff] text-[#00f0ff] font-code text-[10px] cursor-pointer shadow-[0_0_10px_rgba(0,240,255,0.3)] transition-all">Google</button>
-                    <button type="button" onclick="selectCompanyTrack('Microsoft')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-outline-variant/30 text-slate-400 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all font-code text-[10px] cursor-pointer">Microsoft</button>
-                    <button type="button" onclick="selectCompanyTrack('Amazon')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-outline-variant/30 text-slate-400 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all font-code text-[10px] cursor-pointer">Amazon</button>
-                    <button type="button" onclick="selectCompanyTrack('Meta')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-outline-variant/30 text-slate-400 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all font-code text-[10px] cursor-pointer">Meta</button>
-                    <button type="button" onclick="selectCompanyTrack('Apple')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-outline-variant/30 text-slate-400 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all font-code text-[10px] cursor-pointer">Apple</button>
-                    <button type="button" onclick="selectCompanyTrack('Infosys')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-outline-variant/30 text-slate-400 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all font-code text-[10px] cursor-pointer">Infosys</button>
-                    <button type="button" onclick="selectCompanyTrack('TCS')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-outline-variant/30 text-slate-400 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all font-code text-[10px] cursor-pointer">TCS</button>
-                    <button type="button" onclick="selectCompanyTrack('Deloitte')"
-                      class="company-chip px-2.5 py-0.5 rounded-full bg-[#0a111a] border border-outline-variant/30 text-slate-400 hover:text-[#00f0ff] hover:border-[#00f0ff]/50 transition-all font-code text-[10px] cursor-pointer">Deloitte</button>
-                  </div>
-
-                  <!-- Live Question Prompt Streamer -->
-                  <div
-                    class="w-full max-w-md p-2.5 rounded-xl bg-[#0b121c]/90 border border-[#00f0ff]/30 text-left shadow-lg backdrop-blur-md">
-                    <div
-                      class="flex items-center justify-between pb-1.5 border-b border-[#00f0ff]/20 text-[10px] font-code">
-                      <span class="flex items-center gap-1.5 text-[#00f0ff]">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-ping"></span>
-                        <span id="interview-track-name">Google L4 Simulation</span>
-                      </span>
-                      <span class="text-[#a855f7] font-semibold">Gemini 1.5 Pro</span>
-                    </div>
-                    <p id="interview-question-text"
-                      class="text-xs text-slate-200 font-mono mt-1.5 line-clamp-2 transition-opacity duration-200">
-                      "Design a real-time collaborative code editor with operational transformation (OT) and conflict
-                      resolution."
-                    </p>
-                  </div>
-
-                  <!-- Action Buttons matching Screenshot -->
-                  <div class="flex flex-wrap items-center justify-center gap-3 pt-1 pointer-events-auto">
-                    <button type="button" onclick="simulateNewInterviewQuestion()"
-                      class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#8b5cf6] text-black font-code font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,240,255,0.45)] hover:shadow-[0_0_35px_rgba(0,240,255,0.8)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5">
-                      <span class="material-symbols-outlined text-[15px] font-bold" data-icon="bolt">bolt</span>
-                      <span>Start Interview</span>
-                      <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
-                    </button>
-                    <button type="button" onclick="openProjectModal('interviewai')"
-                      class="px-4 py-2.5 rounded-xl border border-[#00f0ff]/50 text-[#00f0ff] hover:bg-[#00f0ff]/10 hover:border-[#00f0ff] transition-all font-code text-xs uppercase tracking-wider cursor-pointer active:scale-95">
-                      <span>Learn More</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 04: ChurnGuard AI -->
-          <div class="project-card-wrapper sticky top-[10rem] z-40 w-full mb-6" data-categories="ai fullstack"
-            data-index="3">
-            <div data-categories="ai fullstack"
-              class="project-card glass-panel spotlight-card reveal-on-scroll delay-150 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-outline-variant bg-surface-container-lowest transition-all duration-300">
-              <div class="lg:col-span-6 p-space-xl flex flex-col justify-between relative z-10">
-                <div>
-                  <div class="flex items-center gap-2 mb-space-xs">
-                    <span class="font-code text-primary font-bold">04</span>
-                    <span class="text-outline">•</span>
-                    <span class="font-code text-[11px] text-outline uppercase tracking-wider">AI • Machine Learning •
-                      Full Stack • Enterprise</span>
-                  </div>
-                  <h3 class="font-display text-3xl text-on-surface mb-space-sm font-semibold">ChurnGuard AI</h3>
-                  <p class="font-body-md text-on-surface-variant mb-space-md text-base">
-                    A production-grade customer retention and churn intelligence platform. Built with FastAPI, React 18,
-                    and scikit-learn to deliver real-time churn risk predictions, statistical feature drift monitoring,
-                    and reproducible ML pipelines with zero target leakage.
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-space-lg">
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">FastAPI</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Python
-                      3.11</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">React
-                      18</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">scikit-learn</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">SQLAlchemy
-                      2.0</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">PostgreSQL</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Argon2id
-                      &amp; JWT</span>
-                    <span
-                      class="skill-badge px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code text-xs">Recharts</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-space-sm pt-space-xs">
-                  <button
-                    class="magnetic-btn px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-body-sm font-semibold hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
-                    onclick="openProjectModal('churnguard')">
-                    View Project
-                  </button>
-                  <a class="magnetic-btn inline-flex items-center gap-1 px-space-md py-2.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-body-sm hover:border-primary transition-colors"
-                    href="https://github.com/omgaikwad-dev/Churn-Analysis/" rel="noreferrer" target="_blank">
-                    <span class="">GitHub</span>
-                    <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="lg:col-span-6 min-h-[460px] p-space-lg sm:p-space-xl flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-outline-variant/40 relative overflow-hidden project-grid-churnguard select-none group"
-                id="churnguard-card-panel" onmousemove="updateCardSpotlight(event, this)">
-                <!-- Soft Drift Pulse Glow Aura (0% CPU) -->
-                <div class="absolute inset-0 bg-radial-vignette pointer-events-none z-[2]"></div>
-
-                <!-- Soft Emerald & Cyan Radial Glow Orbs -->
-                <div
-                  class="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none">
-                </div>
-                <div
-                  class="absolute -bottom-16 -left-16 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none">
-                </div>
-
-                <!-- Top Micro Navbar (Matching Screenshot) -->
-                <div
-                  class="relative z-10 flex items-center justify-between pb-2.5 border-b border-emerald-500/20 pointer-events-none">
-                  <!-- ChurnGuard Hexagonal Brand -->
-                  <div class="flex items-center gap-2 pointer-events-auto">
-                    <div
-                      class="w-6 h-6 rounded-lg bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center">
-                      <span class="material-symbols-outlined text-emerald-400 text-[15px]"
-                        data-icon="shield">shield</span>
-                    </div>
-                    <span class="font-display font-bold text-base sm:text-lg text-white tracking-tight">ChurnGuard <span
-                        class="text-emerald-400">AI</span></span>
-                  </div>
-
-                  <!-- Nav Links & CTA Button -->
-                  <div class="flex items-center gap-2 pointer-events-auto">
-                    <span class="hidden sm:inline font-code text-[10px] text-emerald-400/80">Features • Methodology •
-                      FAQ</span>
-                    <div
-                      class="hidden sm:flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-[10px] font-code text-emerald-300">
-                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                      <span>Emerald</span>
-                    </div>
-                    <a href="https://github.com/omgaikwad-dev/Churn-Analysis/" target="_blank" rel="noreferrer"
-                      class="px-2.5 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-code text-[10px] font-bold transition-all shadow-sm shadow-emerald-900/40 flex items-center gap-1 cursor-pointer hover:scale-105">
-                      <span>Get Started</span>
-                      <span class="material-symbols-outlined text-[12px]" data-icon="arrow_forward">arrow_forward</span>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Center Showcase: Tag + Punchy Headline + Subtitle + Action Buttons -->
-                <div class="relative z-10 py-3 my-auto space-y-3">
-                  <!-- Hero Tag Pill -->
-                  <div
-                    class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-code text-[11px] shadow-xs">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>Enterprise Customer Churn Intelligence &amp; Prediction</span>
-                  </div>
-
-                  <!-- Headline matching Screenshot -->
-                  <div>
-                    <h4
-                      class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight text-white">
-                      Stop Customer Churn <br>
-                      <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 drop-shadow-[0_2px_14px_rgba(16,185,129,0.35)]">Before
-                        It Costs You Revenue</span>
-                    </h4>
-                    <p class="font-body-md text-slate-300 text-xs sm:text-sm mt-1.5 max-w-lg leading-relaxed">
-                      ChurnGuard AI equips growth, product, and customer success teams with transparent, supervised
-                      machine-learning algorithms to detect high-risk accounts, isolate friction drivers, and protect
-                      recurring revenue.
-                    </p>
-                  </div>
-
-                  <!-- Action CTAs matching Screenshot -->
-                  <div class="flex flex-wrap items-center gap-2.5 pt-0.5 pointer-events-auto">
-                    <button type="button" onclick="cycleChurnModel()"
-                      class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 text-black font-code text-xs font-bold transition-all shadow-lg shadow-emerald-900/40 hover:shadow-emerald-500/30 hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5">
-                      <span>Get Started Free</span>
-                      <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
-                    </button>
-                    <button type="button" onclick="cycleChurnModel()"
-                      class="px-3.5 py-2 rounded-xl bg-[#0e1c16]/80 hover:bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 font-code text-xs transition-colors cursor-pointer flex items-center gap-1.5">
-                      <span class="material-symbols-outlined text-[14px] text-emerald-400"
-                        data-icon="magic_button">magic_button</span>
-                      <span>Try Live Simulator</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Bottom Enterprise Dashboard Terminal Card (Matching Screenshot) -->
-                <div
-                  class="relative z-10 rounded-2xl bg-[#0a1411]/90 border border-emerald-500/30 p-3 shadow-xl backdrop-blur-md pointer-events-auto cursor-pointer"
-                  onclick="cycleChurnModel()" title="Click to cycle ML models">
-                  <!-- Mac Terminal Header -->
-                  <div
-                    class="flex items-center justify-between pb-2 border-b border-emerald-500/20 text-[10px] font-code text-slate-400">
+            <!-- Slot 0: BloodLink AI (0deg / Top) -->
+            <div class="orbit-slot orbit-slot-0">
+              <div class="orbit-card-inner">
+                <div class="project-square-card project-grid-bloodlink p-4 sm:p-5" data-categories="ai fullstack mobile" data-index="0" onmousemove="updateCardSpotlight(event, this)">
+                  <!-- Top Bar -->
+                  <div class="flex items-center justify-between gap-2 relative z-10">
                     <div class="flex items-center gap-1.5">
-                      <span class="w-2 h-2 rounded-full bg-emerald-500/60"></span>
-                      <span class="w-2 h-2 rounded-full bg-teal-500/60"></span>
-                      <span class="w-2 h-2 rounded-full bg-cyan-500/60"></span>
-                      <span class="ml-1.5 text-slate-300 font-medium">ChurnGuard Enterprise Dashboard — Active Machine
-                        Learning Engine</span>
+                      <span class="w-6 h-6 rounded-lg bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-400 text-xs">
+                        <span class="w-2 h-2 rounded-full bg-red-400 animate-ping"></span>
+                      </span>
+                      <span class="font-code text-[11px] text-red-400 font-semibold tracking-wider uppercase">Emergency AI</span>
                     </div>
-                    <span class="text-emerald-400/80 font-mono text-[9px]">click to switch model</span>
+                    <span class="font-code text-[11px] text-outline font-bold">01 / 04</span>
                   </div>
 
-                  <!-- 4 Metrics Row matching Screenshot -->
-                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-left font-code">
-                    <div>
-                      <span class="text-[9px] text-slate-400 uppercase tracking-wider block">Active Model</span>
-                      <p id="churn-active-model"
-                        class="text-xs sm:text-[13px] font-bold text-emerald-400 mt-0.5 truncate transition-all duration-200">
-                        Random Forest (v2.0)</p>
+                  <!-- Center Content -->
+                  <div class="space-y-1 relative z-10 my-auto">
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">BloodLink AI</h3>
+                    <p class="font-body-sm text-[12px] sm:text-[13px] text-[#EAECE8] line-clamp-2 leading-snug">
+                      Autonomous emergency blood donor network connecting hospitals with geolocation radar matching.
+                    </p>
+
+                    <!-- ECG Vital Pulse Line -->
+                    <div class="py-1 flex items-center gap-2">
+                      <svg class="w-24 h-4 opacity-80" viewBox="0 0 120 20">
+                        <path d="M0,10 L35,10 L42,3 L48,17 L54,7 L60,10 L120,10" fill="none" stroke="#ff3b5c" stroke-width="1.8" stroke-linecap="round"/>
+                      </svg>
+                      <span class="font-code text-[10px] text-red-300">Radar: Active</span>
                     </div>
-                    <div>
-                      <span class="text-[9px] text-slate-400 uppercase tracking-wider block">Evaluation ROC-AUC</span>
-                      <p id="churn-roc-auc"
-                        class="text-xs sm:text-[13px] font-bold text-cyan-300 mt-0.5 transition-all duration-200">0.843
-                      </p>
+                  </div>
+
+                  <!-- Bottom Actions & Tags -->
+                  <div class="relative z-10 pt-2 border-t border-white/10 space-y-2">
+                    <div class="flex flex-wrap gap-1">
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-red-300">Flutter</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-red-300">Gemini</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-red-300">Firebase</span>
                     </div>
-                    <div>
-                      <span class="text-[9px] text-slate-400 uppercase tracking-wider block">Test Split Accuracy</span>
-                      <p id="churn-test-acc"
-                        class="text-xs sm:text-[13px] font-bold text-white mt-0.5 transition-all duration-200">76.4%</p>
-                    </div>
-                    <div>
-                      <span class="text-[9px] text-slate-400 uppercase tracking-wider block">Drift Status</span>
-                      <p id="churn-drift-status"
-                        class="text-xs sm:text-[13px] font-bold text-emerald-400 mt-0.5 flex items-center gap-1 transition-all duration-200">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>Healthy (No Drift)</span>
-                      </p>
+                    <div class="flex items-center gap-2">
+                      <button onclick="openProjectModal('bloodlink')" class="flex-1 py-1.5 px-3 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 border border-red-500/40 font-body-sm text-xs font-semibold transition-all cursor-pointer">
+                        View Project
+                      </button>
+                      <a href="https://github.com/omgaikwad-dev/BloodLink" target="_blank" rel="noreferrer" class="p-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-red-400 text-on-surface hover:text-red-400 transition-colors" title="Source">
+                        <span class="material-symbols-outlined text-base" data-icon="terminal">terminal</span>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- Slot 1: FarmConnect (90deg / Right) -->
+            <div class="orbit-slot orbit-slot-1">
+              <div class="orbit-card-inner">
+                <div class="project-square-card project-grid-farmconnect p-4 sm:p-5" data-categories="fullstack" data-index="1" onmousemove="updateCardSpotlight(event, this)">
+                  <!-- Top Bar -->
+                  <div class="flex items-center justify-between gap-2 relative z-10">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-6 h-6 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-xs">🌱</span>
+                      <span class="font-code text-[11px] text-emerald-400 font-semibold tracking-wider uppercase">Agri Marketplace</span>
+                    </div>
+                    <span class="font-code text-[11px] text-outline font-bold">02 / 04</span>
+                  </div>
+
+                  <!-- Center Content -->
+                  <div class="space-y-1 relative z-10 my-auto">
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">FarmConnect</h3>
+                    <p class="font-body-sm text-[12px] sm:text-[13px] text-[#EAECE8] line-clamp-2 leading-snug">
+                      Peer-to-peer agricultural marketplace empowering farmers with direct sales and live APMC mandi pricing.
+                    </p>
+
+                    <!-- Mandi Price Chip -->
+                    <div class="py-1">
+                      <span id="farm-price-val" onclick="cycleFarmPrice()" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 font-code text-[10px] text-emerald-300 cursor-pointer hover:bg-emerald-500/25 transition-colors">
+                        <span>Tomato — ₹58/kg</span> <span class="text-emerald-400 font-bold">↑</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Actions & Tags -->
+                  <div class="relative z-10 pt-2 border-t border-white/10 space-y-2">
+                    <div class="flex flex-wrap gap-1">
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-emerald-300">React.js</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-emerald-300">Node.js</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-emerald-300">MongoDB</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button onclick="window.open('https://farmer-vert.vercel.app/', '_blank', 'noopener,noreferrer')" class="flex-1 py-1.5 px-3 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 border border-emerald-500/40 font-body-sm text-xs font-semibold transition-all cursor-pointer">
+                        View Project
+                      </button>
+                      <a href="https://github.com/omgaikwad-dev/Farmer" target="_blank" rel="noreferrer" class="p-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-emerald-400 text-on-surface hover:text-emerald-400 transition-colors" title="Source">
+                        <span class="material-symbols-outlined text-base" data-icon="terminal">terminal</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 2: InterviewAI (180deg / Bottom) -->
+            <div class="orbit-slot orbit-slot-2">
+              <div class="orbit-card-inner">
+                <div class="project-square-card project-grid-interviewai p-4 sm:p-5" data-categories="ai fullstack" data-index="2" onmousemove="updateCardSpotlight(event, this)">
+                  <!-- Top Bar -->
+                  <div class="flex items-center justify-between gap-2 relative z-10">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-6 h-6 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-xs">⚡</span>
+                      <span class="font-code text-[11px] text-cyan-400 font-semibold tracking-wider uppercase">AI Mock Coach</span>
+                    </div>
+                    <span class="font-code text-[11px] text-outline font-bold">03 / 04</span>
+                  </div>
+
+                  <!-- Center Content -->
+                  <div class="space-y-1 relative z-10 my-auto">
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">InterviewAI</h3>
+                    <p class="font-body-sm text-[12px] sm:text-[13px] text-[#EAECE8] line-clamp-2 leading-snug">
+                      Next-gen mock interview coach with dynamic company track challenges powered by Google Gemini 1.5.
+                    </p>
+
+                    <!-- Cyber Track Chip -->
+                    <div class="py-1">
+                      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 font-code text-[10px] text-cyan-300">
+                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span>Google L4 Simulation</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Actions & Tags -->
+                  <div class="relative z-10 pt-2 border-t border-white/10 space-y-2">
+                    <div class="flex flex-wrap gap-1">
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-cyan-300">Next.js</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-cyan-300">Gemini API</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-cyan-300">Tailwind</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button onclick="window.open('https://ai-agent-seven-gray.vercel.app/', '_blank', 'noopener,noreferrer')" class="flex-1 py-1.5 px-3 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-500/40 font-body-sm text-xs font-semibold transition-all cursor-pointer">
+                        View Project
+                      </button>
+                      <a href="https://github.com/omgaikwad-dev/AI_Agent" target="_blank" rel="noreferrer" class="p-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-cyan-400 text-on-surface hover:text-cyan-400 transition-colors" title="Source">
+                        <span class="material-symbols-outlined text-base" data-icon="terminal">terminal</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 3: ChurnGuard AI (270deg / Left) -->
+            <div class="orbit-slot orbit-slot-3">
+              <div class="orbit-card-inner">
+                <div class="project-square-card project-grid-churnguard p-4 sm:p-5" data-categories="ai fullstack" data-index="3" onmousemove="updateCardSpotlight(event, this)">
+                  <!-- Top Bar -->
+                  <div class="flex items-center justify-between gap-2 relative z-10">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-6 h-6 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-xs">🛡️</span>
+                      <span class="font-code text-[11px] text-emerald-400 font-semibold tracking-wider uppercase">Enterprise ML</span>
+                    </div>
+                    <span class="font-code text-[11px] text-outline font-bold">04 / 04</span>
+                  </div>
+
+                  <!-- Center Content -->
+                  <div class="space-y-1 relative z-10 my-auto">
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">ChurnGuard AI</h3>
+                    <p class="font-body-sm text-[12px] sm:text-[13px] text-[#EAECE8] line-clamp-2 leading-snug">
+                      Production churn prediction platform equipping growth teams with transparent classifiers & feature drift alerts.
+                    </p>
+
+                    <!-- ML Model Chip -->
+                    <div class="py-1">
+                      <span id="churn-active-model" onclick="cycleChurnModel()" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 font-code text-[10px] text-emerald-300 cursor-pointer hover:bg-emerald-500/25 transition-colors">
+                        <span>Random Forest • 0.843 ROC</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Actions & Tags -->
+                  <div class="relative z-10 pt-2 border-t border-white/10 space-y-2">
+                    <div class="flex flex-wrap gap-1">
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-emerald-300">FastAPI</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-emerald-300">scikit-learn</span>
+                      <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 font-code text-[10px] text-emerald-300">React</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button onclick="openProjectModal('churnguard')" class="flex-1 py-1.5 px-3 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 border border-emerald-500/40 font-body-sm text-xs font-semibold transition-all cursor-pointer">
+                        View Project
+                      </button>
+                      <a href="https://github.com/omgaikwad-dev/Churn-Analysis" target="_blank" rel="noreferrer" class="p-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-emerald-400 text-on-surface hover:text-emerald-400 transition-colors" title="Source">
+                        <span class="material-symbols-outlined text-base" data-icon="terminal">terminal</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Central Interactive Orbital Core Hub -->
+          <div class="absolute z-20 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-surface-container-lowest/90 border border-primary/40 backdrop-blur-xl shadow-2xl flex flex-col items-center justify-center text-center p-3 sm:p-4 select-none">
+            <div class="absolute inset-0 rounded-full border border-primary/20 animate-ping opacity-20 pointer-events-none"></div>
+            <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl" data-icon="rotate_left">rotate_left</span>
+            <h4 class="font-display text-base sm:text-lg font-bold text-on-surface mt-0.5">Circular Orbit</h4>
+            <p class="font-code text-[10px] sm:text-[11px] text-primary font-semibold uppercase tracking-wider">Anticlockwise</p>
+            <span class="font-body-sm text-[11px] text-outline mt-0.5 hidden sm:inline">Hover card to pause</span>
+
+            <!-- Manual Controls -->
+            <div class="flex items-center gap-2 mt-2 pt-2 border-t border-outline-variant/50">
+              <button onclick="stepOrbit(90)" class="p-1.5 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer" title="Rotate Counter-Clockwise">
+                <span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+              </button>
+              <button id="orbit-toggle-btn" onclick="toggleOrbitPlay()" class="px-2.5 py-1 rounded-full bg-primary/20 border border-primary/50 text-primary text-[10px] font-code font-bold hover:bg-primary/30 transition-all cursor-pointer" title="Pause / Play">
+                PAUSE
+              </button>
+              <button onclick="stepOrbit(-90)" class="p-1.5 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer" title="Rotate Clockwise">
+                <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+              </button>
             </div>
           </div>
         </div>
@@ -4345,6 +3944,67 @@
         requestAnimationFrame(animateParticles);
       }
       requestAnimationFrame(animateParticles);
+    }
+
+        // --- CIRCULAR ORBIT PROJECT CONTROLLER ---
+    let orbitAngleOffset = 0;
+    let isOrbitPaused = false;
+
+    function toggleOrbitPlay() {
+      const stage = document.getElementById('orbit-stage');
+      const btn = document.getElementById('orbit-toggle-btn');
+      if (!stage || !btn) return;
+
+      isOrbitPaused = !isOrbitPaused;
+      if (isOrbitPaused) {
+        stage.classList.add('orbit-paused');
+        btn.textContent = 'PLAY';
+        btn.classList.replace('bg-primary/20', 'bg-emerald-500/20');
+        btn.classList.replace('text-primary', 'text-emerald-400');
+        btn.classList.replace('border-primary/50', 'border-emerald-500/50');
+        showToast('Orbit paused. You can inspect any project block!');
+      } else {
+        stage.classList.remove('orbit-paused');
+        btn.textContent = 'PAUSE';
+        btn.classList.replace('bg-emerald-500/20', 'bg-primary/20');
+        btn.classList.replace('text-emerald-400', 'text-primary');
+        btn.classList.replace('border-emerald-500/50', 'border-primary/50');
+        showToast('Orbit resumed continuous anticlockwise rotation.');
+      }
+    }
+
+    function stepOrbit(delta) {
+      const wheel = document.getElementById('orbit-wheel');
+      if (!wheel) return;
+      orbitAngleOffset += delta;
+      wheel.style.transform = `rotate(${orbitAngleOffset}deg)`;
+      showToast(delta > 0 ? 'Rotated anticlockwise' : 'Rotated clockwise');
+    }
+
+    function filterOrbitProjects(category, clickedBtn) {
+      const filterBtns = document.querySelectorAll('.project-filter-btn');
+      filterBtns.forEach(btn => {
+        btn.classList.remove('active', 'bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      if (clickedBtn) {
+        clickedBtn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        clickedBtn.classList.add('active', 'bg-primary', 'text-on-primary');
+      }
+
+      const cards = document.querySelectorAll('.project-square-card');
+      cards.forEach(card => {
+        const cats = (card.getAttribute('data-categories') || '').split(' ');
+        if (category === 'all' || cats.includes(category)) {
+          card.style.opacity = '1';
+          card.style.filter = 'none';
+          card.style.transform = '';
+        } else {
+          card.style.opacity = '0.22';
+          card.style.filter = 'grayscale(80%)';
+          card.style.transform = 'scale(0.92)';
+        }
+      });
     }
 
     // --- ZERO-LAG HARDWARE-ACCELERATED CARD SPOTLIGHT & TELEMETRY ---
